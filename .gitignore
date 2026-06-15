@@ -1,0 +1,19 @@
+/node_modules
+/.next/
+/out/
+/build
+.DS_Store
+*.pem
+.env*.local
+.vercel
+npm-debug.log*
+next-env.d.ts
+
+# Original hero downloads (optimized WebP versions are committed)
+/public/images/hero/source/
+/public/images/about/source/
+/public/images/featured/source/
+/public/images/badges/*.eps
+/public/images/badges/*.tif
+/public/images/badges/knot-badge-embedded.tif
+/public/images/testimonials/source/

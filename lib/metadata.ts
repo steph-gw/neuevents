@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 
 export const OG_IMAGE = {
-  url: "/images/og/neu-events-og.jpg",
-  width: 1200,
-  height: 630,
-  alt: "neu events — Thoughtfully planned. Beautifully yours.",
+  url: "/images/og/neuevents-og.jpg",
+  width: 1024,
+  height: 682,
+  alt: "neu events — naturally elegant & unforgettable",
 } as const;
 
 type PageMetadataInput = {

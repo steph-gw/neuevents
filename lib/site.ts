@@ -1,16 +1,16 @@
 export const SITE_NAME = "neu events";
 
 export const SITE_BROWSER_TITLE =
-  "North & South Carolina Wedding Planner | neu events";
+  "Hawaii Wedding & Event Planner | neu events";
 
 export const SITE_DESCRIPTION =
-  "Bespoke luxury wedding planning and design across Asheville, Charlotte, and the Carolinas. Full planning, partial planning, event management, and travel.";
+  "Award-winning wedding and event planning in Hawaii — weddings, corporate events, celebrations of life, and destination travel. Naturally elegant, beautifully planned since 2000.";
 
 export const SITE_OG_TITLE =
-  "Your Love Story, Beautifully Told | neu events";
+  "Life's Most Meaningful Moments, Beautifully Planned | neu events";
 
 export const SITE_OG_DESCRIPTION =
-  "Bespoke luxury wedding planning and design across North & South Carolina and beyond — full planning, partial planning, event management, and travel.";
+  "Weddings, events, celebrations of life, and travel — thoughtfully planned across Hawaii and beyond by the neu events team.";
 
 export function getSiteUrl() {
   if (process.env.NEXT_PUBLIC_SITE_URL) {

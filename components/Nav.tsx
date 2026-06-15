@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -42,7 +43,7 @@ export default function Nav() {
 
   useEffect(() => {
     setMounted(true);
-    const onScroll = () => setScrolled(window.scrollY > 60);
+    const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -60,7 +61,12 @@ export default function Nav() {
   }, [menuOpen]);
 
   const showScrolled = !isHome || (mounted && scrolled);
-  const navClass = [showScrolled ? "scrolled" : "", menuOpen ? "nav--open" : ""]
+  const showTop = isHome && mounted && !scrolled;
+  const navClass = [
+    showScrolled ? "scrolled" : "",
+    showTop ? "nav--top" : "",
+    menuOpen ? "nav--open" : "",
+  ]
     .filter(Boolean)
     .join(" ");
 
@@ -84,8 +90,15 @@ export default function Nav() {
 
   return (
     <nav id="nav" className={navClass}>
-      <Link href="/" className="nav-logo">
-        neu<span> events</span>
+      <Link href="/" className="nav-logo" aria-label="neu events home">
+        <Image
+          src="/images/logo.png"
+          alt="neu events — naturally elegant & unforgettable"
+          width={508}
+          height={107}
+          priority
+          sizes="(max-width: 768px) 160px, 200px"
+        />
       </Link>
 
       <div className="nav-end">

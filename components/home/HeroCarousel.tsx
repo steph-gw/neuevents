@@ -39,6 +39,7 @@ export default function HeroCarousel() {
               src={slide.src}
               alt={slide.alt}
               fill
+              unoptimized
               priority={i <= 1}
               sizes="100vw"
               className={

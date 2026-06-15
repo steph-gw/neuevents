@@ -1,9 +1,7 @@
 "use client";
 
+import AnniversaryBadge from "@/components/AnniversaryBadge";
 import HeroCarousel from "@/components/home/HeroCarousel";
-
-const KNOT_BADGE_SRC =
-  "https://media-api.xogrp.com/images/a8d5af98-7fba-4287-a568-695c3d6436e1~sc_500.500";
 
 export default function Hero() {
   const scrollToNextSection = () => {
@@ -19,7 +17,6 @@ export default function Hero() {
       <div className="hero-media">
         <HeroCarousel />
       </div>
-      <div className="hero-overlay" aria-hidden />
       <div className="hero-content">
         <p className="hero-eyebrow">
           Bespoke Luxury Wedding Planning in North & South Carolina and beyond
@@ -44,14 +41,7 @@ export default function Hero() {
       </div>
 
       <div className="hero-badge">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={KNOT_BADGE_SRC}
-          alt="The Knot Best of Weddings 2026"
-          width={120}
-          height={120}
-          className="hero-badge-img"
-        />
+        <AnniversaryBadge className="hero-badge-svg" />
       </div>
 
       <button

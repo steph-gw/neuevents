@@ -43,11 +43,13 @@ npx vercel
 
 ## Hero images
 
-Self-hosted WebP files live in `public/images/hero/`. To re-download and optimize from source URLs, place originals in `public/images/hero/source/` and run:
+Original uploads live in `public/images/hero/`. To replace them, drop files into `public/images/hero/source/` and run:
 
 ```bash
 npm run optimize:hero
 ```
+
+Files under 1 MB are copied as-is. Only larger files are resized and compressed to WebP.
 
 ## Project structure
 

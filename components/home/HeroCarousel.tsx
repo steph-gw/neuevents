@@ -38,10 +38,11 @@ export default function HeroCarousel() {
             <Image
               src={slide.src}
               alt={slide.alt}
-              fill
+              width={slide.width}
+              height={slide.height}
               unoptimized
               priority={i <= 1}
-              sizes="100vw"
+              sizes="(max-width: 1024px) 100vw, 50vw"
               className={
                 isCurrent && !reduceMotion ? "hero-slide-img" : undefined
               }

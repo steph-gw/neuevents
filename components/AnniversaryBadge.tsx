@@ -104,8 +104,8 @@ export default function AnniversaryBadge({ className }: AnniversaryBadgeProps) {
 
       <path
         d={geometry.scallopPath}
-        fill="#FF5722"
-        stroke="#F500D8"
+        fill="#c9a96e"
+        stroke="#b89555"
         strokeWidth={7}
       />
 
@@ -113,8 +113,8 @@ export default function AnniversaryBadge({ className }: AnniversaryBadgeProps) {
         cx={500}
         cy={500}
         r={332}
-        fill="#F7E96B"
-        stroke="#F500D8"
+        fill="#E8D9C0"
+        stroke="#b89555"
         strokeWidth={7}
       />
 
@@ -122,13 +122,13 @@ export default function AnniversaryBadge({ className }: AnniversaryBadgeProps) {
         cx={geometry.dotLeft.cx}
         cy={geometry.dotLeft.cy}
         r={17}
-        fill="#F7E96B"
+        fill="#E8D9C0"
       />
       <circle
         cx={geometry.dotRight.cx}
         cy={geometry.dotRight.cy}
         r={17}
-        fill="#F7E96B"
+        fill="#E8D9C0"
       />
 
       <text
@@ -137,7 +137,7 @@ export default function AnniversaryBadge({ className }: AnniversaryBadgeProps) {
         textAnchor="middle"
         dominantBaseline="central"
         fontSize={380}
-        fill="#F500D8"
+        fill="#111110"
         style={{ fontFamily: playfair.style.fontFamily }}
       >
         {yearStr.length > 1 ? (
@@ -152,7 +152,7 @@ export default function AnniversaryBadge({ className }: AnniversaryBadgeProps) {
 
       <text
         fontSize={CURVE_TEXT_SIZE}
-        fill="#F7E96B"
+        fill="#111110"
         letterSpacing={3}
         style={{ fontFamily: poppins.style.fontFamily }}
       >
@@ -163,7 +163,7 @@ export default function AnniversaryBadge({ className }: AnniversaryBadgeProps) {
 
       <text
         fontSize={CURVE_TEXT_SIZE}
-        fill="#F7E96B"
+        fill="#111110"
         letterSpacing={3}
         style={{ fontFamily: poppins.style.fontFamily }}
       >

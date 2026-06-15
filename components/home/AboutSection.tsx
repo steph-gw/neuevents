@@ -1,71 +1,52 @@
 import Image from "next/image";
-import Link from "next/link";
+import PlaceholderButton from "@/components/PlaceholderButton";
+import { HOME_ABOUT_TEAM } from "@/lib/about-data";
 
 export default function AboutSection() {
+  const [lead, ...body] = HOME_ABOUT_TEAM.paragraphs;
+
   return (
     <section className="about" id="intro">
-
       <div className="about-inner">
-
-        {/* Left — photo */}
-        <div className="about-media">
-          <Image
-            src="/images/about/couple.webp"
-            alt="Matthew and Candace Kelly, owners of neu events"
-            fill
-            className="about-media-image"
-            sizes="(max-width: 900px) 100vw, (max-width: 1200px) 46vw, 560px"
-            quality={90}
-          />
-          <div className="about-media-label">
-            <span>Matthew &amp; Candace Kelly</span>
-          </div>
+        <div className="about-header">
+          <p className="eyebrow">About Us</p>
+          <h2 className="section-title">
+            Meet the <em>Team</em>
+          </h2>
         </div>
 
-        {/* Right — text */}
-        <div className="about-content">
-          <p className="about-tag">About Us</p>
-
-          <p className="about-lead">
-            At neu events, we strive to make your wedding
-            day as incredible as your love story — whether you&apos;re dreaming of
-            an intimate ceremony or an extravagant celebration.
-          </p>
-
-          <div className="about-rule" />
-
-          <p className="about-tag">Meet the Owners</p>
-
-          <p className="about-body">
-            Matthew and Candace turned their shared passion for weddings into
-            neu events — bringing creativity, design expertise, and heartfelt
-            service to every celebration they touch.
-          </p>
-
-          <div className="about-credentials">
-            <div className="about-credential">
-              <span className="about-credential-name">Candace Kelly</span>
-              <span className="about-credential-detail">
-                Elite Certified Wedding Planner · NYIAD · Chancey Charm Planner ·
-                Certified Jamie Wolfer Planner · Interior Design Degree · 16+ years
-              </span>
+        <div className="about-main">
+          <div className="about-top-row">
+            <div className="about-media">
+              <Image
+                src={HOME_ABOUT_TEAM.image}
+                alt={HOME_ABOUT_TEAM.imageAlt}
+                fill
+                className="about-media-image"
+                sizes="(max-width: 900px) 100vw, (max-width: 1200px) 46vw, 560px"
+                quality={90}
+              />
+              <div className="about-media-label">
+                <span>{HOME_ABOUT_TEAM.imageLabel}</span>
+              </div>
             </div>
-            <div className="about-credential">
-              <span className="about-credential-name">Matthew Kelly</span>
-              <span className="about-credential-detail">
-                Wedding MBA Certified Elite Planner · Leadership &amp; Management ·
-                Audio/Visual Production
-              </span>
-            </div>
+
+            <p className="about-lead">{lead}</p>
           </div>
 
-          <Link href="/about" className="btn service-card-btn about-cta">
-            Learn More
-          </Link>
-        </div>
+          <div className="about-body-group">
+            {body.map((paragraph) => (
+              <p key={paragraph} className="about-body">
+                {paragraph}
+              </p>
+            ))}
 
+            <PlaceholderButton className="btn service-card-btn about-cta">
+              Learn More
+            </PlaceholderButton>
+          </div>
+        </div>
       </div>
-
     </section>
   );
 }

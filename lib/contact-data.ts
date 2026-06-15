@@ -7,15 +7,15 @@ export const CONTACT_PHONE_HREF = "tel:+18284004003";
 
 export const CONTACT_SOCIAL_LINKS = [
   {
-    label: "Facebook",
-    href: "https://www.facebook.com/profile.php?id=100093478033374",
-  },
-  {
     label: "Instagram",
-    href: "https://www.instagram.com/candace_kelly21/?hl=en",
+    href: "https://www.instagram.com/neuevents/",
   },
   {
-    label: "Yelp",
-    href: "https://www.yelp.com/biz/overjoyed-weddings-and-events-asheville",
+    label: "Pinterest",
+    href: "https://www.pinterest.com/neuevents/",
+  },
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/neueventshawaii/",
   },
 ] as const;

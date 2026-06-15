@@ -6,8 +6,8 @@ export const SERVICE_LINKS = {
 } as const;
 
 export const HOME_SERVICE_LEARN_MORE = [
-  SERVICE_LINKS.fullPlanning,
-  SERVICE_LINKS.fullPlanning,
-  SERVICE_LINKS.partialPlanning,
-  SERVICE_LINKS.eventManagement,
+  "/services",
+  "/services",
+  "/contact",
+  "/travel",
 ] as const;

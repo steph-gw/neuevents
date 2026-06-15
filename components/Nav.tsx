@@ -5,14 +5,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
-import { useInquiryModal } from "@/components/InquiryModal";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
+  { label: "Services", href: "/services" },
+  { label: "Gallery", href: "/gallery" },
   { label: "About", href: "/about" },
-  { label: "Services & Portfolio", href: "/services" },
-  { label: "Travel", href: "/travel" },
-  { label: "Contact", href: "/contact" },
+  { label: "Perks", href: "/perks" },
+  { label: "Ideas", href: "/ideas" },
 ] as const;
 
 function preventNav(e: React.MouseEvent) {
@@ -22,16 +22,8 @@ function preventNav(e: React.MouseEvent) {
 export default function Nav() {
   const pathname = usePathname();
   const isHome = pathname === "/";
-  const { openInquiry } = useInquiryModal();
   const [mounted, setMounted] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-
-  const openInquiryFromNav = (e: React.MouseEvent) => {
-    e.preventDefault();
-    setMenuOpen(false);
-    openInquiry();
-  };
 
   const goHome = (e: React.MouseEvent<HTMLAnchorElement>) => {
     setMenuOpen(false);
@@ -43,10 +35,6 @@ export default function Nav() {
 
   useEffect(() => {
     setMounted(true);
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
@@ -60,19 +48,21 @@ export default function Nav() {
     };
   }, [menuOpen]);
 
-  const showScrolled = !isHome || (mounted && scrolled);
-  const showTop = isHome && mounted && !scrolled;
-  const navClass = [
-    showScrolled ? "scrolled" : "",
-    showTop ? "nav--top" : "",
-    menuOpen ? "nav--open" : "",
-  ]
+  const navClass = ["scrolled", menuOpen ? "nav--open" : ""]
     .filter(Boolean)
     .join(" ");
 
   const closeMenu = () => setMenuOpen(false);
 
   const navAnchor = (label: string, href?: string) => {
+    if (isHome) {
+      return (
+        <a href="#" onClick={preventNav}>
+          {label}
+        </a>
+      );
+    }
+
     if (href) {
       const onClick = label === "Home" ? goHome : closeMenu;
       return (
@@ -81,6 +71,7 @@ export default function Nav() {
         </Link>
       );
     }
+
     return (
       <a href="#" onClick={preventNav}>
         {label}
@@ -88,18 +79,41 @@ export default function Nav() {
     );
   };
 
+  const logo = isHome ? (
+    <a
+      href="#"
+      className="nav-logo"
+      aria-label="neu events home"
+      onClick={(e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }}
+    >
+      <Image
+        src="/images/logo.png"
+        alt="neu events — naturally elegant & unforgettable"
+        width={508}
+        height={107}
+        priority
+        sizes="(max-width: 768px) 160px, 200px"
+      />
+    </a>
+  ) : (
+    <Link href="/" className="nav-logo" aria-label="neu events home">
+      <Image
+        src="/images/logo.png"
+        alt="neu events — naturally elegant & unforgettable"
+        width={508}
+        height={107}
+        priority
+        sizes="(max-width: 768px) 160px, 200px"
+      />
+    </Link>
+  );
+
   return (
     <nav id="nav" className={navClass}>
-      <Link href="/" className="nav-logo" aria-label="neu events home">
-        <Image
-          src="/images/logo.png"
-          alt="neu events — naturally elegant & unforgettable"
-          width={508}
-          height={107}
-          priority
-          sizes="(max-width: 768px) 160px, 200px"
-        />
-      </Link>
+      {logo}
 
       <div className="nav-end">
         <ul className="nav-links nav-links--left">
@@ -117,9 +131,15 @@ export default function Nav() {
             </li>
           ))}
           <li>
-            <a href="#" className="nav-cta" onClick={openInquiryFromNav}>
-              Inquire
-            </a>
+            {isHome ? (
+              <a href="#" className="nav-cta" onClick={preventNav}>
+                Inquire
+              </a>
+            ) : (
+              <Link href="/contact" className="nav-cta" onClick={closeMenu}>
+                Inquire
+              </Link>
+            )}
           </li>
         </ul>
 
@@ -149,13 +169,23 @@ export default function Nav() {
                 </li>
               ))}
               <li>
-                <a
-                  href="#"
-                  className="nav-cta nav-cta--mobile"
-                  onClick={openInquiryFromNav}
-                >
-                  Inquire
-                </a>
+                {isHome ? (
+                  <a
+                    href="#"
+                    className="nav-cta nav-cta--mobile"
+                    onClick={preventNav}
+                  >
+                    Inquire
+                  </a>
+                ) : (
+                  <Link
+                    href="/contact"
+                    className="nav-cta nav-cta--mobile"
+                    onClick={closeMenu}
+                  >
+                    Inquire
+                  </Link>
+                )}
               </li>
             </ul>
           </div>,

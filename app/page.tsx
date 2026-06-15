@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
 import Hero from "@/components/home/Hero";
-import Marquee from "@/components/home/Marquee";
 import AboutSection from "@/components/home/AboutSection";
 import Featured from "@/components/home/Featured";
 import Services from "@/components/home/Services";
 import Awards from "@/components/home/Awards";
-import Faq from "@/components/home/Faq";
 import CtaBanner from "@/components/home/CtaBanner";
-import Testimonials from "@/components/Testimonials";
+import HomeTestimonials from "@/components/home/HomeTestimonials";
 import { buildPageMetadata } from "@/lib/metadata";
 import {
   SITE_BROWSER_TITLE,
@@ -28,16 +26,17 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <Marquee />
+
+      <Services />
+
+      <Featured />
+
+      <HomeTestimonials />
 
       <AboutSection />
 
-      <Featured />
-      <Services />
-      <Testimonials />
       <Awards />
-      <Faq />
-      <CtaBanner />
+      <CtaBanner placeholderActions />
     </>
   );
 }

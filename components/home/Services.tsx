@@ -1,7 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
+import PlaceholderButton from "@/components/PlaceholderButton";
 import { HOME_SERVICES } from "@/lib/data";
-import { HOME_SERVICE_LEARN_MORE } from "@/lib/service-links";
 
 export default function Services() {
   return (
@@ -28,7 +27,6 @@ export default function Services() {
             </div>
 
             <div className="service-card-body">
-              <p className="service-card-eyebrow">{s.eyebrow}</p>
               <h3 className="service-card-name">
                 {s.titleLines.map((line, i) => (
                   <span key={line} className="service-card-name-line">
@@ -37,12 +35,10 @@ export default function Services() {
                   </span>
                 ))}
               </h3>
-              <p className="service-card-price">{s.price}</p>
-              <div className="service-card-rule" aria-hidden />
               <p className="service-card-desc">{s.description}</p>
-              <Link href={HOME_SERVICE_LEARN_MORE[index]} className="btn service-card-btn">
+              <PlaceholderButton className="btn service-card-btn">
                 Learn More
-              </Link>
+              </PlaceholderButton>
             </div>
           </article>
         ))}

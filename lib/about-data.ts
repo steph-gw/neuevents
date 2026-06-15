@@ -1,3 +1,15 @@
+export const HOME_ABOUT_TEAM = {
+  image: "/images/about/team-group.jpg",
+  imageAlt: "Aileen, Mona, Heidi, and Denichel of the neu events team",
+  imageLabel: "Aileen, Mona, Heidi & Denichel",
+  paragraphs: [
+    "In 2000, company founder, Mona L. Hirata-Sung, started with real life experience handling weddings and events at a boutique hotel in beautiful Waikiki, Hawaii. With a passion for service, we at neu events have built upon that foundation and have crafted our approach to event planning based on our guiding set of values – working hard for our clients, bearing their best interests in mind, and standing by ethical principles.",
+    "Essentially, we look at each wedding and event and think to ourselves, \"if this were our best friend's special occasion or event, and possessing the industry knowledge and skills that we have honed, how can we help, giving as much as we possibly can, so that they can have the very best event imaginable?\"",
+    "For us, \"it's personal.\" Your success is our success, and nothing could make us happier than to see you achieve your goals.",
+    "Hundreds of weddings and events later and after teaching wedding planning to aspiring planners, neu events continues to service clients based on the same founding principles and values. We hope to have the opportunity to provide you with our very best, too.",
+  ],
+} as const;
+
 export const ABOUT_COMPANY = {
   eyebrow: "neu events",
   paragraphs: [

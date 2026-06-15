@@ -2,14 +2,23 @@
 
 import Image from "next/image";
 import InquiryButton from "@/components/InquiryButton";
+import PlaceholderButton from "@/components/PlaceholderButton";
 
-export default function CtaBanner() {
+type Props = {
+  showInquiry?: boolean;
+  placeholderActions?: boolean;
+};
+
+export default function CtaBanner({
+  showInquiry = true,
+  placeholderActions = false,
+}: Props) {
   return (
     <section className="cta-banner">
       <div className="cta-banner-media reveal-image">
         <Image
-          src="https://static.showit.com/file/q6d0OahI6jrlHPp7GUnElw/314908/mt-134-2.jpg"
-          alt="Bride and groom walking in a mountain meadow"
+          src="/images/cta/coastal-kiss-bw.webp"
+          alt="Bride and groom kissing on a coastal walkway at sunset in Hawaii"
           fill
           sizes="100vw"
         />
@@ -23,10 +32,19 @@ export default function CtaBanner() {
           <em>Planning Together?</em>
         </h2>
         <p className="cta-banner-sub">
-          We take on a select number of weddings each year to ensure every
-          couple receives our complete attention and care.
+          From weddings and events to celebrations of life and destination
+          travel, we take on a select number of projects each year to ensure
+          every client receives our complete attention and care.
         </p>
-        <InquiryButton />
+        {showInquiry ? (
+          placeholderActions ? (
+            <PlaceholderButton className="btn btn-gold">
+              Send an Inquiry
+            </PlaceholderButton>
+          ) : (
+            <InquiryButton />
+          )
+        ) : null}
       </div>
     </section>
   );

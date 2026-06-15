@@ -62,6 +62,13 @@ export const HERO_SLIDES = [
     width: 1024,
     height: 681,
   },
+  {
+    src: "/images/hero/hero-10.jpg",
+    alt: "Chinese lion dance performers in red at a festive celebration reception",
+    position: "center center",
+    width: 1024,
+    height: 682,
+  },
 ] as const;
 
 export const VENUES = [
@@ -87,22 +94,33 @@ export const VENUES = [
 export const FEATURED_WEDDINGS = [
   {
     image: "/images/featured/featured-1.webp",
-    alt: "Jessica and Steven — Asheville wedding",
-    location: "Asheville, NC",
-    names: "Jessica + Steven",
+    alt: "Rachel and Jared on their wedding day",
+    names: "Rachel + Jared",
   },
   {
     image: "/images/featured/featured-2.webp",
-    alt: "Emily and James — Lake Lure wedding",
-    location: "Lake Lure, NC",
-    names: "Emily + James",
+    alt: "Kavya and Tommy kissing at their fusion wedding ceremony",
+    names: "Kavya + Tommy",
   },
   {
-    image: "/images/featured/featured-3.webp",
-    alt: "Sarah and Michael — Highlands wedding",
-    location: "Highlands, NC",
-    names: "Sarah + Michael",
-    objectPosition: "center top",
+    image: "/images/featured/holly-komo.webp",
+    alt: "Holly and Komo at a waterfall in Hawaii on their wedding day",
+    names: "Holly + Komo",
+  },
+  {
+    image: "/images/featured/pshf-foundation-2026.webp",
+    alt: "Public Schools of Hawaiʻi Foundation 2026 dinner group photo",
+    names: "Public Schools of Hawaiʻi Foundation 2026",
+  },
+  {
+    image: "/images/featured/hah-2025-gala.webp",
+    alt: "Guests seated at a banquet table during the HAH 2025 Awards and Scholarship Gala",
+    names: "HAH 2025 Awards and Scholarship Gala",
+  },
+  {
+    image: "/images/featured/hscadv-conference-2025.webp",
+    alt: "Attendees at the Annual HSCADV Conference 2025",
+    names: "Annual HSCADV Conference 2025",
   },
 ] as const;
 
@@ -126,6 +144,17 @@ export const TESTIMONIALS = [
     author: "Katie & Mark",
   },
 ] as const;
+
+export const GOVERNOR_MESSAGE = {
+  image: "/images/awards/hawaii-governor-seal.webp",
+  imageAlt: "Seal of the State of Hawaiʻi",
+  signature: "/images/awards/governor-signature.webp",
+  signatureAlt: "Signature of Governor Josh Green, M.D.",
+  presentedTo: "neu events",
+  date: "April 1, 2025",
+  message:
+    "I extend my warmest aloha to Neu Events on 25 years of business in Hawai'i. Since 2000, your entrepreneurial vision has given way to a thriving special events company, weathering economic challenges and producing lasting contributions to our island economy and impacting numerous charitable organizations. Congratulations on this incredible milestone, and my best wishes for continued success in the years to come.",
+} as const;
 
 export const AWARDS = [
   {
@@ -159,43 +188,36 @@ export const ADDITIONAL_RECOGNITION = [
 
 export const HOME_SERVICES = [
   {
-    image:
-      "https://static.showit.com/file/ykEHFO0-Lr5PnGIjrvo4eQ/314908/overjoyed_brandphotos-77.jpg",
-    imageAlt: "Wedding planner binder with floral arrangement",
-    eyebrow: "Tier One",
-    titleLines: ["Full Planning & Design"],
-    price: "Starting at $11,000",
+    image: "/images/services/wedding-services.jpg",
+    imageAlt:
+      "Outdoor wedding ceremony with white chairs and a geometric arch beneath a mossy tropical tree",
+    titleLines: ["Wedding Services"],
     description:
-      "Full Planning & Design is crafted for couples who want expert leadership and a stunning visual experience brought to life with intention. This service includes complete planning support, vendor coordination, budget oversight, timeline creation, and hands-on management throughout wedding week and wedding day.",
+      "No matter the size, every wedding deserves careful planning and attention. Let us bring you peace of mind on your big day, knowing that we're there to help with all of your details.",
   },
   {
-    image:
-      "https://static.showit.com/file/1LHY3wwuEpv_AIiAbH7hZw/314908/overjoyed_brandphotos-76.jpg",
-    imageAlt: "neu events planners collaborating at a consultation",
-    eyebrow: "Tier Two",
-    titleLines: ["Full Planning"],
-    price: "Starting at $8,000",
+    image: "/images/services/event-services.jpg",
+    imageAlt:
+      "Formal banquet hall set with round tables, floral centerpieces, and stage screens for a large event",
+    titleLines: ["Event Services"],
     description:
-      "Our Full Planning package is designed for couples who want comprehensive support throughout their wedding journey. From the initial concept to the final farewell, we are here to handle all the details so you can enjoy a stress-free planning experience.",
+      "From corporate gatherings to milestone celebrations, every event deserves thoughtful planning and seamless execution. Let us handle the details so you can focus on what matters most—being fully present with your guests.",
   },
   {
-    image:
-      "https://static.showit.com/file/4LL7fqvd8R4ypoG1Q4q17A/314908/overjoyed_brandphotos-133.jpg",
-    imageAlt: "Wedding planner reviewing seating chart on a clipboard",
-    eyebrow: "Tier Three",
-    titleLines: ["Partial Planning"],
-    price: "Starting at $5,500",
+    image: "/images/services/celebration-of-life.jpg",
+    imageAlt:
+      "White flowers and tall cream taper candles in glass cylinders for a peaceful memorial gathering",
+    titleLines: ["Celebration of Life"],
     description:
-      "Our Partial Planning package is perfect for couples who've started planning but need expert help bringing it all together. As our most popular package, it includes contract reviews, vendor booking, timeline and design guidance, plus access to our online planning portal—so you can enjoy the process with confidence.",
+      "It is always hard to say goodbye to loved ones, but what better way to honor them than with a gathering of family and friends to cherish memories with them (if they are still with us), or of them (if they have passed).",
   },
   {
-    image: "/images/hero/hero-3.jpg",
-    imageAlt: "Elegant wedding reception celebration",
-    eyebrow: "Tier Four",
-    titleLines: ["Event Management"],
-    price: "Starting at $3,500",
+    image: "/images/services/travel-services.jpg",
+    imageAlt:
+      "Aerial view of Waikiki Beach with turquoise water, palm trees, and Diamond Head in Honolulu, Hawaii",
+    titleLines: ["Travel Services"],
     description:
-      "Our Event Management service steps in once your core planning is underway. We confirm vendor details, lead the rehearsal, and guide your wedding day timeline so it unfolds smoothly and on time. This package is ideal for couples who enjoy handling their own decisions and design, and simply want trusted logistical support when the celebration begins.",
+      "From honeymoon escapes to destination weddings, we help you navigate travel with ease and intention. Explore curated resources, trusted recommendations, and personalized guidance for every step of your journey.",
   },
 ] as const;
 

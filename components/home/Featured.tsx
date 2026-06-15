@@ -41,7 +41,8 @@ export default function Featured() {
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 33vw"
                 style={
-                  "objectPosition" in wedding
+                  "objectPosition" in wedding &&
+                  typeof wedding.objectPosition === "string"
                     ? { objectPosition: wedding.objectPosition }
                     : undefined
                 }

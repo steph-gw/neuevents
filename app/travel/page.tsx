@@ -173,7 +173,7 @@ export default function TravelPage() {
       <section className="cta-banner cta-banner--travel">
         <div className="cta-banner-media">
           <Image
-            src="/images/hero/hero-3.jpg"
+            src="/images/hero/hero-10.jpg"
             alt="Wedding guests raising glasses at an elegant reception"
             fill
             sizes="100vw"

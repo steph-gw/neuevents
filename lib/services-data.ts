@@ -313,7 +313,7 @@ export const SERVICE_DETAILS: readonly ServiceDetailContent[] = [
       title: "Event",
       titleEm: "Management",
       lead: "Your plans are in place — now let us execute them flawlessly. Our event management service ensures your wedding day runs exactly as you envisioned.",
-      image: "/images/hero/hero-3.jpg",
+      image: "/images/hero/hero-10.jpg",
       imageAlt: "Elegant wedding reception celebration",
       includedBlocks: [
         {

@@ -55,14 +55,6 @@ export default function Nav() {
   const closeMenu = () => setMenuOpen(false);
 
   const navAnchor = (label: string, href?: string) => {
-    if (isHome) {
-      return (
-        <a href="#" onClick={preventNav}>
-          {label}
-        </a>
-      );
-    }
-
     if (href) {
       const onClick = label === "Home" ? goHome : closeMenu;
       return (

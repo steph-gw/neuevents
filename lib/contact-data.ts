@@ -1,9 +1,29 @@
+export const LEAD_CONNECTOR_FORM_ID = "cz87HPQFlFPd33SioAYJ";
+
 export const INQUIRY_FORM_SRC =
-  "https://gatherwise.io/version-live/form/1776874350911x887396963264201300?embed=yes";
+  `https://api.leadconnectorhq.com/widget/form/${LEAD_CONNECTOR_FORM_ID}`;
 
 export const CONTACT_EMAIL = "info@neuevents.com";
-export const CONTACT_PHONE = "828-400-4003";
-export const CONTACT_PHONE_HREF = "tel:+18284004003";
+export const CONTACT_OFFICE_PHONE = "808-524-5331";
+export const CONTACT_OFFICE_PHONE_HREF = "tel:+18085245331";
+
+export const TIME_ZONE_CONVERTER_URL = "https://dateful.com/time-zone-converter";
+export const WEDDING_SERVICES_PDF = "/documents/neu-events-wedding-services-2026.pdf";
+
+export const CONSULTANTS = [
+  {
+    name: "Mona",
+    role: "Founder & Lead Planner",
+    image: "/images/contact/mona-headshot.png",
+    bookingUrl: "https://info.neuevents.com/consult-with-mona",
+  },
+  {
+    name: "Deni",
+    role: "Senior Event Planner",
+    image: "/images/contact/deni-headshot.png",
+    bookingUrl: "https://info.neuevents.com/consult-with-deni",
+  },
+] as const;
 
 export const CONTACT_SOCIAL_LINKS = [
   {

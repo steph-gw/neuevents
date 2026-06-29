@@ -1,5 +1,6 @@
 "use client";
 
+import Script from "next/script";
 import {
   createContext,
   useCallback,
@@ -10,7 +11,7 @@ import {
 } from "react";
 import { createPortal } from "react-dom";
 import { usePathname } from "next/navigation";
-import { INQUIRY_FORM_SRC } from "@/lib/contact-data";
+import { INQUIRY_FORM_SRC, LEAD_CONNECTOR_FORM_ID } from "@/lib/contact-data";
 
 type SlotName = "preload" | "contact" | "modal";
 
@@ -62,22 +63,26 @@ export function InquiryFormProvider({
     return () => registerSlot("preload", null);
   }, [registerSlot]);
 
+  const markReady = useCallback(() => {
+    if (readyTimerRef.current) clearTimeout(readyTimerRef.current);
+    readyTimerRef.current = setTimeout(() => {
+      setIsReady(true);
+    }, 350);
+  }, []);
+
+  const handleIframeLoad = useCallback(() => {
+    markReady();
+  }, [markReady]);
+
   useEffect(() => {
-    const markReady = () => {
-      if (readyTimerRef.current) clearTimeout(readyTimerRef.current);
-      readyTimerRef.current = setTimeout(() => {
-        setIsReady(true);
-      }, 350);
-    };
-
     const onMessage = (e: MessageEvent) => {
-      if (e.data?.type !== "embed_resize" || !iframeRef.current) return;
+      if (!iframeRef.current) return;
 
-      const height = Number(e.data.height);
-      if (!Number.isFinite(height) || height < 160) return;
-
-      iframeRef.current.style.height = `${height}px`;
-      markReady();
+      const height = Number(e.data?.height);
+      if (e.data?.type === "embed_resize" && Number.isFinite(height) && height >= 160) {
+        iframeRef.current.style.height = `${height}px`;
+        markReady();
+      }
     };
 
     window.addEventListener("message", onMessage);
@@ -85,7 +90,7 @@ export function InquiryFormProvider({
       window.removeEventListener("message", onMessage);
       if (readyTimerRef.current) clearTimeout(readyTimerRef.current);
     };
-  }, []);
+  }, [markReady]);
 
   const activeSlot: SlotName = modalOpen
     ? "modal"
@@ -123,19 +128,33 @@ export function InquiryFormProvider({
   const target = slots[activeSlot] ?? slots.preload;
   const showForm = isReady && !loaderVisible;
 
+  const iframeId = `inline-${LEAD_CONNECTOR_FORM_ID}`;
+
   const iframe = (
     <iframe
       ref={iframeRef}
-      id="inquiry-embed-frame"
       src={INQUIRY_FORM_SRC}
-      title="Inquiry form"
-      style={{ width: "100%", border: "none" }}
-      scrolling="no"
+      onLoad={handleIframeLoad}
+      style={{ width: "100%", height: "1574px", border: "none", borderRadius: 0 }}
+      id={iframeId}
+      data-layout="{'id':'INLINE'}"
+      data-trigger-type="alwaysShow"
+      data-trigger-value=""
+      data-activation-type="alwaysActivated"
+      data-activation-value=""
+      data-deactivation-type="neverDeactivate"
+      data-deactivation-value=""
+      data-form-name="Website Inquiry Form"
+      data-height="1574"
+      data-layout-iframe-id={iframeId}
+      data-form-id={LEAD_CONNECTOR_FORM_ID}
+      title="Website Inquiry Form"
     />
   );
 
   return (
     <InquiryFormContext.Provider value={{ registerSlot, loaderVisible }}>
+      <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="lazyOnload" />
       {children}
       <div ref={preloadRef} className="inquiry-form-preload" aria-hidden="true" />
       {target &&

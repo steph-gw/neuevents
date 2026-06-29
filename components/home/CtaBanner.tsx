@@ -1,18 +1,11 @@
-"use client";
-
 import Image from "next/image";
-import InquiryButton from "@/components/InquiryButton";
-import PlaceholderButton from "@/components/PlaceholderButton";
+import Link from "next/link";
 
 type Props = {
   showInquiry?: boolean;
-  placeholderActions?: boolean;
 };
 
-export default function CtaBanner({
-  showInquiry = true,
-  placeholderActions = false,
-}: Props) {
+export default function CtaBanner({ showInquiry = true }: Props) {
   return (
     <section className="cta-banner">
       <div className="cta-banner-media reveal-image">
@@ -37,13 +30,9 @@ export default function CtaBanner({
           every client receives our complete attention and care.
         </p>
         {showInquiry ? (
-          placeholderActions ? (
-            <PlaceholderButton className="btn btn-gold">
-              Send an Inquiry
-            </PlaceholderButton>
-          ) : (
-            <InquiryButton />
-          )
+          <Link href="/contact" className="btn btn-gold">
+            Send an Inquiry
+          </Link>
         ) : null}
       </div>
     </section>

@@ -36,7 +36,7 @@ export default function HomePage() {
       <AboutSection />
 
       <Awards />
-      <CtaBanner placeholderActions />
+      <CtaBanner />
     </>
   );
 }

@@ -131,15 +131,9 @@ export default function Nav() {
             </li>
           ))}
           <li>
-            {isHome ? (
-              <a href="#" className="nav-cta" onClick={preventNav}>
-                Inquire
-              </a>
-            ) : (
-              <Link href="/contact" className="nav-cta" onClick={closeMenu}>
-                Inquire
-              </Link>
-            )}
+            <Link href="/contact" className="nav-cta" onClick={closeMenu}>
+              Contact us
+            </Link>
           </li>
         </ul>
 
@@ -169,23 +163,13 @@ export default function Nav() {
                 </li>
               ))}
               <li>
-                {isHome ? (
-                  <a
-                    href="#"
-                    className="nav-cta nav-cta--mobile"
-                    onClick={preventNav}
-                  >
-                    Inquire
-                  </a>
-                ) : (
-                  <Link
-                    href="/contact"
-                    className="nav-cta nav-cta--mobile"
-                    onClick={closeMenu}
-                  >
-                    Inquire
-                  </Link>
-                )}
+                <Link
+                  href="/contact"
+                  className="nav-cta nav-cta--mobile"
+                  onClick={closeMenu}
+                >
+                  Contact us
+                </Link>
               </li>
             </ul>
           </div>,

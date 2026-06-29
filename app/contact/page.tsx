@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
+import ContactFormEmbed from "@/components/contact/ContactFormEmbed";
 import ContactInfo from "@/components/contact/ContactInfo";
-import { InquiryFormSlot } from "@/components/InquiryForm";
-import Marquee from "@/components/home/Marquee";
 
 import { buildPageMetadata } from "@/lib/metadata";
 
@@ -29,19 +28,19 @@ export default function ContactPage() {
             and we&apos;ll be in touch to start the conversation.
           </p>
         </div>
-
-        <Marquee id="contact-marquee" />
       </section>
 
       <section className="contact-main">
         <div className="contact-main-inner">
           <div className="contact-form-card">
             <div className="contact-form-body">
-              <InquiryFormSlot slot="contact" />
+              <ContactFormEmbed />
             </div>
           </div>
 
-          <ContactInfo />
+          <div className="contact-sidebar">
+            <ContactInfo />
+          </div>
         </div>
       </section>
     </main>

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond } from "next/font/google";
-import { GeistSans } from "geist/font/sans";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { InquiryModalProvider } from "@/components/InquiryModal";
@@ -58,16 +57,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${GeistSans.variable} ${cormorant.variable}`}
-    >
+    <html lang="en" className={cormorant.variable}>
       <head>
-        <link rel="preconnect" href="https://gatherwise.io" />
-        <link rel="dns-prefetch" href="https://gatherwise.io" />
+        <link rel="preconnect" href="https://api.leadconnectorhq.com" />
+        <link rel="dns-prefetch" href="https://api.leadconnectorhq.com" />
+        <link rel="preconnect" href="https://link.msgsndr.com" />
         <link rel="prefetch" href={INQUIRY_FORM_SRC} as="document" />
       </head>
-      <body className={GeistSans.className}>
+      <body>
         <InquiryModalProvider>
           <Nav />
           {children}

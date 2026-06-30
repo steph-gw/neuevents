@@ -208,7 +208,7 @@ export const HOME_SERVICES = [
       "Formal banquet hall set with round tables, floral centerpieces, and stage screens for a large event",
     titleLines: ["Event Services"],
     description:
-      "From corporate gatherings to milestone celebrations, every event deserves thoughtful planning and seamless execution. Let us handle the details so you can focus on what matters most—being fully present with your guests.",
+      "Events and banquets involve a lot of planning and coordination. We can bring your vision to life with our experience and expertise at planning events, from private dinners to large corporate award galas.",
   },
   {
     image: "/images/services/celebration-of-life.jpg",
@@ -224,7 +224,7 @@ export const HOME_SERVICES = [
       "Aerial view of Waikiki Beach with turquoise water, palm trees, and Diamond Head in Honolulu, Hawaii",
     titleLines: ["Travel Services"],
     description:
-      "From honeymoon escapes to destination weddings, we help you navigate travel with ease and intention. Explore curated resources, trusted recommendations, and personalized guidance for every step of your journey.",
+      "From travel needs to activities, check out some of our resources to help your guests and wedding party make the most of their time in Hawai'i.",
   },
 ] as const;
 

@@ -1,6 +1,7 @@
 import Image from "next/image";
-import PlaceholderButton from "@/components/PlaceholderButton";
+import Link from "next/link";
 import { HOME_SERVICES } from "@/lib/data";
+import { HOME_SERVICE_LEARN_MORE } from "@/lib/service-links";
 
 export default function Services() {
   return (
@@ -36,9 +37,9 @@ export default function Services() {
                 ))}
               </h3>
               <p className="service-card-desc">{s.description}</p>
-              <PlaceholderButton className="btn service-card-btn">
+              <Link href={HOME_SERVICE_LEARN_MORE[index]} className="btn service-card-btn">
                 Learn More
-              </PlaceholderButton>
+              </Link>
             </div>
           </article>
         ))}

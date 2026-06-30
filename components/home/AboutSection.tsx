@@ -1,5 +1,5 @@
 import Image from "next/image";
-import PlaceholderButton from "@/components/PlaceholderButton";
+import Link from "next/link";
 import { HOME_ABOUT_TEAM } from "@/lib/about-data";
 
 export default function AboutSection() {
@@ -41,9 +41,9 @@ export default function AboutSection() {
               </p>
             ))}
 
-            <PlaceholderButton className="btn service-card-btn about-cta">
+            <Link href="/about" className="btn service-card-btn about-cta">
               Learn More
-            </PlaceholderButton>
+            </Link>
           </div>
         </div>
       </div>

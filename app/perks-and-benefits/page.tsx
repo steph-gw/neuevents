@@ -12,7 +12,7 @@ export const metadata: Metadata = buildPageMetadata({
   openGraphTitle: "Perks & Benefits | neu events",
   openGraphDescription:
     "Value-added benefits for neu events clients — from vendor discounts to referral perks and shared wedding décor.",
-  path: "/perks",
+  path: "/perks-and-benefits",
 });
 
 function linkifyContact(text: string) {

@@ -11,7 +11,7 @@ export type ClientPerkCategory = {
   vendors: ClientPerkVendor[];
 };
 
-export const CLIENT_PERKS_PASSWORD = "neuevents";
+export const CLIENT_PERKS_PASSWORD = "neuclient26";
 export const CLIENT_PERKS_AUTH_KEY = "neuevents-client-perks-auth";
 
 export const CLIENT_PERK_CATEGORIES: ClientPerkCategory[] = [

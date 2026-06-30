@@ -1,30 +1,28 @@
 import type { Metadata } from "next";
-import AboutCompany from "@/components/about/AboutCompany";
-import AboutOwners from "@/components/about/AboutOwners";
-import AboutPhilosophy from "@/components/about/AboutPhilosophy";
-import AboutPlanning from "@/components/about/AboutPlanning";
+import AboutHero from "@/components/about/AboutHero";
+import AboutPress from "@/components/about/AboutPress";
+import AboutQuote from "@/components/about/AboutQuote";
+import AboutTeam from "@/components/about/AboutTeam";
 import CtaBanner from "@/components/home/CtaBanner";
-
 import { buildPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Meet Our Wedding Planning Team | neu events",
+  title: "About neu events | Hawaii Wedding & Event Planners",
   description:
-    "Meet Candace and Matt Kelly, the award-winning husband-and-wife team behind neu events.",
-  openGraphTitle:
-    "Meet the Team Behind neu events | neu events",
+    "Meet Mona, Heidi, Aileen, and Deni — the neu events team bringing heart, experience, and boutique planning to weddings and celebrations across Hawai'i and beyond.",
+  openGraphTitle: "About neu events | Hawaii Wedding & Event Planners",
   openGraphDescription:
-    "The award-winning husband-and-wife team bringing artistry, experience, and heart to every wedding across North & South Carolina and beyond.",
+    "Since 2000, neu events has crafted unforgettable weddings and events in Hawai'i with a personal, values-driven approach.",
   path: "/about",
 });
 
 export default function AboutPage() {
   return (
     <main className="about-page">
-      <AboutCompany />
-      <AboutOwners />
-      <AboutPhilosophy />
-      <AboutPlanning />
+      <AboutHero />
+      <AboutQuote />
+      <AboutTeam />
+      <AboutPress />
       <CtaBanner />
     </main>
   );

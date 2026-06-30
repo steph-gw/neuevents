@@ -1,22 +1,19 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
 import CtaBanner from "@/components/home/CtaBanner";
-import ServiceDetail from "@/components/services/ServiceDetail";
-import ServicesGallery from "@/components/services/ServicesGallery";
+import CelebrationOfLifeSection from "@/components/services/CelebrationOfLifeSection";
+import EventServicesSection from "@/components/services/EventServicesSection";
 import ServicesOverview from "@/components/services/ServicesOverview";
-import ServicesPackageCompare from "@/components/services/ServicesPackageCompare";
-import { SERVICE_DETAILS } from "@/lib/services-data";
-
+import TravelServicesSection from "@/components/services/TravelServicesSection";
+import WeddingPackagesSection from "@/components/services/WeddingPackagesSection";
 import { buildPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Wedding Planning Packages & Pricing | neu events",
+  title: "Services | neu events",
   description:
-    "Compare our Full Planning, Partial Planning, and Event Management packages, plus a curated gallery of weddings we've planned.",
-  openGraphTitle:
-    "Wedding Planning Packages & Portfolio | neu events",
+    "Wedding planning packages, event coordination, celebration of life services, and travel resources from neu events in Hawai'i.",
+  openGraphTitle: "Services | neu events",
   openGraphDescription:
-    "From full planning and bespoke design to day-of coordination — explore what's included in each tier and browse featured celebrations",
+    "Explore wedding services, event planning, celebration of life coordination, and travel resources from neu events.",
   path: "/services",
 });
 
@@ -24,15 +21,10 @@ export default function ServicesPage() {
   return (
     <main className="services-page">
       <ServicesOverview />
-
-      <Suspense fallback={null}>
-        {SERVICE_DETAILS.map((service) => (
-          <ServiceDetail key={service.id} service={service} />
-        ))}
-      </Suspense>
-
-      <ServicesPackageCompare />
-      <ServicesGallery />
+      <WeddingPackagesSection />
+      <EventServicesSection />
+      <CelebrationOfLifeSection />
+      <TravelServicesSection />
       <CtaBanner />
     </main>
   );

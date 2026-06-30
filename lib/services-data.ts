@@ -1,499 +1,262 @@
 import { HOME_SERVICES } from "@/lib/data";
+import { WEDDING_SERVICES_PDF } from "@/lib/contact-data";
 
-export const SERVICES_OVERVIEW = HOME_SERVICES.map((service, index) => {
-  const anchors = [
-    "full-planning",
-    "full-planning",
-    "partial-planning",
-    "event-management",
-  ] as const;
+export const SERVICE_CATEGORY_ANCHORS = [
+  "wedding-services",
+  "event-services",
+  "celebration-of-life",
+  "travel-services",
+] as const;
 
-  return {
-    ...service,
-    anchor: anchors[index],
-  };
-});
+export const SERVICES_CATEGORIES = HOME_SERVICES.map((service, index) => ({
+  ...service,
+  anchor: SERVICE_CATEGORY_ANCHORS[index],
+}));
 
-export type ServiceBlock = {
-  heading: string;
-  items?: readonly string[];
-  paragraphs?: readonly string[];
-};
-
-// ─── Legacy type alias kept for any downstream consumers ───
-export type ServiceContentBlock = ServiceBlock;
-
-export type ServiceCredentialCard = {
-  org: string;
-  title: string;
-};
-
-export type ServiceIncludedBlock = {
-  number: string;
-  heading: string;
-  items?: readonly string[];
-  credentials?: readonly ServiceCredentialCard[];
-};
-
-export type ServicePlanningCard = {
-  label?: string;
-  title: string;
-  titleEm?: string;
-  lead?: string;
-  intro?: string;
-  image?: string;
-  imageAlt?: string;
-  includedLabel?: string;
-  includedBlocks?: readonly ServiceIncludedBlock[];
-};
-
-export type ServiceDetailContent = {
+export type WeddingPackage = {
   id: string;
-  layout?: "unified" | "dark" | "default";
-  number?: string;
-  eyebrow?: string;
-  title: string;
-  titleEm?: string;
-  lead?: string;
-  credential?: string;
-  intro?: string;
-  price?: string;
-  image?: string;
-  imageAlt?: string;
-  includedBlocks?: readonly ServiceIncludedBlock[];
-  designCard?: ServicePlanningCard;
-  eventCard?: ServicePlanningCard;
-  processBlocks?: readonly ServiceBlock[];
-  benefitBlocks?: readonly ServiceBlock[];
-  closing?: string;
+  eyebrow: string;
+  price: string;
+  description: string;
+  includes: readonly string[];
+  footnote?: string;
+  pdfHref?: string;
 };
 
-export const SERVICE_DETAILS: readonly ServiceDetailContent[] = [
+export const WEDDING_PACKAGES: readonly WeddingPackage[] = [
   {
-    id: "full-planning",
-    layout: "unified",
-    eyebrow: "Wedding Services",
-    title: "Full",
-    titleEm: "Planning",
-    lead: "From the first venue tour to the final send-off, we handle every last detail so you can be fully present on your wedding day.",
-    intro: "Includes everything in Event Management & Partial Planning",
-    price: "Starting at $8,000",
-    image: "/images/services/full-planning.webp",
-    imageAlt: "Bride and groom smiling as they exit their wedding venue",
-    includedBlocks: [
-      {
-        number: "01",
-        heading: "Pre-Wedding Preparation",
-        items: [
-          "Venue tours to explore potential locations for your wedding day and determine the best fit",
-          "Design creation and execution",
-          "Contract review with your venue and vendors to ensure clarity and accuracy",
-          "Coordination and communication with all vendors and the venue",
-          "Confirmation of rental and catering counts",
-          "Audio/lighting/tent backup plan building",
-          "Review and organization of transportation logistics for guests and the bridal party",
-          "Creation and distribution of the event day timeline to vendors and VIPs",
-          "Direct rental order building",
-          "Rehearsal coordination — hands-on management to ensure everything runs smoothly",
-        ],
-      },
-      {
-        number: "02",
-        heading: "Day-of Event Management",
-        items: [
-          "Oversee the setup of the ceremony and reception areas",
-          "Management of all vendors and venue staff to execute the timeline flawlessly",
-          "Coordination of event logistics and troubleshooting any last-minute issues",
-          "Supervise event breakdown and vendor load-out",
-        ],
-      },
-      {
-        number: "03",
-        heading: "Expert Guidance by Candace Kelly",
-        credentials: [
-          {
-            org: "NEW YORK INSTITUTE OF ART AND DESIGN",
-            title: "Certified Wedding Planner",
-          },
-          {
-            org: "NEW YORK INSTITUTE OF ART AND DESIGN",
-            title: "Certified Interior Designer",
-          },
-          { org: "IWED", title: "Certified Event Designer" },
-        ],
-      },
-      {
-        number: "04",
-        heading: "Professional Standards",
-        items: [
-          "Fully licensed and insured with a $1,000,000 policy",
-        ],
-      },
-      {
-        number: "05",
-        heading: "Exclusive Benefits",
-        items: [
-          "Full access to an all-in-one online planning platform",
-          "Tuxedo rental discounts for your wedding party",
-          "Checklists, timelines, vendor contacts, guest lists, seating charts, and more",
-          "Qualify for a free groom rental after five rentals",
-          "Flexible payment plans tailored to your needs",
-          "Check-ins throughout the planning process to keep everything on track",
-        ],
-      },
+    id: "the-big-day",
+    eyebrow: "The Big Day",
+    price: "Starting at $3,500",
+    description:
+      "Enjoy start-to-finish coordination on your wedding day for the greatest peace of mind.",
+    includes: [
+      "An extensive (3–4 hr) pre-wedding briefing session",
+      "Timeline and program review at the briefing session",
+      "Attendance and/or conducting of rehearsal",
+      "Vendor confirmation prior to the wedding",
+      "Coordination of and communication with vendors on the day of the wedding",
+      "Up to three coordinators (and sometimes more!) on-site, overseeing every detail",
     ],
-    designCard: {
-      label: "Starting at $3,000",
-      title: "Design",
-      titleEm: "Services",
-      lead: "Bespoke design direction for every visual element of your celebration — from attire palette planning to reception table layouts.",
-      intro: "Optional add-on",
-      image: "/images/services/design-services.webp",
-      imageAlt: "Elegantly styled wedding reception table with candles, florals, and gold-rimmed place settings",
-      includedBlocks: [
-        {
-          number: "01",
-          heading: "Wedding Party Attire Support",
-          items: [
-            "Bridesmaid palette planning by season (ex: jewel tones for fall, pastels for spring, neutrals for summer, icy tones for winter)",
-            "Mix-and-match styling plan for bridesmaids fabric weights and pattern balance",
-            "Groom + groomsmen look building (tux vs suit decision, jacket/tie pairing sets, accessory layering plan)",
-            "Tie, bow, and pocket-square pairing strategy for wedding party photos",
-            "Veil length + trim guidance for ceremony visuals and photo framing",
-            "Metal and accent tone coordination (buttons, jewelry, dress hardware, cufflinks)",
-            "Bouquet and boutonniere pairing direction for a cohesive wedding party reveal",
-            "Weather-ready attire plan suggestions (jackets, shawls, or layered looks included in styling packet)",
-          ],
-        },
-        {
-          number: "02",
-          heading: "Ceremony Design",
-          items: [
-            "Arch/altar arrangement plan (shape, focal weight, symmetry or asymmetry direction, and flower or fabric integration)",
-            "Aisle décor placement map (order of lining the aisle from back » front)",
-            "Ceremony seating flow design (reserved rows placed first, general rows grouped by flow)",
-            "Framed program display layout + hand-out station placement",
-            "Alphabetized or grouped escort/program table placement for ceremony entry",
-            "Weather-plan design notes for ceremony space transition (outdoor » covered or indoor styling suggestions)",
-          ],
-        },
-        {
-          number: "03",
-          heading: "Cocktail Hour Styling",
-          items: [
-            "Bar design layout (menu sign, napkin stack, stirrers, glass placement zones)",
-            "Cocktail furniture installation order and spacing plan (lounges, high-tops, or accent placement)",
-            "Vendor station zones mapped for flow (where musicians, photo booth, and appetizers activate)",
-            "Beverage, appetizer, and guest circulation plan by timing",
-            "Design accents added to bar or lounges for a styled and balanced cocktail hour reveal",
-          ],
-        },
-        {
-          number: "04",
-          heading: "Reception Design",
-          items: [
-            "Table styling concept by layer:",
-            "Linen base » Charger » Menu » Napkin fold/style » Glass pairings » Florals/candles (placement order only)",
-            "Centerpiece spacing and height map per table type (round vs rectangle guidance)",
-            "Entrance/escort card table flow (alphabetized group direction or table-order strategy)",
-            "Memory/tribute table focal layout plan",
-            "Cake + desserts display layout + accent placement guidance",
-            "DJ/entertainment, bar, and catering layout mapped for visual balance",
-            "Lighting and ambience placement plan (candle zones, uplight intention, warm vs dramatic direction)",
-            "Breakdown flow and vendor load-out leadership notes included in execution plan",
-          ],
-        },
-        {
-          number: "05",
-          heading: "Expert Guidance by Candace Kelly",
-          credentials: [
-            {
-              org: "NEW YORK INSTITUTE OF ART AND DESIGN",
-              title: "Certified Wedding Planner",
-            },
-            {
-              org: "NEW YORK INSTITUTE OF ART AND DESIGN",
-              title: "Certified Interior Designer",
-            },
-            { org: "WEDDING MBA", title: "Certified Wedding Elite Designer" },
-            {
-              org: "IWED",
-              title: "Institute of Wedding Design - Certified Event Designer",
-            },
-          ],
-        },
-      ],
-    },
+    pdfHref: WEDDING_SERVICES_PDF,
   },
   {
-    id: "partial-planning",
-    layout: "dark",
-    title: "Partial",
-    titleEm: "Planning",
-    lead: "Already started planning and need expert support to bring it all together? We step in where you need us most.",
-    price: "Starting at $5,500",
-    image: "/images/services/partial-planning.webp",
-    imageAlt: "Bride and groom sharing an intimate moment outdoors before their wedding",
-    includedBlocks: [
-      {
-        number: "01",
-        heading: "Pre-Wedding Preparation",
-        items: [
-          "Curated vendor matches based on style, priorities, and investment goals",
-          "Personalized planning meetings at key milestones",
-          "Contract Review with your venue and vendors to ensure clarity and accuracy",
-          "Questions and support for catering, bar, rentals, and staffing strategy",
-          "Floor plan and guest flow planning support",
-          "Guest experience planning (flow + comfort + emotional moments)",
-          "Bridal party role support + task planning (who handles what and when)",
-          "Coordination and communication with all vendors and the venue",
-          "Confirmation of rental and catering counts",
-          "Design Guidance",
-          "\"Photo moment mapping\" so your photographer knows key detail shots to capture",
-          "Reception styling clarity for linens, chargers, glassware, menus, signage, and displays",
-          "Review and organization of transportation logistics for guests and the bridal party",
-          "Creation and distribution of the event day timeline to vendors and VIPs",
-          "Rehearsal Coordination",
-          "Hands-on coordination of your rehearsal to ensure everything runs smoothly",
-        ],
-      },
-      {
-        number: "02",
-        heading: "Day-Of Event Management",
-        items: [
-          "Oversee the setup of the ceremony and reception areas",
-          "Management of all vendors and venue staff to execute the timeline flawlessly",
-          "Coordination of event logistics and troubleshooting any last-minute issues",
-          "Supervise event breakdown and vendor load-out",
-        ],
-      },
-      {
-        number: "03",
-        heading: "Expert Guidance by Candace Kelly",
-        credentials: [
-          {
-            org: "CANDACE KELLY",
-            title: "Certified Elite Wedding Planner and Designer",
-          },
-          {
-            org: "NEW YORK INSTITUTE OF ART AND DESIGN",
-            title: "Certified Institution",
-          },
-          { org: "JAMIE WOLFER", title: "Certified" },
-          { org: "CHANCEY CHARM", title: "Certified" },
-          { org: "WEDDING MBA", title: "Elite Designer Certified" },
-          {
-            org: "IWED",
-            title: "Accredited Event Designed - IWed Global",
-          },
-        ],
-      },
-      {
-        number: "04",
-        heading: "Professional Standards",
-        items: [
-          "Fully licensed and insured with a $1,000,000 policy",
-        ],
-      },
-      {
-        number: "05",
-        heading: "Exclusive Benefits",
-        items: [
-          "Full access to Gatherwise, an all-in-one online planning platform for:",
-          "Checklists, timelines, vendor contacts, guest lists, seating charts, and more",
-          "Tuxedo rental discounts for your wedding party",
-          "Qualify for a free groom rental after five rentals",
-          "Flexible payment plans tailored to your needs",
-          "Minted, BriteCo, and Photography Discounts",
-        ],
-      },
+    id: "wedding-wrap-up",
+    eyebrow: "Wedding Wrap Up",
+    price: "Starting at $6,000",
+    description:
+      "With just three months to go before your wedding day, feel confident that all of the final details will be carefully considered and addressed.",
+    includes: [
+      "Regular meetings (in person, by phone, or by Skype) with your consultant",
+      "Extensive support via email and phone to keep you on track as the big day approaches",
+      "Program planning",
+      "Wedding day timeline creation",
+      "Includes The Big Day services",
     ],
-    eventCard: {
-      label: "Starting at $3,500",
-      title: "Event",
-      titleEm: "Management",
-      lead: "Your plans are in place — now let us execute them flawlessly. Our event management service ensures your wedding day runs exactly as you envisioned.",
-      image: "/images/hero/hero-10.jpg",
-      imageAlt: "Elegant wedding reception celebration",
-      includedBlocks: [
-        {
-          number: "01",
-          heading: "Pre-Wedding Preparation",
-          items: [
-            "Contract Review with your venue and vendors to ensure clarity and accuracy",
-            "Coordination and communication with all vendors and the venue",
-            "Confirmation of rental and catering counts",
-            "Creation and distribution of the event day timeline to vendors and VIPs",
-          ],
-        },
-        {
-          number: "02",
-          heading: "Rehearsal Coordination",
-          items: [
-            "Hands-on coordination of your rehearsal to ensure everything runs smoothly",
-          ],
-        },
-        {
-          number: "03",
-          heading: "Day-Of Event Management",
-          items: [
-            "Oversee setup of the ceremony and reception areas",
-            "Management of all vendors and venue staff to execute the timeline",
-            "Coordination of event logistics and troubleshooting any last-minute issues",
-            "Supervise event breakdown and vendor load-out",
-          ],
-        },
-        {
-          number: "04",
-          heading: "Expert Guidance by Candace Kelly",
-          credentials: [
-            {
-              org: "CANDACE KELLY",
-              title: "Certified Elite Wedding Planner and Designer",
-            },
-            {
-              org: "NEW YORK INSTITUTE OF ART AND DESIGN",
-              title: "Certified Institution",
-            },
-            { org: "JAMIE WOLFER", title: "Certified" },
-            { org: "CHANCEY CHARM", title: "Certified" },
-            { org: "WEDDING MBA", title: "Elite Designer Certified" },
-            {
-              org: "IWED",
-              title: "Accredited Event Designed - IWed Global",
-            },
-          ],
-        },
-        {
-          number: "05",
-          heading: "Professional Standards",
-          items: [
-            "Fully licensed and insured with a $1,000,000 policy",
-          ],
-        },
-        {
-          number: "06",
-          heading: "Exclusive Benefits",
-          items: [
-            "Full access to Gatherwise, an all-in-one online planning platform for",
-            "Checklists, timelines, vendor contacts, guest lists, seating charts, and more",
-            "Tuxedo rental discounts for your wedding party",
-            "Qualify for a free groom rental after five rentals",
-            "Flexible monthly payment plans tailored to your needs",
-            "Scheduled Google Meets",
-          ],
-        },
-      ],
-    },
+    pdfHref: WEDDING_SERVICES_PDF,
+  },
+  {
+    id: "wedding-coordination",
+    eyebrow: "Wedding Coordination",
+    price: "Starting at $9,000",
+    description:
+      "Six months before your wedding day, your coordinator will come on board to help you coordinate all vendors booked for your wedding, and to advise and guide you through the rest of the wedding planning process.",
+    includes: [
+      "Coordination of vendors' services",
+      "Appointment and meeting scheduling",
+      "Regular meetings with your coordinator",
+      "Program planning, budget planning, and wedding day timeline management",
+      "Attendance of finalization meeting with caterer or hotel catering manager",
+      "Includes Wedding Wrap-Up services",
+    ],
+    pdfHref: WEDDING_SERVICES_PDF,
+  },
+  {
+    id: "complete-consultation",
+    eyebrow: "Complete Consultation & Coordination",
+    price: "Starting at $14,000",
+    description:
+      "Enjoy a year's worth of start-to-finish planning including vendor booking, logistics, and on-site (\"day of\") coordination.",
+    includes: [
+      "Regular meetings to keep plans moving forward",
+      "Unlimited emails and phone calls within the year leading up to your wedding",
+      "Tailored vendor recommendations based on style & preferences",
+      "Scheduling of consultations, meetings, appointments, fittings, hair and make-up sessions, etc.",
+      "Timeline and budget worksheet creation and updates",
+      "Payment distribution option through the neu events' client trust account (additional fees apply)",
+      "Includes Wedding Coordination services",
+    ],
+    pdfHref: WEDDING_SERVICES_PDF,
+  },
+  {
+    id: "the-full-experience",
+    eyebrow: "The Full Experience",
+    price: "Starting at $16,000",
+    description:
+      "Our premium service for the most discriminating couple! neu events will personally help you design and plan the ultimate wedding with as much as a year's worth of planning services at your disposal.",
+    includes: [
+      "Vendor booking assistance (research of venue and vendors; presentation of options; and scheduling and attendance of site visits and consultations) to best enable you to pick key elements and services for your wedding",
+      "Consultation and coordination of various wedding-related services, including pre-wedding activities for wedding party and out-of-town guests, and post-wedding events",
+      "Event design and conception of unique themes",
+      "Scheduling and attendance of appointments",
+      "Includes Complete Consultation and Coordination services",
+    ],
+    footnote:
+      "Early booking is strongly recommended to reserve your wedding date. Inquire about rates if services are desired more than one year in advance.",
+    pdfHref: WEDDING_SERVICES_PDF,
   },
 ] as const;
 
-export type PackageCompareColumn = {
+export type ServiceFeature = {
   id: string;
+  eyebrow: string;
   title: string;
-  subtitle?: string;
-  highlighted?: boolean;
+  titleEm?: string;
+  paragraphs: readonly string[];
+  bullets?: readonly string[];
+  image: string;
+  imageAlt: string;
+  photoCredit?: string;
+  reverse?: boolean;
 };
 
-export type PackageCompareRow = {
-  feature: string;
-  values: readonly [string, string, string];
-  suppressCheck?: readonly [boolean, boolean, boolean];
-};
+export const EVENT_SERVICES_INTRO = {
+  title: "Event Services",
+  titleEm: "Tailored to You",
+  lead:
+    "Pricing for special events are tailored to the unique needs of each client and event. Contact us to schedule a complimentary consultation and from there, we would be happy to prepare a custom proposal for you.",
+} as const;
 
-export const PACKAGE_COMPARE_COLUMNS: readonly PackageCompareColumn[] = [
+export const EVENT_SERVICE_FEATURES: readonly ServiceFeature[] = [
   {
-    id: "full-planning",
-    title: "Full Planning",
-    highlighted: true,
+    id: "event-planning",
+    eyebrow: "Event Planning and Coordination",
+    title: "Effortless Event",
+    titleEm: "Planning",
+    paragraphs: [
+      "Planning an event can be overwhelming. With so many moving parts, it is easy to feel stressed and lost in the details. That is where we come in! Our expert event planning services are designed to save you time and eliminate the hassle, so you can focus on what matters most – enjoying the experience.",
+      "From concept to execution, our team of professionals will handle every aspect of your event, ensuring everything runs smoothly and on schedule. With decades of experience and a keen eye for detail, we take the guesswork out of the process, making your event not only stress-free but unforgettable.",
+    ],
+    bullets: [
+      "Full-service event coordination (corporate, social, weddings, and more)",
+      "Vendor management and negotiation",
+      "Seamless logistics and timeline creation",
+      "Budget management and cost-saving strategies",
+      "Personalized attention to your unique vision",
+    ],
+    image: "/images/services/event-services.jpg",
+    imageAlt:
+      "A wide view of a fully staged ballroom featuring coordinated round-table seating, refined place settings, and warm uplighting that transforms the space for a large-scale gala.",
+    photoCredit: "Vivir Photography",
   },
   {
-    id: "partial-planning",
-    title: "Partial Planning",
+    id: "event-design",
+    eyebrow: "Event Design",
+    title: "Designing the",
+    titleEm: "Guest Experience",
+    paragraphs: [
+      "We design the guest's experience from a creative and aesthetic perspective.",
+    ],
+    image: "/images/hero/hero-02.webp",
+    imageAlt:
+      "Public Schools of Hawaiʻi Foundation gala dinner with guests seated at round tables in a ballroom",
+    photoCredit: "Love Story Weddings",
+    reverse: true,
   },
   {
-    id: "event-management",
-    title: "Event Management",
-    subtitle: "Month-of",
+    id: "event-production",
+    eyebrow: "Event Production",
+    title: "Start-to-Finish",
+    titleEm: "Production",
+    paragraphs: [
+      "Don't know where to begin? With our event production services we'll take you through the planning process from start-to-finish. We will research and bring in the vendors, coordinate logistics, prepare your timeline, and meet with you regularly to help you every step of the way.",
+    ],
+    image: "/images/hero/hero-10.jpg",
+    imageAlt:
+      "Elegantly set wedding reception tables with floral centerpieces and candles",
+    photoCredit: "Eric Arii",
   },
 ] as const;
 
-export const PACKAGE_COMPARE_ROWS: readonly PackageCompareRow[] = [
+export const EVENT_PAST_CLIENTS = [
+  "Aloha Cones",
+  "Anteprima",
+  "Assets School",
+  "Central Union Preschool",
+  "Curacao",
+  "Curate",
+  "Form Partners",
+  "Happily Ever After",
+  "Hawai'i Farm Bureau",
+  "Hawai'i State Coalition Against Domestic Violence",
+  "Hawai'i State Department of Health",
+  "Healthcare Association of Hawai'i",
+  "Isle Media",
+  "John A. Burns School of Medicine",
+  "Kaka'ako Wine Loft",
+  "MVNP",
+  "Nordic PCL",
+  "Pacific Edge Magazine and Green Magazine",
+  "Public Schools of Hawai'i Foundation",
+  "Royal Hawaiian Center",
+  "Tech Trans International",
+  "The Hawai'i Group",
+  "The Knot",
+  "YIM Investment",
+] as const;
+
+export const CELEBRATION_OF_LIFE: ServiceFeature = {
+  id: "celebration-of-life",
+  eyebrow: "Celebration of Life",
+  title: "Honoring a",
+  titleEm: "Life Well Lived",
+  paragraphs: [
+    "It is always hard to say goodbye to loved ones, but what better way to honor them than with a gathering of family and friends to cherish memories with them (if they are still with us), or of them (if they have passed).",
+    "We make the difficult task of preparing a celebration of life event manageable by handling the details for you so that you can focus on the \"big picture,\" which is spending time with those who are dear and honoring the life of someone special.",
+    "Contact us for information on our planning services for Celebrations of Life.",
+  ],
+  image: "/images/services/celebration-of-life.jpg",
+  imageAlt:
+    "Soft white floral arrangement nestled around a lit ivory taper candle framed in a clear glass vase.",
+  photoCredit: "The Present Perfect",
+};
+
+export type TravelServiceCard = {
+  id: string;
+  eyebrow: string;
+  title: string;
+  description: string;
+  ctaLabel: string;
+  ctaHref: string;
+};
+
+export const TRAVEL_SERVICE_CARDS: readonly TravelServiceCard[] = [
   {
-    feature: "Ideal for",
-    values: [
-      "You want full support from start to finish",
-      "You've started planning—need help filling in gaps",
-      "You've planned it all—just need help executing",
-    ],
+    id: "accommodations",
+    eyebrow: "Accommodations",
+    title: "Hotel & Room Blocks",
+    description:
+      "Find the perfect hotel for your group and save up to 22%. This is an excellent way to reserve your room block and receive competitive quotes.",
+    ctaLabel: "Book Accommodations",
+    ctaHref:
+      "https://neuevents.partners.engine.com/new-trip?utm_source=neuevents&utm_medium=channel&utm_campaign=2025-q2-neuevents-channel-groups-a01Hs00001zyi7bIAA&referral=MKT%20-%20Partner",
   },
   {
-    feature: "Timeline Involvement",
-    values: [
-      "Begins immediately after booking",
-      "Begins mid-way through planning",
-      "Final 6–8 weeks before event",
-    ],
+    id: "activities",
+    eyebrow: "Activities",
+    title: "Hawai'i Experiences",
+    description:
+      "Interested in lu`au, water sports, cruises, and more? Book your Hawai'i activities here!",
+    ctaLabel: "Book Activities",
+    ctaHref: "https://neuevents.activiter.com/",
   },
   {
-    feature: "Vendor Recommendations",
-    values: [
-      "Yes — sourcing, vetting, booking",
-      "Yes — final selections & referrals",
-      "No (unless needed day-of)",
-    ],
-    suppressCheck: [true, true, false],
-  },
-  {
-    feature: "Vendor Communication",
-    values: [
-      "Handle all communication and confirmations",
-      "Shared communication with key vendors",
-      "Take over communication 6–8 weeks out",
-    ],
-  },
-  {
-    feature: "Design Support",
-    values: [
-      "Full creative direction and design execution",
-      "Guidance + light styling input",
-      "None",
-    ],
-  },
-  {
-    feature: "Budget Guidance",
-    values: [
-      "Full budgeting & tracking throughout",
-      "General guidance",
-      "None",
-    ],
-  },
-  {
-    feature: "Planning Timeline + Checklists",
-    values: [
-      "Full checklist & timeline management",
-      "Custom planning timeline",
-      "Final timeline creation only",
-    ],
-  },
-  {
-    feature: "Rehearsal Coordination",
-    values: ["Included", "Included", "Included"],
-  },
-  {
-    feature: "Communication Access",
-    values: [
-      "Unlimited access throughout",
-      "Monthly check-ins",
-      "Check-ins as needed",
-    ],
-  },
-  {
-    feature: "Overall Support Level",
-    values: [
-      "We plan, manage & design everything",
-      "You plan with help",
-      "You plan—we execute",
-    ],
+    id: "car-rentals",
+    eyebrow: "Car Rentals",
+    title: "Blue Diamond Car Rental",
+    description:
+      "Rent a car with Blue Diamond Car Rental, Hawaii's top-rated rental company.",
+    ctaLabel: "Book a Car",
+    ctaHref: "https://cars.bluediamondvacations.com?PC=C-NEU",
   },
 ] as const;

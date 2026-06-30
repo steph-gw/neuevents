@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { Mail, Phone } from "react-feather";
+import ConsultCard from "@/components/ConsultCard";
 import {
   CONSULTANTS,
   CONTACT_EMAIL,
@@ -14,29 +14,7 @@ export default function ContactInfo() {
     <aside className="contact-info">
       <div className="contact-consult-cards">
         {CONSULTANTS.map((consultant) => (
-          <article key={consultant.name} className="consult-card">
-            <div className="consult-card-photo">
-              <Image
-                src={consultant.image}
-                alt={consultant.name}
-                width={72}
-                height={72}
-                sizes="72px"
-              />
-            </div>
-            <div className="consult-card-body">
-              <h3 className="consult-card-name">{consultant.name}</h3>
-              <p className="consult-card-role">{consultant.role}</p>
-              <a
-                href={consultant.bookingUrl}
-                className="btn consult-card-btn"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Book with {consultant.name}
-              </a>
-            </div>
-          </article>
+          <ConsultCard key={consultant.name} {...consultant} />
         ))}
       </div>
 

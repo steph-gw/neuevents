@@ -9,7 +9,7 @@ export const metadata: Metadata = buildPageMetadata({
   openGraphTitle: "Tips & Ideas | neu events",
   openGraphDescription:
     "Wedding and event planning tips, design ideas, and inspiration from the neu events team.",
-  path: "/ideas",
+  path: "/tips-ideas",
 });
 
 const TIP_TALKS = [

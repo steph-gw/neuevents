@@ -11,8 +11,8 @@ const NAV_LINKS = [
   { label: "Services", href: "/services" },
   { label: "Gallery", href: "/gallery" },
   { label: "About", href: "/about" },
-  { label: "Perks", href: "/perks" },
-  { label: "Ideas", href: "/ideas" },
+  { label: "Perks", href: "/perks-and-benefits" },
+  { label: "Ideas", href: "/tips-ideas" },
 ] as const;
 
 function preventNav(e: React.MouseEvent) {

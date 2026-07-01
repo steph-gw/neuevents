@@ -15,13 +15,15 @@ export const WEDDING_SERVICES_PDF = "/documents/neu-events-wedding-services-2026
 
 export const CONSULTANTS = [
   {
-    name: "Mona",
+    name: "Mona L. Hirata-Sung",
+    bookAs: "Mona",
     role: "Founder & Lead Planner",
     image: "/images/contact/mona-headshot.png",
     bookingUrl: "https://info.neuevents.com/consult-with-mona",
   },
   {
-    name: "Deni",
+    name: 'Denichel "Deni" Ruiz',
+    bookAs: "Deni",
     role: "Senior Event Planner",
     image: "/images/contact/deni-headshot.png",
     bookingUrl: "https://info.neuevents.com/consult-with-deni",

@@ -19,30 +19,29 @@ export default function ContactInfo() {
       </div>
 
       <div className="contact-info-block">
-        <p className="eyebrow">Reach Us Directly</p>
+        <p className="contact-sidebar-title">Reach Us Directly</p>
         <ul className="contact-info-rows">
           <li>
             <a href={`mailto:${CONTACT_EMAIL}`} className="contact-info-link">
-              <Mail size={17} strokeWidth={1.5} aria-hidden />
+              <Mail size={14} strokeWidth={1.5} aria-hidden />
               <span>{CONTACT_EMAIL}</span>
             </a>
           </li>
           <li>
             <a href={CONTACT_OFFICE_PHONE_HREF} className="contact-info-link">
-              <Phone size={17} strokeWidth={1.5} aria-hidden />
+              <Phone size={14} strokeWidth={1.5} aria-hidden />
               <span>{CONTACT_OFFICE_PHONE}</span>
             </a>
           </li>
         </ul>
         <p className="contact-info-hours">
-          Office hours: Monday–Friday, 8:30am – 5:00pm Hawai&apos;i Standard Time
-          (HST).
+          Monday–Friday, 8:30am – 5:00pm Hawai&apos;i Standard Time (HST)
         </p>
       </div>
 
       <div className="contact-info-block">
-        <p className="eyebrow">Helpful Resources</p>
-        <ul className="contact-info-rows">
+        <p className="contact-sidebar-title">Helpful Resources</p>
+        <ul className="contact-info-rows contact-info-rows--resources">
           <li>
             <a href={TIME_ZONE_CONVERTER_URL} target="_blank" rel="noopener noreferrer">
               Time Zone Converter
@@ -50,16 +49,14 @@ export default function ContactInfo() {
           </li>
           <li>
             <a href={WEDDING_SERVICES_PDF} target="_blank" rel="noopener noreferrer">
-              Our Wedding Planning Services (PDF)
+              Wedding Planning Services (PDF)
             </a>
           </li>
         </ul>
       </div>
 
       <p className="contact-info-note">
-        Please note that our emails are sometimes mistakenly identified as spam. If
-        you don&apos;t hear from us, please check your junk mail — we promise we&apos;re
-        not spamming you!
+        If you don&apos;t hear back from us, please check your junk mail folder.
       </p>
     </aside>
   );

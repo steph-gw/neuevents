@@ -19,8 +19,8 @@ export default function ContactPage() {
     <main className="contact-page">
       <section className="contact-hero">
         <div className="contact-hero-intro">
-          <p className="eyebrow">Get in Touch</p>
-          <h1 className="section-title">
+          <p className="hv2-eyebrow">Get in Touch</p>
+          <h1 className="contact-hero-title hv2-serif">
             Let&apos;s <em>Connect</em>
           </h1>
           <p className="contact-hero-lead">

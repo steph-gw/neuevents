@@ -8,7 +8,6 @@ import {
   CONTACT_MAILING_ADDRESS,
   CONTACT_OFFICE_PHONE,
   CONTACT_OFFICE_PHONE_HREF,
-  ESTABLISHED_YEAR,
 } from "@/lib/contact-data";
 
 function LegacyFooter() {
@@ -43,13 +42,10 @@ function SiteFooter() {
   return (
     <footer className="site-footer">
       <div className="site-footer-inner">
-        <div className="site-footer-main">
-          <p className="site-footer-copy">© 2026 neu events. All rights reserved.</p>
+        <p className="site-footer-copy">© 2026 neu events. All rights reserved.</p>
+
+        <div className="site-footer-end">
           <p className="site-footer-details">
-            <span>Est. {ESTABLISHED_YEAR}</span>
-            <span className="site-footer-dot" aria-hidden>
-              ·
-            </span>
             <span>{CONTACT_MAILING_ADDRESS}</span>
             <span className="site-footer-dot" aria-hidden>
               ·
@@ -59,25 +55,24 @@ function SiteFooter() {
               ·
             </span>
             <a href={CONTACT_EMAIL_HREF}>{CONTACT_EMAIL}</a>
-            <span className="site-footer-note">(check your spam folder)</span>
           </p>
-        </div>
 
-        <div className="site-footer-social">
-          {CONTACT_SOCIAL_LINKS.map(({ label, href }) => {
-            const Icon = SOCIAL_ICONS[label];
-            return (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={label}
-              >
-                <Icon size={16} strokeWidth={1.4} />
-              </a>
-            );
-          })}
+          <div className="site-footer-social">
+            {CONTACT_SOCIAL_LINKS.map(({ label, href }) => {
+              const Icon = SOCIAL_ICONS[label];
+              return (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                >
+                  <Icon size={16} strokeWidth={1.4} />
+                </a>
+              );
+            })}
+          </div>
         </div>
       </div>
     </footer>

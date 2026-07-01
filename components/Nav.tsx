@@ -174,6 +174,7 @@ function LegacyNav() {
 function SiteNav() {
   const pathname = usePathname();
   const isHome = pathname === "/";
+  const isContact = pathname === "/contact";
   const [mounted, setMounted] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -229,7 +230,9 @@ function SiteNav() {
   );
 
   return (
-    <header className={`site-header${scrolled ? " site-header--scrolled" : ""}`}>
+    <header
+      className={`site-header${scrolled ? " site-header--scrolled" : ""}${isContact ? " site-header--contact" : ""}`}
+    >
       <nav
         className={`site-nav${menuOpen ? " site-nav--open" : ""}`}
         aria-label="Main"

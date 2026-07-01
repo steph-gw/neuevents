@@ -1,6 +1,17 @@
-import { CONTACT_SOCIAL_LINKS, SOCIAL_ICONS } from "@/components/SocialIcons";
+"use client";
 
-export default function Footer() {
+import { usePathname } from "next/navigation";
+import { CONTACT_SOCIAL_LINKS, SOCIAL_ICONS } from "@/components/SocialIcons";
+import {
+  CONTACT_EMAIL,
+  CONTACT_EMAIL_HREF,
+  CONTACT_MAILING_ADDRESS,
+  CONTACT_OFFICE_PHONE,
+  CONTACT_OFFICE_PHONE_HREF,
+  ESTABLISHED_YEAR,
+} from "@/lib/contact-data";
+
+function LegacyFooter() {
   return (
     <footer>
       <div className="footer-bottom">
@@ -26,4 +37,60 @@ export default function Footer() {
       </div>
     </footer>
   );
+}
+
+function SiteFooter() {
+  return (
+    <footer className="site-footer">
+      <div className="site-footer-inner">
+        <div className="site-footer-main">
+          <p className="site-footer-copy">© 2026 neu events. All rights reserved.</p>
+          <p className="site-footer-details">
+            <span>Est. {ESTABLISHED_YEAR}</span>
+            <span className="site-footer-dot" aria-hidden>
+              ·
+            </span>
+            <span>{CONTACT_MAILING_ADDRESS}</span>
+            <span className="site-footer-dot" aria-hidden>
+              ·
+            </span>
+            <a href={CONTACT_OFFICE_PHONE_HREF}>{CONTACT_OFFICE_PHONE}</a>
+            <span className="site-footer-dot" aria-hidden>
+              ·
+            </span>
+            <a href={CONTACT_EMAIL_HREF}>{CONTACT_EMAIL}</a>
+            <span className="site-footer-note">(check your spam folder)</span>
+          </p>
+        </div>
+
+        <div className="site-footer-social">
+          {CONTACT_SOCIAL_LINKS.map(({ label, href }) => {
+            const Icon = SOCIAL_ICONS[label];
+            return (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+              >
+                <Icon size={16} strokeWidth={1.4} />
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+export default function Footer() {
+  const pathname = usePathname();
+  const isLegacy = pathname.startsWith("/old_index");
+
+  if (isLegacy) {
+    return <LegacyFooter />;
+  }
+
+  return <SiteFooter />;
 }

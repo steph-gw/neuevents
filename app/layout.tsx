@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond } from "next/font/google";
+import { Alice, Cormorant_Garamond, Outfit } from "next/font/google";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { InquiryModalProvider } from "@/components/InquiryModal";
@@ -15,12 +15,27 @@ import {
 } from "@/lib/site";
 import { OG_IMAGE } from "@/lib/metadata";
 import "./globals.css";
+import "./home-v2.css";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
   style: ["normal", "italic"],
   variable: "--font-display",
+  display: "swap",
+});
+
+const alice = Alice({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-alice",
+  display: "swap",
+});
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  variable: "--font-outfit",
   display: "swap",
 });
 
@@ -57,7 +72,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cormorant.variable}>
+    <html
+      lang="en"
+      className={`${cormorant.variable} ${alice.variable} ${outfit.variable}`}
+    >
       <head>
         <link rel="preconnect" href="https://api.leadconnectorhq.com" />
         <link rel="dns-prefetch" href="https://api.leadconnectorhq.com" />

@@ -19,7 +19,7 @@ function preventNav(e: React.MouseEvent) {
   e.preventDefault();
 }
 
-export default function Nav() {
+function LegacyNav() {
   const pathname = usePathname();
   const isHome = pathname === "/";
   const [mounted, setMounted] = useState(false);
@@ -169,4 +169,144 @@ export default function Nav() {
         )}
     </nav>
   );
+}
+
+function SiteNav() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+  const [mounted, setMounted] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  const goHome = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    setMenuOpen(false);
+    if (pathname === "/") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 0);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
+  const closeMenu = () => setMenuOpen(false);
+
+  const logo = isHome ? (
+    <a
+      href="#"
+      className="site-logo"
+      aria-label="neu events home"
+      onClick={(e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }}
+    >
+      neu<span className="site-logo-mark">events</span>
+    </a>
+  ) : (
+    <Link href="/" className="site-logo" aria-label="neu events home">
+      neu<span className="site-logo-mark">events</span>
+    </Link>
+  );
+
+  return (
+    <header className={`site-header${scrolled ? " site-header--scrolled" : ""}`}>
+      <nav
+        className={`site-nav${menuOpen ? " site-nav--open" : ""}`}
+        aria-label="Main"
+      >
+        {logo}
+
+        <div className="site-nav-end">
+          <ul className="site-nav-links site-nav-links--desktop">
+            {NAV_LINKS.map((link) => (
+              <li key={link.label}>
+                {link.label === "Home" ? (
+                  <Link href={link.href} onClick={goHome}>
+                    {link.label}
+                  </Link>
+                ) : (
+                  <Link href={link.href}>{link.label}</Link>
+                )}
+              </li>
+            ))}
+          </ul>
+
+          <Link href="/contact" className="site-nav-cta" onClick={closeMenu}>
+            Contact Us
+          </Link>
+
+          <button
+            type="button"
+            className="site-nav-toggle"
+            onClick={() => setMenuOpen((o) => !o)}
+            aria-expanded={menuOpen}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
+      </nav>
+
+      {mounted && (
+        <div
+          className={`site-nav-mobile${menuOpen ? " site-nav-mobile--open" : ""}`}
+          aria-hidden={!menuOpen}
+        >
+          <ul>
+            {NAV_LINKS.map((link) => (
+              <li key={link.label}>
+                {link.label === "Home" ? (
+                  <Link href={link.href} onClick={goHome}>
+                    {link.label}
+                  </Link>
+                ) : (
+                  <Link href={link.href} onClick={closeMenu}>
+                    {link.label}
+                  </Link>
+                )}
+              </li>
+            ))}
+            <li>
+              <Link href="/contact" className="site-nav-cta" onClick={closeMenu}>
+                Contact Us
+              </Link>
+            </li>
+          </ul>
+        </div>
+      )}
+    </header>
+  );
+}
+
+export default function Nav() {
+  const pathname = usePathname();
+  const isLegacy = pathname.startsWith("/old_index");
+
+  if (isLegacy) {
+    return <LegacyNav />;
+  }
+
+  return <SiteNav />;
 }

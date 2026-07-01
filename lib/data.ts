@@ -2,6 +2,7 @@ export const HERO_SLIDES = [
   {
     src: "/images/hero/hero-01.jpg",
     alt: "Bride and groom walking down the aisle at an outdoor wedding ceremony",
+    caption: "Outdoor Ceremony",
     position: "center center",
     width: 1024,
     height: 682,
@@ -9,6 +10,7 @@ export const HERO_SLIDES = [
   {
     src: "/images/hero/hero-02.webp",
     alt: "Public Schools of Hawaiʻi Foundation gala dinner with guests seated at round tables in a ballroom",
+    caption: "PSHF Foundation",
     position: "center 40%",
     width: 1024,
     height: 683,
@@ -16,6 +18,7 @@ export const HERO_SLIDES = [
   {
     src: "/images/hero/hero-03.jpg",
     alt: "Fire dancer performing with glowing trails of flame at night",
+    caption: "Fire Dancer",
     position: "center center",
     width: 1024,
     height: 681,
@@ -23,6 +26,7 @@ export const HERO_SLIDES = [
   {
     src: "/images/hero/hero-04.jpg",
     alt: "Two brides walking hand in hand along a tropical beach",
+    caption: "Beach Wedding",
     position: "center center",
     width: 1024,
     height: 682,
@@ -30,6 +34,7 @@ export const HERO_SLIDES = [
   {
     src: "/images/hero/hero-05.jpg",
     alt: "Groom in traditional attire standing in a yellow convertible at an Indian wedding celebration",
+    caption: "Indian Wedding",
     position: "center center",
     width: 1024,
     height: 682,
@@ -37,6 +42,7 @@ export const HERO_SLIDES = [
   {
     src: "/images/hero/hero-06.jpg",
     alt: "Chinese lion dance performers in red at a festive celebration reception",
+    caption: "Lion Dance",
     position: "center center",
     width: 1024,
     height: 682,
@@ -44,6 +50,7 @@ export const HERO_SLIDES = [
   {
     src: "/images/hero/hero-07.jpg",
     alt: "Couple seated under a draped mandap during a South Asian wedding ceremony",
+    caption: "Mandap Ceremony",
     position: "center 35%",
     width: 1024,
     height: 682,
@@ -51,6 +58,7 @@ export const HERO_SLIDES = [
   {
     src: "/images/hero/hero-08.jpg",
     alt: "Bride and groom walking down the aisle at an outdoor wedding ceremony with palm trees",
+    caption: "Palm Aisle",
     position: "center center",
     width: 1024,
     height: 682,
@@ -58,6 +66,7 @@ export const HERO_SLIDES = [
   {
     src: "/images/hero/hero-09.jpg",
     alt: "Bride and groom walking hand in hand down a road after their wedding ceremony",
+    caption: "Just Married",
     position: "center center",
     width: 1024,
     height: 682,
@@ -65,6 +74,7 @@ export const HERO_SLIDES = [
   {
     src: "/images/hero/hero-10.jpg",
     alt: "Elegantly set wedding reception tables with floral centerpieces and candles",
+    caption: "Reception",
     position: "center 40%",
     width: 1024,
     height: 682,
@@ -72,6 +82,7 @@ export const HERO_SLIDES = [
   {
     src: "/images/hero/hero-11.jpg",
     alt: "Two grooms walking down the aisle at an oceanfront wedding ceremony",
+    caption: "Oceanfront Vows",
     position: "center center",
     width: 1024,
     height: 682,

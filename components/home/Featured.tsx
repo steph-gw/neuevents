@@ -1,65 +1,65 @@
 import Image from "next/image";
-import PlaceholderButton from "@/components/PlaceholderButton";
+import Link from "next/link";
 import { FEATURED_WEDDINGS } from "@/lib/data";
 
 export default function Featured() {
   return (
-    <section className="featured" id="portfolio">
-      <div className="featured-header">
-        <p className="eyebrow">Featured Celebrations</p>
-        <h2 className="section-title">
-          The Neu <em>Experience</em>
-        </h2>
-      </div>
+    <section className="hv2-section hv2-section--gallery" id="portfolio">
+      <div className="hv2-wrap">
+        <div className="hv2-section-head">
+          <span className="hv2-eyebrow">Featured Celebrations</span>
+          <h2 className="hv2-serif">
+            The Neu <em>Experience</em>
+          </h2>
+        </div>
 
-      <div className="featured-grid">
-        {FEATURED_WEDDINGS.map((wedding, i) => {
-          if ("placeholder" in wedding && wedding.placeholder) {
+        <div className="hv2-gallery-grid">
+          {FEATURED_WEDDINGS.map((wedding, i) => {
+            if ("placeholder" in wedding && wedding.placeholder) {
+              return (
+                <div
+                  key={`featured-placeholder-${i}`}
+                  className="hv2-gal-item hv2-gal-item--placeholder"
+                  aria-hidden
+                />
+              );
+            }
+
             return (
               <div
-                key={`featured-placeholder-${i}`}
-                className="featured-item featured-item--placeholder"
-                aria-hidden
-              />
+                key={wedding.names}
+                className="hv2-gal-item"
+              >
+                <Image
+                  src={wedding.image}
+                  alt={wedding.alt}
+                  fill
+                  sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw"
+                  style={
+                    "objectPosition" in wedding &&
+                    typeof wedding.objectPosition === "string"
+                      ? { objectPosition: wedding.objectPosition }
+                      : undefined
+                  }
+                />
+                <span
+                  className={`hv2-gal-tag ${i < 3 ? "hv2-gal-tag--weddings" : "hv2-gal-tag--events"}`}
+                >
+                  {i < 3 ? "Weddings" : "Events"}
+                </span>
+                <div className="hv2-gal-overlay">
+                  <span className="hv2-gal-names hv2-serif">{wedding.names}</span>
+                </div>
+              </div>
             );
-          }
+          })}
+        </div>
 
-          return (
-          <div
-            key={wedding.names}
-            className={`featured-item${"objectPosition" in wedding ? " featured-item--focus-top" : ""}`}
-          >
-            <span className="featured-item-badge">
-              {i < 3 ? "Weddings" : "Events"}
-            </span>
-            <div
-              className={`featured-item-media reveal-image${i > 0 ? ` reveal-image-delay-${i}` : ""}`}
-            >
-              <Image
-                src={wedding.image}
-                alt={wedding.alt}
-                fill
-                sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 33vw"
-                style={
-                  "objectPosition" in wedding &&
-                  typeof wedding.objectPosition === "string"
-                    ? { objectPosition: wedding.objectPosition }
-                    : undefined
-                }
-              />
-            </div>
-            <div className="featured-caption">
-              <p className="featured-caption-name">{wedding.names}</p>
-            </div>
-          </div>
-          );
-        })}
-      </div>
-
-      <div className="featured-cta">
-        <PlaceholderButton className="btn service-card-btn">
-          View Gallery
-        </PlaceholderButton>
+        <div className="hv2-gallery-cta">
+          <Link href="/gallery" className="hv2-btn-outline">
+            View Gallery
+          </Link>
+        </div>
       </div>
     </section>
   );

@@ -16,7 +16,7 @@ export default function HeroCarousel() {
 
   useEffect(() => {
     setReduceMotion(
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
     );
   }, []);
 
@@ -27,13 +27,13 @@ export default function HeroCarousel() {
   }, [reduceMotion, advance]);
 
   return (
-    <div className="hv2-carousel" aria-hidden>
+    <div className="hero-carousel" aria-hidden>
       {HERO_SLIDES.map((slide, i) => {
         const isCurrent = i === current;
         return (
           <div
             key={slide.src}
-            className={`hv2-slide${isCurrent ? " hv2-slide--current" : ""}`}
+            className={`hero-slide${isCurrent ? " hero-slide--current" : ""}`}
           >
             <Image
               src={slide.src}
@@ -42,9 +42,9 @@ export default function HeroCarousel() {
               height={slide.height}
               unoptimized
               priority={i <= 1}
-              sizes="(max-width: 900px) 100vw, 560px"
+              sizes="(max-width: 1024px) 100vw, 50vw"
               className={
-                isCurrent && !reduceMotion ? "hv2-slide-img" : undefined
+                isCurrent && !reduceMotion ? "hero-slide-img" : undefined
               }
               style={{ objectPosition: slide.position }}
             />

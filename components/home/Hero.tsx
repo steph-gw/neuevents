@@ -1,7 +1,7 @@
 "use client";
 
-import AnniversaryBadge from "@/components/AnniversaryBadge";
-import HeroCarousel from "@/components/home/HeroCarousel";
+import HeroPolaroidStack from "@/components/home/HeroPolaroidStack";
+import AnniversaryBadgeV2 from "@/components/home/AnniversaryBadgeV2";
 import PlaceholderButton from "@/components/PlaceholderButton";
 import Image from "next/image";
 
@@ -37,58 +37,68 @@ export default function Hero() {
     document.getElementById("services")?.scrollIntoView({ behavior: "smooth" });
   };
 
-  return (
-    <section className="hero" id="home">
-      <div className="hero-content">
-        <p className="hero-eyebrow">
-          Weddings · Events · Celebration of Life · Travel · Hawaii
-        </p>
-        <h1 className="hero-title">
-          Life&apos;s Most Meaningful Moments,
-          <br />
-          <em>Beautifully Planned</em>
-        </h1>
-        <div className="hero-actions">
-          <PlaceholderButton
-            className="btn btn-primary"
-            onClick={scrollToServices}
-          >
-            Explore Our Services
-          </PlaceholderButton>
+  const scrollToTeam = () => {
+    document.getElementById("team")?.scrollIntoView({ behavior: "smooth" });
+  };
 
-          <div className="hero-press">
-            <div className="hero-press-logos">
-              {PRESS_LOGOS.map((logo) => (
-                <a
-                  key={logo.alt}
-                  href={logo.href}
-                  className="hero-press-logo"
-                  style={{ height: logo.displayHeight }}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={logo.alt}
-                >
-                  <Image
-                    src={logo.src}
-                    alt=""
-                    width={logo.width}
-                    height={logo.height}
-                    style={{ height: logo.displayHeight, width: "auto" }}
-                  />
-                </a>
-              ))}
+  return (
+    <>
+      <section className="hv2-hero" id="home">
+        <div className="hv2-hero-inner">
+          <div className="hv2-hero-text">
+            <div className="hv2-hero-tags">
+              <span>Weddings</span>
+              <span>Events</span>
+              <span>Celebration of Life</span>
+              <span>Travel</span>
+              <span>Hawaii</span>
+            </div>
+            <h1 className="hv2-hero-title">
+              <span className="hv2-hero-title-line">Where life&apos;s biggest</span>
+              <span className="hv2-hero-title-line">moments deserve</span>
+              <span className="hv2-accent">beautiful planning.</span>
+            </h1>
+            <div className="hv2-hero-actions">
+              <PlaceholderButton className="hv2-btn-primary" onClick={scrollToServices}>
+                Explore Our Services
+              </PlaceholderButton>
+              <button type="button" className="hv2-text-link" onClick={scrollToTeam}>
+                Our Story <span aria-hidden="true">→</span>
+              </button>
+            </div>
+            <div className="hv2-hero-press">
+              <div className="hv2-hero-press-logos">
+                {PRESS_LOGOS.map((logo) => (
+                  <a
+                    key={logo.alt}
+                    href={logo.href}
+                    className="hv2-hero-press-logo"
+                    style={{ height: logo.displayHeight }}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={logo.alt}
+                  >
+                    <Image
+                      src={logo.src}
+                      alt=""
+                      width={logo.width}
+                      height={logo.height}
+                      style={{ height: logo.displayHeight, width: "auto" }}
+                    />
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="hv2-hero-media">
+            <HeroPolaroidStack />
+            <div className="hv2-hero-badge">
+              <AnniversaryBadgeV2 className="hv2-hero-badge-svg" />
             </div>
           </div>
         </div>
-      </div>
-
-      <div className="hero-media">
-        <HeroCarousel />
-      </div>
-
-      <div className="hero-badge">
-        <AnniversaryBadge className="hero-badge-svg" />
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

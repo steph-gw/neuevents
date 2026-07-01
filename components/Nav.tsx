@@ -174,7 +174,8 @@ function LegacyNav() {
 function SiteNav() {
   const pathname = usePathname();
   const isHome = pathname === "/";
-  const isContact = pathname === "/contact";
+  const hasCreamHeader = pathname === "/contact";
+  const hasDarkHeader = pathname === "/tips-ideas";
   const [mounted, setMounted] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -231,7 +232,7 @@ function SiteNav() {
 
   return (
     <header
-      className={`site-header${scrolled ? " site-header--scrolled" : ""}${isContact ? " site-header--contact" : ""}`}
+      className={`site-header${scrolled ? " site-header--scrolled" : ""}${hasCreamHeader ? " site-header--cream" : ""}${hasDarkHeader ? " site-header--dark" : ""}`}
     >
       <nav
         className={`site-nav${menuOpen ? " site-nav--open" : ""}`}

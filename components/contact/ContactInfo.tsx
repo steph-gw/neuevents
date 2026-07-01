@@ -56,7 +56,7 @@ export default function ContactInfo() {
       </div>
 
       <p className="contact-info-note">
-        If you don&apos;t hear back from us, please check your junk mail folder.
+        If you don&apos;t hear back from us, please check your spam folder.
       </p>
     </aside>
   );

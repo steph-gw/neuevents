@@ -175,7 +175,8 @@ function SiteNav() {
   const pathname = usePathname();
   const isHome = pathname === "/";
   const hasCreamHeader = pathname === "/contact";
-  const hasDarkHeader = pathname === "/tips-ideas";
+  const hasDarkHeader =
+    pathname === "/tips-ideas" || pathname === "/perks-and-benefits";
   const [mounted, setMounted] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);

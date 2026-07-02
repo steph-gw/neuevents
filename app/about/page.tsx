@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import AboutHero from "@/components/about/AboutHero";
-import AboutPress from "@/components/about/AboutPress";
-import AboutQuote from "@/components/about/AboutQuote";
 import AboutTeam from "@/components/about/AboutTeam";
 import CtaBanner from "@/components/home/CtaBanner";
 import { buildPageMetadata } from "@/lib/metadata";
@@ -20,9 +18,7 @@ export default function AboutPage() {
   return (
     <main className="about-page">
       <AboutHero />
-      <AboutQuote />
       <AboutTeam />
-      <AboutPress />
       <CtaBanner />
     </main>
   );

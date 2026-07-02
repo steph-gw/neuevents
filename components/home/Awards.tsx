@@ -9,7 +9,9 @@ export default function Awards() {
           <div className="hv2-section-head">
             <span className="hv2-eyebrow">Recognized Excellence</span>
             <h2 className="hv2-serif">
-              A Special Message from <em>Governor Josh Green, M.D.</em>
+              A Special Message from Governor
+              <br />
+              <em>Josh Green, M.D.</em>
             </h2>
           </div>
 

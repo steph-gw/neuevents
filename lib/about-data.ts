@@ -23,17 +23,26 @@ export const ABOUT_PRESS_LOGOS = [
   {
     name: "The Knot",
     image: "/images/press/the-knot.png",
-    href: "https://www.theknot.com/",
+    href: "https://www.theknot.com/marketplace/neu-events-honolulu-hi-211110",
+    width: 393,
+    height: 128,
+    displayHeight: 22,
   },
   {
     name: "Oahu Wedding Association",
     image: "/images/press/owa.png",
-    href: "https://www.oahuwa.com/",
+    href: "https://www.oahuweddingassociation.com/",
+    width: 200,
+    height: 200,
+    displayHeight: 44,
   },
   {
     name: "Equally Wed",
     image: "/images/press/equally-wed.png",
-    href: "https://equallywed.com/",
+    href: "https://equallywed.com/hawaii-ranch-styled-lesbian-wedding/",
+    width: 300,
+    height: 45,
+    displayHeight: 16,
   },
 ] as const;
 

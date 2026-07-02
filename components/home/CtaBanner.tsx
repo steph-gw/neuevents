@@ -23,9 +23,9 @@ export default function CtaBanner({ showInquiry = true }: Props) {
           <em>Planning Together?</em>
         </h2>
         <p className="hv2-body-text">
-          From weddings and events to celebrations of life and destination
-          travel, we take on a select number of projects each year to ensure
-          every client receives our complete attention and care.
+          We take on a select number of projects each year — weddings, events,
+          celebrations of life, and destination travel — so every client receives
+          our complete attention and care.
         </p>
         {showInquiry ? (
           <Link href="/contact" className="hv2-btn-primary">

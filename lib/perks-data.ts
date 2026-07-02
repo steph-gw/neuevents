@@ -6,7 +6,10 @@ export type PerksSection = {
   paragraphs: string[];
   image: string;
   imageAlt: string;
-  photoCredit?: string;
+  photoCredit?: {
+    label: string;
+    href: string;
+  };
   reverse?: boolean;
 };
 
@@ -34,7 +37,10 @@ export const PERKS_SECTIONS: PerksSection[] = [
     image: "/images/perks/indian-wedding-couple.jpg",
     imageAlt:
       "A couple walking hand in hand at an outdoor Indian wedding, smiling as guests shower them with colorful flower petals",
-    photoCredit: "Sarah Jual Photography",
+    photoCredit: {
+      label: "BY Sarah Jual Photography",
+      href: "https://sarahjual.com/",
+    },
     reverse: true,
   },
   {
@@ -47,5 +53,9 @@ export const PERKS_SECTIONS: PerksSection[] = [
     ],
     image: "/images/perks/share-the-love.jpg",
     imageAlt: "A couple sharing a joyful moment at their wedding celebration",
+    photoCredit: {
+      label: "BY James Edens Photography",
+      href: "https://www.jamesedensphotography.com/",
+    },
   },
 ];

@@ -1,9 +1,16 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import CtaBanner from "@/components/home/CtaBanner";
+import { Gift, MapPin, Star, Tag } from "react-feather";
 import { PERKS_SECTIONS } from "@/lib/perks-data";
 import { buildPageMetadata } from "@/lib/metadata";
+
+const ACCESS_FEATURES = [
+  { Icon: Tag, label: "Vendor Discounts" },
+  { Icon: Gift, label: "Promo Codes" },
+  { Icon: Star, label: "Exclusive Offers" },
+  { Icon: MapPin, label: "Hawai'i Partners" },
+] as const;
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Perks & Benefits | neu events",
@@ -43,85 +50,99 @@ function linkifyContact(text: string) {
 
 export default function PerksPage() {
   return (
-    <main className="perks-page">
-      <section className="perks-hero">
-        <div className="perks-hero-intro">
-          <p className="eyebrow">Perks &amp; Benefits</p>
-          <h1 className="section-title">
-            Client <em>Perks</em>
+    <main className="perks-v2-page">
+
+      {/* Hero */}
+      <section className="ideas-hero">
+        <div className="ideas-hero-inner hv2-wrap">
+          <p className="ideas-hero-eyebrow">Perks &amp; Benefits</p>
+          <h1 className="ideas-hero-title">
+            Client <span className="ideas-hero-title-accent">Perks</span>
           </h1>
-          <p className="perks-hero-lead">
-            As a client of neu events, enjoy various perks and
-            &ldquo;value-added&rdquo; benefits designed to make your celebration
-            — and those of the people you love — even more special.
+          <p className="ideas-hero-lead">
+            As a client of neu events, enjoy various perks and &ldquo;value-added&rdquo;
+            benefits designed to make your celebration — and those of the people
+            you love — even more special.
           </p>
         </div>
       </section>
 
-      <div className="perks-features">
-        {PERKS_SECTIONS.map((section, index) => (
-          <section
-            key={section.id}
-            className={[
-              "perks-feature",
-              index % 2 === 1 ? "perks-feature--alt" : "",
-              section.reverse ? "perks-feature--reverse" : "",
-            ]
-              .filter(Boolean)
-              .join(" ")}
-          >
-            <div className="perks-feature-inner">
-              <div className="perks-feature-content">
-                <p className="eyebrow">{section.eyebrow}</p>
-                <h2 className="perks-feature-title">
+      {/* 3-card grid */}
+      <section className="perks-v2-cards">
+        <div className="perks-v2-cards-grid hv2-wrap">
+          {PERKS_SECTIONS.map((section) => (
+            <article key={section.id} className="perks-v2-card">
+              <figure className="perks-v2-card-media">
+                <div className="perks-v2-card-image">
+                  <Image
+                    src={section.image}
+                    alt={section.imageAlt}
+                    fill
+                    sizes="(max-width: 700px) 100vw, 33vw"
+                    quality={90}
+                  />
+                  {section.photoCredit ? (
+                    <figcaption className="perks-v2-card-credit">
+                      <a
+                        href={section.photoCredit.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <span>{section.photoCredit.label}</span>
+                      </a>
+                    </figcaption>
+                  ) : null}
+                </div>
+              </figure>
+              <div className="perks-v2-card-content">
+                <p className="hv2-eyebrow perks-v2-card-eyebrow">{section.eyebrow}</p>
+                <h2 className="perks-v2-card-title hv2-serif">
                   {section.title} <em>{section.titleEm}</em>
                 </h2>
-                <div className="perks-feature-body">
+                <div className="perks-v2-card-body">
                   {section.paragraphs.map((paragraph) => (
                     <p key={paragraph}>{linkifyContact(paragraph)}</p>
                   ))}
                 </div>
               </div>
-
-              <figure className="perks-feature-media">
-                <div className="perks-feature-image">
-                  <Image
-                    src={section.image}
-                    alt={section.imageAlt}
-                    fill
-                    sizes="(max-width: 900px) 100vw, 520px"
-                    quality={90}
-                  />
-                </div>
-                {section.photoCredit ? (
-                  <figcaption className="perks-feature-credit">
-                    Photographer: {section.photoCredit}
-                  </figcaption>
-                ) : null}
-              </figure>
-            </div>
-          </section>
-        ))}
-      </div>
-
-      <section className="perks-client-access">
-        <div className="perks-client-access-inner">
-          <p className="eyebrow">Client Access</p>
-          <h2 className="perks-client-access-title">
-            Vendor Perks <em>Directory</em>
-          </h2>
-          <p className="perks-client-access-lead">
-            Current neu events clients can access our full list of vendor
-            discounts, promo codes, and exclusive offers from our trusted
-            partners across Hawai&apos;i.
-          </p>
-          <Link href="/just-for-clients" className="btn btn-primary">
-            Client Perks Access
-          </Link>
+            </article>
+          ))}
         </div>
       </section>
 
-      <CtaBanner />
+      {/* Client Access */}
+      <section className="perks-v2-access">
+        <div className="perks-v2-access-inner hv2-wrap">
+          <div className="perks-v2-access-panel">
+            <div className="perks-v2-access-text">
+              <p className="hv2-eyebrow">Client Access</p>
+              <h2 className="perks-v2-access-title hv2-serif">
+                Vendor Perks <em>Directory</em>
+              </h2>
+              <p className="perks-v2-access-lead">
+                Current neu events clients can access our curated list of vendor
+                discounts, promo codes, and exclusive offers from our trusted
+                partners across Hawai&apos;i.
+              </p>
+              <Link href="/just-for-clients" className="perks-v2-access-btn">
+                Access Client Perks →
+              </Link>
+            </div>
+
+            <div className="perks-v2-access-features" aria-hidden="true">
+              {ACCESS_FEATURES.map(({ Icon, label }) => (
+                <div key={label} className="perks-v2-access-feature">
+                  <span className="perks-v2-access-feature-icon">
+                    <Icon size={22} strokeWidth={1.5} />
+                  </span>
+                  <span className="perks-v2-access-feature-label">{label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
     </main>
   );
 }

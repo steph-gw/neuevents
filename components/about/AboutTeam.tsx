@@ -1,26 +1,33 @@
 import Image from "next/image";
-import ConsultCard from "@/components/ConsultCard";
+import { Mail } from "react-feather";
 import { ABOUT_TEAM_MEMBERS } from "@/lib/about-data";
 
 export default function AboutTeam() {
   return (
-    <section className="about-v2-team">
-      <div className="about-v2-team-header">
-        <p className="eyebrow">Our Team</p>
-        <h2 className="section-title">
-          Meet the <em>Planners</em>
-        </h2>
+    <section className="abt-team">
+      <div className="hv2-wrap">
+        <header className="abt-team-header">
+          <p className="hv2-eyebrow">Our Team</p>
+          <h2 className="abt-team-title hv2-serif">
+            Meet the <em>Planners</em>
+          </h2>
+        </header>
       </div>
 
-      <div className="about-v2-team-list">
+      <div className="abt-member-list">
         {ABOUT_TEAM_MEMBERS.map((member, index) => (
           <article
             key={member.id}
-            className={`about-v2-member${index % 2 === 1 ? " about-v2-member--reverse" : ""}`}
+            className={[
+              "abt-member",
+              index % 2 === 1 ? "abt-member--reverse" : "",
+            ]
+              .filter(Boolean)
+              .join(" ")}
           >
-            <div className="about-v2-member-inner">
-              <figure className="about-v2-member-media">
-                <div className="about-v2-member-image">
+            <div className="abt-member-inner hv2-wrap">
+              <figure className="abt-member-media">
+                <div className="abt-member-image">
                   <Image
                     src={member.image}
                     alt={member.imageAlt}
@@ -31,31 +38,42 @@ export default function AboutTeam() {
                 </div>
               </figure>
 
-              <div className="about-v2-member-content">
-                <div className="about-v2-member-heading">
-                  <h3 className="about-v2-member-name">{member.name}</h3>
-                  {member.credentials ? (
-                    <p className="about-v2-member-credentials">{member.credentials}</p>
-                  ) : null}
-                  <a href={`mailto:${member.email}`} className="about-v2-member-email">
-                    {member.email}
+              <div className="abt-member-content">
+                <div className="abt-member-heading">
+                  <div className="abt-member-name-group">
+                    <h3 className="abt-member-name hv2-serif">{member.name}</h3>
+                    {member.credentials ? (
+                      <span className="abt-member-credentials">
+                        {member.credentials}
+                      </span>
+                    ) : null}
+                  </div>
+
+                  <a
+                    href={`mailto:${member.email}`}
+                    className="abt-member-email contact-info-link"
+                  >
+                    <Mail size={14} strokeWidth={1.5} aria-hidden />
+                    <span>{member.email}</span>
                   </a>
+
+                  {member.consult ? (
+                    <a
+                      href={member.consult.bookingUrl}
+                      className="abt-member-book"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Book with {member.consult.displayName}
+                    </a>
+                  ) : null}
                 </div>
 
-                <div className="about-v2-member-bio">
+                <div className="abt-member-bio">
                   {member.bio.map((paragraph) => (
                     <p key={paragraph}>{paragraph}</p>
                   ))}
                 </div>
-
-                {member.consult ? (
-                  <ConsultCard
-                    name={member.consult.displayName}
-                    role={member.consult.role}
-                    image={member.consult.image}
-                    bookingUrl={member.consult.bookingUrl}
-                  />
-                ) : null}
               </div>
             </div>
           </article>

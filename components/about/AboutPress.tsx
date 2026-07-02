@@ -3,10 +3,10 @@ import { ABOUT_PRESS_LOGOS } from "@/lib/about-data";
 
 export default function AboutPress() {
   return (
-    <section className="about-v2-press">
-      <div className="about-v2-press-inner">
-        <p className="eyebrow">Also Featured In</p>
-        <ul className="about-v2-press-logos">
+    <section className="abt-press">
+      <div className="abt-press-inner hv2-wrap">
+        <p className="hv2-eyebrow abt-press-eyebrow">Also Featured In</p>
+        <ul className="abt-press-logos">
           {ABOUT_PRESS_LOGOS.map((logo) => (
             <li key={logo.name}>
               <a
@@ -20,7 +20,7 @@ export default function AboutPress() {
                   alt={logo.name}
                   width={160}
                   height={64}
-                  className="about-v2-press-logo"
+                  className="abt-press-logo"
                 />
               </a>
             </li>

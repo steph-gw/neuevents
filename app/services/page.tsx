@@ -19,7 +19,7 @@ export const metadata: Metadata = buildPageMetadata({
 
 export default function ServicesPage() {
   return (
-    <main className="services-page">
+    <main className="services-v2-page">
       <ServicesOverview />
       <WeddingPackagesSection />
       <EventServicesSection />

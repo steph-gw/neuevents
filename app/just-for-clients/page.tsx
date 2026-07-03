@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 export default function JustForClientsPage() {
   return (
-    <main className="client-perks-page">
+    <main className="client-perks-v2-page">
       <ClientPerksGate>
         <ClientPerksDirectory />
       </ClientPerksGate>

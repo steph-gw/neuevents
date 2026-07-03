@@ -21,6 +21,8 @@ export type WeddingPackage = {
   includes: readonly string[];
   footnote?: string;
   pdfHref?: string;
+  image?: string;
+  imageAlt?: string;
 };
 
 export const WEDDING_PACKAGES: readonly WeddingPackage[] = [
@@ -104,6 +106,9 @@ export const WEDDING_PACKAGES: readonly WeddingPackage[] = [
     footnote:
       "Early booking is strongly recommended to reserve your wedding date. Inquire about rates if services are desired more than one year in advance.",
     pdfHref: WEDDING_SERVICES_PDF,
+    image: "/images/services/the-full-experience.jpg",
+    imageAlt:
+      "Bride and groom cutting their wedding cake with a ceremonial sword at an evening reception in Hawai'i",
   },
 ] as const;
 

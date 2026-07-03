@@ -5,13 +5,13 @@ import { SERVICES_CATEGORIES } from "@/lib/services-data";
 export default function ServicesOverview() {
   return (
     <>
-      <section className="services-hero">
-        <div className="services-hero-intro">
-          <p className="eyebrow">What We Offer</p>
-          <h1 className="section-title">
-            Our <em>Services</em>
+      <section className="ideas-hero">
+        <div className="ideas-hero-inner hv2-wrap">
+          <p className="ideas-hero-eyebrow">What We Offer</p>
+          <h1 className="ideas-hero-title">
+            Our <span className="ideas-hero-title-accent">Services</span>
           </h1>
-          <p className="services-hero-lead">
+          <p className="ideas-hero-lead">
             From weddings and corporate events to celebrations of life and
             travel resources — neu events brings thoughtful planning and
             seamless execution to every occasion.
@@ -19,32 +19,28 @@ export default function ServicesOverview() {
         </div>
       </section>
 
-      <nav className="services-category-nav" aria-label="Service categories">
-        <div className="services-category-nav-inner">
+      <nav className="svc-v2-category-nav" aria-label="Service categories">
+        <div className="svc-v2-category-nav-inner hv2-wrap">
           {SERVICES_CATEGORIES.map((category) => (
             <Link
               key={category.anchor}
               href={`#${category.anchor}`}
-              className="services-category-card"
+              className="svc-v2-category-card"
             >
-              <div className="services-category-card-media">
+              <div className="svc-v2-category-card-media">
                 <Image
                   src={category.image}
                   alt={category.imageAlt}
                   fill
-                  sizes="(max-width: 768px) 100vw, 280px"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 280px"
                   quality={90}
                 />
-                <div className="services-category-card-overlay" />
               </div>
-              <div className="services-category-card-body">
-                <h2 className="services-category-card-title">
+              <div className="svc-v2-category-card-body">
+                <p className="svc-v2-category-card-title">
                   {category.titleLines.join(" ")}
-                </h2>
-                <p className="services-category-card-desc">
-                  {category.description}
                 </p>
-                <span className="services-category-card-link">Explore</span>
+                <span className="svc-v2-category-card-link">Explore</span>
               </div>
             </Link>
           ))}

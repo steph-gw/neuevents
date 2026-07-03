@@ -6,19 +6,16 @@ export default function CelebrationOfLifeSection() {
   const feature = CELEBRATION_OF_LIFE;
 
   return (
-    <section
-      id="celebration-of-life"
-      className="services-section services-section--alt"
-    >
-      <div className="services-section-inner">
-        <article className="services-feature">
-          <div className="services-feature-inner">
-            <div className="services-feature-content">
-              <p className="eyebrow">{feature.eyebrow}</p>
-              <h2 className="services-feature-title">
+    <section id="celebration-of-life" className="svc-v2-section svc-v2-section--alt">
+      <div className="hv2-wrap">
+        <article className="svc-v2-feature">
+          <div className="svc-v2-feature-inner">
+            <div className="svc-v2-feature-content">
+              <p className="hv2-eyebrow">{feature.eyebrow}</p>
+              <h2 className="svc-v2-feature-title hv2-serif">
                 {feature.title} <em>{feature.titleEm}</em>
               </h2>
-              <div className="services-feature-body">
+              <div className="svc-v2-feature-body">
                 {feature.paragraphs.map((paragraph) => {
                   if (paragraph.includes("Contact us")) {
                     const [before, after] = paragraph.split("Contact us");
@@ -35,8 +32,8 @@ export default function CelebrationOfLifeSection() {
               </div>
             </div>
 
-            <figure className="services-feature-media">
-              <div className="services-feature-image">
+            <figure className="svc-v2-feature-media">
+              <div className="svc-v2-feature-image">
                 <Image
                   src={feature.image}
                   alt={feature.imageAlt}
@@ -46,8 +43,8 @@ export default function CelebrationOfLifeSection() {
                 />
               </div>
               {feature.photoCredit ? (
-                <figcaption className="services-feature-credit">
-                  Photographer: {feature.photoCredit}
+                <figcaption className="svc-v2-feature-credit">
+                  Photo: {feature.photoCredit}
                 </figcaption>
               ) : null}
             </figure>

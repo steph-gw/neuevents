@@ -174,9 +174,12 @@ function LegacyNav() {
 function SiteNav() {
   const pathname = usePathname();
   const isHome = pathname === "/";
-  const hasCreamHeader = pathname === "/contact";
+  const hasCreamHeader =
+    pathname === "/contact" || pathname === "/just-for-clients";
   const hasDarkHeader =
-    pathname === "/tips-ideas" || pathname === "/perks-and-benefits";
+    pathname === "/tips-ideas" ||
+    pathname === "/perks-and-benefits" ||
+    pathname === "/services";
   const [mounted, setMounted] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);

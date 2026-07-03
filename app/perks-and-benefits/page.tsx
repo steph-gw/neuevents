@@ -107,17 +107,12 @@ export default function PerksPage() {
               </div>
             </article>
           ))}
-        </div>
-      </section>
 
-      {/* Client Access */}
-      <section className="perks-v2-access">
-        <div className="perks-v2-access-inner hv2-wrap">
           <div className="perks-v2-access-panel">
             <div className="perks-v2-access-text">
               <p className="hv2-eyebrow">Client Access</p>
               <h2 className="perks-v2-access-title hv2-serif">
-                Vendor Perks <em>Directory</em>
+                Exclusive <em>Perks</em>
               </h2>
               <p className="perks-v2-access-lead">
                 Current neu events clients can access our curated list of vendor

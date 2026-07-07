@@ -1,0 +1,24 @@
+# neu events
+
+> Award-winning Hawaii wedding and event planning company since 2000. neu events provides full-service wedding coordination, corporate events, celebrations of life, and destination travel resources across Hawaii and beyond.
+
+## Core Pages
+
+- [Home](https://neuevents.com/): Overview of neu events — weddings, events, celebrations of life, and travel in Hawaii
+- [Services](https://neuevents.com/services): Wedding packages (from $3,500), event coordination, celebration of life, and guest travel services
+- [About](https://neuevents.com/about): Team bios — Mona Hirata-Sung (founder), Heidi, Aileen, and Deni — and company story since 2000
+- [Gallery](https://neuevents.com/gallery): Portfolio of weddings and events across Hawaii
+- [Contact](https://neuevents.com/contact): Inquiry form, phone 808-524-5331, email info@neuevents.com, Honolulu HI
+
+## Services Detail
+
+- [Wedding Services](https://neuevents.com/services#wedding-services): The Big Day, Wedding Wrap Up, and full planning packages
+- [Event Services](https://neuevents.com/services#event-services): Corporate events, galas, conferences, and nonprofit events
+- [Celebration of Life](https://neuevents.com/services#celebration-of-life): Memorial and celebration of life coordination
+- [Travel Services](https://neuevents.com/services#travel-services): Honeymoon planning, hotel blocks, and guest travel coordination
+
+## Optional
+
+- [Tips & Ideas](https://neuevents.com/tips-ideas): Planning tips and design inspiration
+- [Client Perks](https://neuevents.com/perks-and-benefits): Vendor discounts and referral benefits for neu events clients
+- [Instagram](https://www.instagram.com/neuevents/): Recent weddings and events

@@ -5,6 +5,7 @@ import Featured from "@/components/home/Featured";
 import Services from "@/components/home/Services";
 import Awards from "@/components/home/Awards";
 import CtaBanner from "@/components/home/CtaBanner";
+import InstagramFeed from "@/components/home/InstagramFeed";
 import HomeTestimonials from "@/components/home/HomeTestimonials";
 import { buildPageMetadata } from "@/lib/metadata";
 import {
@@ -37,6 +38,7 @@ export default function HomePage() {
 
       <Awards />
       <CtaBanner />
+      <InstagramFeed />
     </>
   );
 }

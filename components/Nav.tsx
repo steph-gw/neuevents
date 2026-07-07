@@ -176,6 +176,7 @@ function SiteNav() {
   const isHome = pathname === "/";
   const hasCreamHeader =
     pathname === "/contact" || pathname === "/just-for-clients";
+  const hasCreamDeepHeader = pathname === "/gallery";
   const hasDarkHeader =
     pathname === "/tips-ideas" ||
     pathname === "/perks-and-benefits" ||
@@ -236,7 +237,7 @@ function SiteNav() {
 
   return (
     <header
-      className={`site-header${scrolled ? " site-header--scrolled" : ""}${hasCreamHeader ? " site-header--cream" : ""}${hasDarkHeader ? " site-header--dark" : ""}`}
+      className={`site-header${scrolled ? " site-header--scrolled" : ""}${hasCreamHeader ? " site-header--cream" : ""}${hasCreamDeepHeader ? " site-header--cream-deep" : ""}${hasDarkHeader ? " site-header--dark" : ""}`}
     >
       <nav
         className={`site-nav${menuOpen ? " site-nav--open" : ""}`}

@@ -5,12 +5,12 @@ import ContactInfo from "@/components/contact/ContactInfo";
 import { buildPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Let's Work Together | neu events",
+  title: "Contact | neu events",
   description:
-    "Get in touch with neu events. Call, email, or send an inquiry — we'd love to help you plan your special day!",
+    "Get in touch with neu events. Call, email, or send an inquiry — we'd love to help you plan your wedding or event in Hawaii.",
   openGraphTitle: "Let's Plan Your Celebration | neu events",
   openGraphDescription:
-    "We'd love to hear about your celebration. Share a few details and we'll be in touch to start the conversation — serving the Carolinas and beyond.",
+    "Ready to start planning? Share a few details and the neu events team will be in touch to begin the conversation.",
   path: "/contact",
 });
 

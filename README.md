@@ -25,7 +25,6 @@ Open [http://localhost:3000](http://localhost:3000).
 - `/` — Home
 - `/about` — About
 - `/services` — Services & Portfolio
-- `/travel` — Travel
 - `/contact` — Contact
 
 ## Deploy to Vercel

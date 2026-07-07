@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import { Alice, Cormorant_Garamond, Outfit } from "next/font/google";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import ConvexClientProvider from "@/components/ConvexClientProvider";
 import { InquiryModalProvider } from "@/components/InquiryModal";
 import ScrollReveal from "@/components/ScrollReveal";
+import StructuredData from "@/components/StructuredData";
 import { INQUIRY_FORM_SRC } from "@/lib/contact-data";
 import {
   getSiteUrl,
@@ -14,6 +16,10 @@ import {
   SITE_OG_TITLE,
 } from "@/lib/site";
 import { OG_IMAGE } from "@/lib/metadata";
+import {
+  buildOrganizationSchema,
+  buildWebSiteSchema,
+} from "@/lib/structured-data";
 import "./globals.css";
 import "./home-v2.css";
 
@@ -71,6 +77,9 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const organizationSchema = buildOrganizationSchema();
+  const webSiteSchema = buildWebSiteSchema();
+
   return (
     <html
       lang="en"
@@ -81,14 +90,18 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://api.leadconnectorhq.com" />
         <link rel="preconnect" href="https://link.msgsndr.com" />
         <link rel="prefetch" href={INQUIRY_FORM_SRC} as="document" />
+        <StructuredData data={organizationSchema} />
+        <StructuredData data={webSiteSchema} />
       </head>
       <body>
-        <InquiryModalProvider>
-          <Nav />
-          {children}
-          <Footer />
-          <ScrollReveal />
-        </InquiryModalProvider>
+        <ConvexClientProvider>
+          <InquiryModalProvider>
+            <Nav />
+            {children}
+            <Footer />
+            <ScrollReveal />
+          </InquiryModalProvider>
+        </ConvexClientProvider>
       </body>
     </html>
   );

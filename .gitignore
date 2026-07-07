@@ -5,6 +5,7 @@
 .DS_Store
 *.pem
 .env*.local
+.convex
 .vercel
 npm-debug.log*
 next-env.d.ts

@@ -192,7 +192,7 @@ export const EVENT_SERVICE_FEATURES: readonly ServiceFeature[] = [
     ],
     image: "/images/hero/hero-02.webp",
     imageAlt:
-      "Public Schools of Hawaiʻi Foundation gala dinner with guests seated at round tables in a ballroom",
+      "Public Schools of Hawaii Foundation gala dinner with guests seated at round tables in a ballroom",
     photoCredit: "Vivir Photography",
   },
   {
@@ -205,7 +205,7 @@ export const EVENT_SERVICE_FEATURES: readonly ServiceFeature[] = [
     ],
     image: "/images/services/event-design.png",
     imageAlt:
-      "Group at the Public Schools of Hawaiʻi Foundation dinner holding a ceremonial check in front of a branded step-and-repeat backdrop",
+      "Group at the Public Schools of Hawaii Foundation dinner holding a ceremonial check in front of a branded step-and-repeat backdrop",
     photoCredit: "Love Story Weddings",
     reverse: true,
   },
@@ -219,7 +219,7 @@ export const EVENT_SERVICE_FEATURES: readonly ServiceFeature[] = [
     ],
     image: "/images/services/event-production.png",
     imageAlt:
-      "Event booth setup for Hawaiʻi USA Federal Credit Union with branded table display and promotional materials",
+      "Event booth setup for Hawaii USA Federal Credit Union with branded table display and promotional materials",
     photoCredit: "Eric Arii",
   },
 ] as const;

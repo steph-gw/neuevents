@@ -7,10 +7,10 @@ import { buildPageMetadata } from "@/lib/metadata";
 export const metadata: Metadata = buildPageMetadata({
   title: "Tips & Ideas | neu events",
   description:
-    "Wedding and event planning tips, design ideas, and inspiration from the neu events team.",
+    "Wedding and event planning tips, design ideas, and inspiration from the neu events team in Hawaii.",
   openGraphTitle: "Tips & Ideas | neu events",
   openGraphDescription:
-    "Wedding and event planning tips, design ideas, and inspiration from the neu events team.",
+    "Planning inspiration, vendor insights, and thoughtful ideas for weddings and events — from the neu events team.",
   path: "/tips-ideas",
 });
 

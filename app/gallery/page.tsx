@@ -1,25 +1,22 @@
 import type { Metadata } from "next";
-import PagePlaceholder from "@/components/PagePlaceholder";
-
+import { Suspense } from "react";
 import { buildPageMetadata } from "@/lib/metadata";
+import GalleryClient from "./GalleryClient";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Wedding Gallery | neu events",
+  title: "Weddings & Events Gallery | neu events",
   description:
-    "Browse a curated collection of weddings and celebrations planned by neu events across North & South Carolina and beyond.",
-  openGraphTitle: "Wedding Gallery | neu events",
+    "Browse weddings, galas, conferences, and celebrations planned by neu events across Hawaii.",
+  openGraphTitle: "Weddings & Events Gallery | neu events",
   openGraphDescription:
-    "A curated collection of celebrations we've had the honor of bringing to life across the Carolinas and beyond.",
+    "A curated collection of weddings and events we've had the honor of bringing to life across Hawaii.",
   path: "/gallery",
 });
 
 export default function GalleryPage() {
   return (
-    <PagePlaceholder
-      eyebrow="Featured Celebrations"
-      title="Wedding"
-      titleEm="Gallery"
-      description="A curated collection of celebrations we've had the honor of bringing to life — coming soon."
-    />
+    <Suspense fallback={null}>
+      <GalleryClient />
+    </Suspense>
   );
 }

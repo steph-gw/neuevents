@@ -5,11 +5,14 @@ const nextConfig: NextConfig = {
     return [
       { source: "/perks", destination: "/perks-and-benefits", permanent: true },
       { source: "/ideas", destination: "/tips-ideas", permanent: true },
+      { source: "/travel", destination: "/services#travel-services", permanent: true },
+      { source: "/gallery/events", destination: "/gallery", permanent: false },
+      { source: "/gallery/weddings", destination: "/gallery", permanent: false },
     ];
   },
   devIndicators: false,
   images: {
-    qualities: [75, 84, 90, 92],
+    qualities: [75, 84, 85, 90, 92],
     remotePatterns: [
       {
         protocol: "https",

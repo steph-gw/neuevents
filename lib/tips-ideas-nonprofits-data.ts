@@ -31,7 +31,7 @@ export const NONPROFIT_TILES: NonprofitTile[] = [
     categoryTag: "Culture",
     categoryTagClass: "culture",
     image: "/images/tips-ideas/nonprofits/bishop-museum.png",
-    imageAlt: "Bernice Pauahi Bishop Museum in Honolulu, Hawaiʻi",
+    imageAlt: "Bernice Pauahi Bishop Museum in Honolulu, Hawaii",
     href: "https://www.bishopmuseum.org/join-and-give/donate/",
   },
   {
@@ -121,7 +121,7 @@ export const NONPROFIT_TILES: NonprofitTile[] = [
     categoryTag: "Social",
     categoryTagClass: "social",
     image: "/images/tips-ideas/nonprofits/hscadv.png",
-    imageAlt: "Hawaiʻi State Coalition Against Domestic Violence banner",
+    imageAlt: "Hawaii State Coalition Against Domestic Violence banner",
     href: "https://hscadv.harnessgiving.org/donate/?selected-method=one-time&amount=50&campaign_id=13018",
   },
 ];

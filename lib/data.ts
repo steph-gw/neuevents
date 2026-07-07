@@ -9,7 +9,7 @@ export const HERO_SLIDES = [
   },
   {
     src: "/images/hero/hero-02.webp",
-    alt: "Public Schools of Hawaiʻi Foundation gala dinner with guests seated at round tables in a ballroom",
+    alt: "Public Schools of Hawaii Foundation gala dinner with guests seated at round tables in a ballroom",
     caption: "PSHF Foundation",
     position: "center 40%",
     width: 1024,
@@ -127,8 +127,8 @@ export const FEATURED_WEDDINGS = [
   },
   {
     image: "/images/featured/pshf-foundation-2026.webp",
-    alt: "Public Schools of Hawaiʻi Foundation 2026 dinner group photo",
-    names: "Public Schools of Hawaiʻi Foundation 2026",
+    alt: "Public Schools of Hawaii Foundation 2026 dinner group photo",
+    names: "Public Schools of Hawaii Foundation 2026",
   },
   {
     image: "/images/featured/hah-2025-gala.webp",
@@ -165,7 +165,7 @@ export const TESTIMONIALS = [
 
 export const GOVERNOR_MESSAGE = {
   image: "/images/awards/hawaii-governor-seal.webp",
-  imageAlt: "Seal of the State of Hawaiʻi",
+  imageAlt: "Seal of the State of Hawaii",
   signature: "/images/awards/governor-signature.webp",
   signatureAlt: "Signature of Governor Josh Green, M.D.",
   presentedTo: "neu events",

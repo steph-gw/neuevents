@@ -13,10 +13,10 @@ const ACCESS_FEATURES = [
 ] as const;
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Perks & Benefits | neu events",
+  title: "Client Perks & Benefits | neu events",
   description:
     "As a neu events client, enjoy preferential vendor pricing, referral benefits for family and friends, and our Share the Love décor program.",
-  openGraphTitle: "Perks & Benefits | neu events",
+  openGraphTitle: "Client Perks & Benefits | neu events",
   openGraphDescription:
     "Value-added benefits for neu events clients — from vendor discounts to referral perks and shared wedding décor.",
   path: "/perks-and-benefits",

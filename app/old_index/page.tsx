@@ -20,6 +20,7 @@ export const metadata: Metadata = buildPageMetadata({
   openGraphTitle: SITE_OG_TITLE,
   openGraphDescription: SITE_OG_DESCRIPTION,
   path: "/old_index",
+  noIndex: true,
 });
 
 export default function OldIndexPage() {

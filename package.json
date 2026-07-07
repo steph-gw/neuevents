@@ -11,10 +11,15 @@
     "optimize:featured": "node scripts/optimize-featured-images.mjs",
     "optimize:testimonials": "node scripts/optimize-testimonial-images.mjs",
     "optimize:gallery": "node scripts/optimize-gallery-images.mjs",
-    "optimize:services": "node scripts/optimize-service-images.mjs"
+    "seed:events-gallery": "node scripts/scrape-events-gallery.mjs",
+    "seed:weddings-gallery": "node scripts/scrape-weddings-gallery.mjs",
+    "optimize:services": "node scripts/optimize-service-images.mjs",
+    "convex:dev": "convex dev",
+    "convex:deploy": "convex deploy"
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.10",
+    "convex": "^1.42.1",
     "next": "^15.3.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",

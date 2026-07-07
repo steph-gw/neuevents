@@ -3,19 +3,14 @@ import ClientPerksDirectory from "@/components/perks/ClientPerksDirectory";
 import ClientPerksGate from "@/components/perks/ClientPerksGate";
 import { buildPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  ...buildPageMetadata({
-    title: "Client Perks | neu events",
-    description: "Exclusive vendor perks for neu events clients.",
-    openGraphTitle: "Client Perks | neu events",
-    openGraphDescription: "Exclusive vendor perks for neu events clients.",
-    path: "/just-for-clients",
-  }),
-  robots: {
-    index: false,
-    follow: false,
-  },
-};
+export const metadata: Metadata = buildPageMetadata({
+  title: "Client Perks Directory | neu events",
+  description: "Exclusive vendor perks for neu events clients.",
+  openGraphTitle: "Client Perks | neu events",
+  openGraphDescription: "Exclusive vendor perks for neu events clients.",
+  path: "/just-for-clients",
+  noIndex: true,
+});
 
 export default function JustForClientsPage() {
   return (

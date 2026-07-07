@@ -22,3 +22,4 @@ next-env.d.ts
 /public/images/badges/*.tif
 /public/images/badges/knot-badge-embedded.tif
 /public/images/testimonials/source/
+.env*

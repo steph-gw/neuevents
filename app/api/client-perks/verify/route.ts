@@ -10,7 +10,10 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false }, { status: 400 });
   }
 
-  const expected = process.env.CLIENT_PERKS_PASSWORD ?? "neuclient26";
+  const expected = process.env.CLIENT_PERKS_PASSWORD;
+  if (!expected) {
+    return NextResponse.json({ ok: false }, { status: 503 });
+  }
 
   if (password !== expected) {
     return NextResponse.json({ ok: false }, { status: 401 });

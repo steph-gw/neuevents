@@ -9,6 +9,10 @@
 .vercel
 npm-debug.log*
 next-env.d.ts
+*.tsbuildinfo
+
+# Gallery montage script output (regenerated locally)
+/scripts/.montages/
 
 # Original hero downloads (optimized WebP versions are committed)
 /public/images/hero/source/

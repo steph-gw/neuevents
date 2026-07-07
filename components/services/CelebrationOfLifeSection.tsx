@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import PackageContactButton from "@/components/services/PackageContactButton";
 import { CELEBRATION_OF_LIFE } from "@/lib/services-data";
 
 export default function CelebrationOfLifeSection() {
@@ -13,23 +13,20 @@ export default function CelebrationOfLifeSection() {
             <div className="svc-v2-feature-content">
               <p className="hv2-eyebrow">{feature.eyebrow}</p>
               <h2 className="svc-v2-feature-title hv2-serif">
-                {feature.title} <em>{feature.titleEm}</em>
+                {feature.titleEm ? (
+                  <>
+                    {feature.title} <em>{feature.titleEm}</em>
+                  </>
+                ) : (
+                  feature.title
+                )}
               </h2>
               <div className="svc-v2-feature-body">
-                {feature.paragraphs.map((paragraph) => {
-                  if (paragraph.includes("Contact us")) {
-                    const [before, after] = paragraph.split("Contact us");
-                    return (
-                      <p key={paragraph}>
-                        {before}
-                        <Link href="/contact">Contact us</Link>
-                        {after}
-                      </p>
-                    );
-                  }
-                  return <p key={paragraph}>{paragraph}</p>;
-                })}
+                {feature.paragraphs.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
               </div>
+              <PackageContactButton className="svc-v2-feature-cta svc-v2-pkg-contact-btn hv2-btn-primary" />
             </div>
 
             <figure className="svc-v2-feature-media">
@@ -42,11 +39,6 @@ export default function CelebrationOfLifeSection() {
                   quality={90}
                 />
               </div>
-              {feature.photoCredit ? (
-                <figcaption className="svc-v2-feature-credit">
-                  Photo: {feature.photoCredit}
-                </figcaption>
-              ) : null}
             </figure>
           </div>
         </article>

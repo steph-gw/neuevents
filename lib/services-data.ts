@@ -16,8 +16,12 @@ export const SERVICES_CATEGORIES = HOME_SERVICES.map((service, index) => ({
 export type WeddingPackage = {
   id: string;
   eyebrow: string;
+  title: string;
+  titleEm?: string;
   price: string;
   description: string;
+  lead: string;
+  intro?: string;
   includes: readonly string[];
   footnote?: string;
   pdfHref?: string;
@@ -29,9 +33,14 @@ export const WEDDING_PACKAGES: readonly WeddingPackage[] = [
   {
     id: "the-big-day",
     eyebrow: "The Big Day",
+    title: "The Big",
+    titleEm: "Day",
     price: "Starting at $3,500",
     description:
       "Enjoy start-to-finish coordination on your wedding day for the greatest peace of mind.",
+    lead:
+      "You've planned every detail — now let us bring it all together on the day itself with calm, expert coordination from first look to final send-off.",
+    intro: "Ideal for couples who've handled planning and want flawless day-of execution.",
     includes: [
       "An extensive (3–4 hr) pre-wedding briefing session",
       "Timeline and program review at the briefing session",
@@ -41,13 +50,21 @@ export const WEDDING_PACKAGES: readonly WeddingPackage[] = [
       "Up to three coordinators (and sometimes more!) on-site, overseeing every detail",
     ],
     pdfHref: WEDDING_SERVICES_PDF,
+    image: "/images/services/the-big-day.png",
+    imageAlt:
+      "Bride and groom in traditional wedding attire with floral garlands during an outdoor ceremony",
   },
   {
     id: "wedding-wrap-up",
     eyebrow: "Wedding Wrap Up",
+    title: "Wedding Wrap",
+    titleEm: "Up",
     price: "Starting at $6,000",
     description:
       "With just three months to go before your wedding day, feel confident that all of the final details will be carefully considered and addressed.",
+    lead:
+      "With three months to go, we step in to finalize timelines, confirm vendors, and make sure nothing slips through the cracks before your wedding day.",
+    intro: "Includes everything in The Big Day",
     includes: [
       "Regular meetings (in person, by phone, or by Skype) with your consultant",
       "Extensive support via email and phone to keep you on track as the big day approaches",
@@ -56,13 +73,21 @@ export const WEDDING_PACKAGES: readonly WeddingPackage[] = [
       "Includes The Big Day services",
     ],
     pdfHref: WEDDING_SERVICES_PDF,
+    image: "/images/services/wedding-wrap-up.png",
+    imageAlt:
+      "Elegant semi-naked wedding cake with white roses and greenery on a gold stand",
   },
   {
     id: "wedding-coordination",
     eyebrow: "Wedding Coordination",
+    title: "Wedding",
+    titleEm: "Coordination",
     price: "Starting at $9,000",
     description:
       "Six months before your wedding day, your coordinator will come on board to help you coordinate all vendors booked for your wedding, and to advise and guide you through the rest of the wedding planning process.",
+    lead:
+      "Six months out, your dedicated coordinator manages vendor relationships, keeps planning on schedule, and guides you through every decision still ahead.",
+    intro: "Includes everything in Wedding Wrap Up",
     includes: [
       "Coordination of vendors' services",
       "Appointment and meeting scheduling",
@@ -72,13 +97,21 @@ export const WEDDING_PACKAGES: readonly WeddingPackage[] = [
       "Includes Wedding Wrap-Up services",
     ],
     pdfHref: WEDDING_SERVICES_PDF,
+    image: "/images/services/wedding-coordination.png",
+    imageAlt:
+      "Outdoor wedding reception under a white tent with tropical floral centerpieces and elegantly set round tables",
   },
   {
     id: "complete-consultation",
     eyebrow: "Complete Consultation & Coordination",
+    title: "Complete Consultation",
+    titleEm: "& Coordination",
     price: "Starting at $14,000",
     description:
       "Enjoy a year's worth of start-to-finish planning including vendor booking, logistics, and on-site (\"day of\") coordination.",
+    lead:
+      "A full year of hands-on planning — from vendor booking and budget tracking to logistics and on-site coordination — so you can enjoy the journey, not just the day.",
+    intro: "Includes everything in Wedding Coordination",
     includes: [
       "Regular meetings to keep plans moving forward",
       "Unlimited emails and phone calls within the year leading up to your wedding",
@@ -89,13 +122,21 @@ export const WEDDING_PACKAGES: readonly WeddingPackage[] = [
       "Includes Wedding Coordination services",
     ],
     pdfHref: WEDDING_SERVICES_PDF,
+    image: "/images/services/complete-consultation-coordination.png",
+    imageAlt:
+      "Collage of a tropical Hawai'i wedding — ceremony under a wooden arch, bride and groom with guests, and lush floral details",
   },
   {
     id: "the-full-experience",
     eyebrow: "The Full Experience",
+    title: "The Full",
+    titleEm: "Experience",
     price: "Starting at $16,000",
     description:
       "Our premium service for the most discriminating couple! neu events will personally help you design and plan the ultimate wedding with as much as a year's worth of planning services at your disposal.",
+    lead:
+      "Our most comprehensive offering — bespoke design, vendor curation, and white-glove planning for couples who want every detail handled with care and creativity.",
+    intro: "Includes everything in Complete Consultation & Coordination",
     includes: [
       "Vendor booking assistance (research of venue and vendors; presentation of options; and scheduling and attendance of site visits and consultations) to best enable you to pick key elements and services for your wedding",
       "Consultation and coordination of various wedding-related services, including pre-wedding activities for wedding party and out-of-town guests, and post-wedding events",
@@ -139,8 +180,8 @@ export const EVENT_SERVICE_FEATURES: readonly ServiceFeature[] = [
     title: "Effortless Event",
     titleEm: "Planning",
     paragraphs: [
-      "Planning an event can be overwhelming. With so many moving parts, it is easy to feel stressed and lost in the details. That is where we come in! Our expert event planning services are designed to save you time and eliminate the hassle, so you can focus on what matters most – enjoying the experience.",
-      "From concept to execution, our team of professionals will handle every aspect of your event, ensuring everything runs smoothly and on schedule. With decades of experience and a keen eye for detail, we take the guesswork out of the process, making your event not only stress-free but unforgettable.",
+      "Planning an event can be overwhelming — we handle the details so you can focus on enjoying the experience.",
+      "From concept to execution, our team manages every aspect with precision, keeping your event stress-free and unforgettable.",
     ],
     bullets: [
       "Full-service event coordination (corporate, social, weddings, and more)",
@@ -149,9 +190,9 @@ export const EVENT_SERVICE_FEATURES: readonly ServiceFeature[] = [
       "Budget management and cost-saving strategies",
       "Personalized attention to your unique vision",
     ],
-    image: "/images/services/event-services.jpg",
+    image: "/images/hero/hero-02.webp",
     imageAlt:
-      "A wide view of a fully staged ballroom featuring coordinated round-table seating, refined place settings, and warm uplighting that transforms the space for a large-scale gala.",
+      "Public Schools of Hawaiʻi Foundation gala dinner with guests seated at round tables in a ballroom",
     photoCredit: "Vivir Photography",
   },
   {
@@ -162,9 +203,9 @@ export const EVENT_SERVICE_FEATURES: readonly ServiceFeature[] = [
     paragraphs: [
       "We design the guest's experience from a creative and aesthetic perspective.",
     ],
-    image: "/images/hero/hero-02.webp",
+    image: "/images/services/event-design.png",
     imageAlt:
-      "Public Schools of Hawaiʻi Foundation gala dinner with guests seated at round tables in a ballroom",
+      "Group at the Public Schools of Hawaiʻi Foundation dinner holding a ceremonial check in front of a branded step-and-repeat backdrop",
     photoCredit: "Love Story Weddings",
     reverse: true,
   },
@@ -176,9 +217,9 @@ export const EVENT_SERVICE_FEATURES: readonly ServiceFeature[] = [
     paragraphs: [
       "Don't know where to begin? With our event production services we'll take you through the planning process from start-to-finish. We will research and bring in the vendors, coordinate logistics, prepare your timeline, and meet with you regularly to help you every step of the way.",
     ],
-    image: "/images/hero/hero-10.jpg",
+    image: "/images/services/event-production.png",
     imageAlt:
-      "Elegantly set wedding reception tables with floral centerpieces and candles",
+      "Event booth setup for Hawaiʻi USA Federal Credit Union with branded table display and promotional materials",
     photoCredit: "Eric Arii",
   },
 ] as const;
@@ -213,17 +254,14 @@ export const EVENT_PAST_CLIENTS = [
 export const CELEBRATION_OF_LIFE: ServiceFeature = {
   id: "celebration-of-life",
   eyebrow: "Celebration of Life",
-  title: "Honoring a",
-  titleEm: "Life Well Lived",
+  title: "Honoring a Life Well Lived",
   paragraphs: [
-    "It is always hard to say goodbye to loved ones, but what better way to honor them than with a gathering of family and friends to cherish memories with them (if they are still with us), or of them (if they have passed).",
-    "We make the difficult task of preparing a celebration of life event manageable by handling the details for you so that you can focus on the \"big picture,\" which is spending time with those who are dear and honoring the life of someone special.",
-    "Contact us for information on our planning services for Celebrations of Life.",
+    "Saying goodbye is never easy, but gathering family and friends to share memories is a meaningful way to honor someone you love.",
+    "We handle the planning and coordination so you can focus on what matters most — being present with the people who matter and celebrating a life well lived.",
   ],
   image: "/images/services/celebration-of-life.jpg",
   imageAlt:
     "Soft white floral arrangement nestled around a lit ivory taper candle framed in a clear glass vase.",
-  photoCredit: "The Present Perfect",
 };
 
 export type TravelServiceCard = {
@@ -231,6 +269,8 @@ export type TravelServiceCard = {
   eyebrow: string;
   title: string;
   description: string;
+  image: string;
+  imageAlt: string;
   ctaLabel: string;
   ctaHref: string;
 };
@@ -242,6 +282,9 @@ export const TRAVEL_SERVICE_CARDS: readonly TravelServiceCard[] = [
     title: "Hotel & Room Blocks",
     description:
       "Find the perfect hotel for your group and save up to 22%. This is an excellent way to reserve your room block and receive competitive quotes.",
+    image: "/images/services/travel-accommodations.jpg",
+    imageAlt:
+      "White tropical hotel building with glass balconies and palm trees in the courtyard",
     ctaLabel: "Book Accommodations",
     ctaHref:
       "https://neuevents.partners.engine.com/new-trip?utm_source=neuevents&utm_medium=channel&utm_campaign=2025-q2-neuevents-channel-groups-a01Hs00001zyi7bIAA&referral=MKT%20-%20Partner",
@@ -252,6 +295,8 @@ export const TRAVEL_SERVICE_CARDS: readonly TravelServiceCard[] = [
     title: "Hawai'i Experiences",
     description:
       "Interested in lu`au, water sports, cruises, and more? Book your Hawai'i activities here!",
+    image: "/images/services/travel-activities.jpg",
+    imageAlt: "Hula dancers performing on stage in traditional green dresses and white leis",
     ctaLabel: "Book Activities",
     ctaHref: "https://neuevents.activiter.com/",
   },
@@ -261,6 +306,9 @@ export const TRAVEL_SERVICE_CARDS: readonly TravelServiceCard[] = [
     title: "Blue Diamond Car Rental",
     description:
       "Rent a car with Blue Diamond Car Rental, Hawaii's top-rated rental company.",
+    image: "/images/services/travel-car-rental.png",
+    imageAlt:
+      "White open-top Ford Bronco parked on a scenic coastal road beside turquoise ocean water",
     ctaLabel: "Book a Car",
     ctaHref: "https://cars.bluediamondvacations.com?PC=C-NEU",
   },

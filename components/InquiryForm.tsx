@@ -8,18 +8,20 @@ import {
   useEffect,
   useRef,
   useState,
+  type RefObject,
 } from "react";
 import { createPortal } from "react-dom";
-import { usePathname } from "next/navigation";
-import { INQUIRY_FORM_SRC, LEAD_CONNECTOR_FORM_ID } from "@/lib/contact-data";
+import { useEmbedFormResize } from "@/hooks/useEmbedFormResize";
+import {
+  EMBED_FORM_SCRIPT_SRC,
+  getEmbedIframeDataAttributes,
+} from "@/lib/embed-form";
+import { INQUIRY_FORM_SRC } from "@/lib/contact-data";
 
-type SlotName = "preload" | "contact" | "modal";
-
-const MIN_LOADER_MS = 800;
+type SlotName = "preload" | "modal";
 
 type InquiryFormContextValue = {
   registerSlot: (name: SlotName, el: HTMLElement | null) => void;
-  loaderVisible: boolean;
 };
 
 const InquiryFormContext = createContext<InquiryFormContextValue | null>(null);
@@ -32,6 +34,29 @@ function useInquiryForm() {
   return ctx;
 }
 
+function InquiryEmbedIframe({
+  iframeRef,
+  height,
+}: {
+  iframeRef: RefObject<HTMLIFrameElement | null>;
+  height: number;
+}) {
+  return (
+    <iframe
+      ref={iframeRef}
+      src={INQUIRY_FORM_SRC}
+      style={{
+        width: "100%",
+        height: `${height}px`,
+        border: "none",
+        borderRadius: 0,
+      }}
+      {...getEmbedIframeDataAttributes(height)}
+      title="Website Inquiry Form"
+    />
+  );
+}
+
 export function InquiryFormProvider({
   children,
   modalOpen,
@@ -39,15 +64,10 @@ export function InquiryFormProvider({
   children: React.ReactNode;
   modalOpen: boolean;
 }) {
-  const pathname = usePathname();
   const [slots, setSlots] = useState<Partial<Record<SlotName, HTMLElement>>>({});
-  const [isReady, setIsReady] = useState(false);
-  const [loaderVisible, setLoaderVisible] = useState(true);
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const preloadRef = useRef<HTMLDivElement>(null);
-  const readyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const loaderTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const activatedAtRef = useRef(Date.now());
+  const height = useEmbedFormResize(iframeRef);
 
   const registerSlot = useCallback((name: SlotName, el: HTMLElement | null) => {
     setSlots((prev) => {
@@ -63,106 +83,20 @@ export function InquiryFormProvider({
     return () => registerSlot("preload", null);
   }, [registerSlot]);
 
-  const markReady = useCallback(() => {
-    if (readyTimerRef.current) clearTimeout(readyTimerRef.current);
-    readyTimerRef.current = setTimeout(() => {
-      setIsReady(true);
-    }, 350);
-  }, []);
-
-  const handleIframeLoad = useCallback(() => {
-    markReady();
-  }, [markReady]);
-
-  useEffect(() => {
-    const onMessage = (e: MessageEvent) => {
-      if (!iframeRef.current) return;
-
-      const height = Number(e.data?.height);
-      if (e.data?.type === "embed_resize" && Number.isFinite(height) && height >= 160) {
-        iframeRef.current.style.height = `${height}px`;
-        markReady();
-      }
-    };
-
-    window.addEventListener("message", onMessage);
-    return () => {
-      window.removeEventListener("message", onMessage);
-      if (readyTimerRef.current) clearTimeout(readyTimerRef.current);
-    };
-  }, [markReady]);
-
-  const activeSlot: SlotName = modalOpen
-    ? "modal"
-    : pathname === "/contact"
-      ? "contact"
-      : "preload";
-
-  const isUserFacing = activeSlot !== "preload";
-
-  useEffect(() => {
-    if (!isUserFacing) return;
-
-    activatedAtRef.current = Date.now();
-    setLoaderVisible(true);
-
-    if (loaderTimerRef.current) clearTimeout(loaderTimerRef.current);
-  }, [isUserFacing, modalOpen, pathname]);
-
-  useEffect(() => {
-    if (!isUserFacing || !isReady) return;
-
-    const elapsed = Date.now() - activatedAtRef.current;
-    const remaining = Math.max(0, MIN_LOADER_MS - elapsed);
-
-    if (loaderTimerRef.current) clearTimeout(loaderTimerRef.current);
-    loaderTimerRef.current = setTimeout(() => {
-      setLoaderVisible(false);
-    }, remaining);
-
-    return () => {
-      if (loaderTimerRef.current) clearTimeout(loaderTimerRef.current);
-    };
-  }, [isUserFacing, isReady, modalOpen, pathname]);
-
-  const target = slots[activeSlot] ?? slots.preload;
-  const showForm = isReady && !loaderVisible;
-
-  const iframeId = `inline-${LEAD_CONNECTOR_FORM_ID}`;
-
-  const iframe = (
-    <iframe
-      ref={iframeRef}
-      src={INQUIRY_FORM_SRC}
-      onLoad={handleIframeLoad}
-      style={{ width: "100%", height: "1574px", border: "none", borderRadius: 0 }}
-      id={iframeId}
-      data-layout="{'id':'INLINE'}"
-      data-trigger-type="alwaysShow"
-      data-trigger-value=""
-      data-activation-type="alwaysActivated"
-      data-activation-value=""
-      data-deactivation-type="neverDeactivate"
-      data-deactivation-value=""
-      data-form-name="Website Inquiry Form"
-      data-height="1574"
-      data-layout-iframe-id={iframeId}
-      data-form-id={LEAD_CONNECTOR_FORM_ID}
-      title="Website Inquiry Form"
-    />
-  );
+  const target = modalOpen ? (slots.modal ?? slots.preload) : slots.preload;
 
   return (
-    <InquiryFormContext.Provider value={{ registerSlot, loaderVisible }}>
-      <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="lazyOnload" />
+    <InquiryFormContext.Provider value={{ registerSlot }}>
+      <Script src={EMBED_FORM_SCRIPT_SRC} strategy="lazyOnload" />
       {children}
       <div ref={preloadRef} className="inquiry-form-preload" aria-hidden="true" />
       {target &&
         createPortal(
           <div
-            className={`inquiry-embed${showForm ? " inquiry-embed--ready" : " inquiry-embed--loading"}`}
+            className="inquiry-embed"
+            style={{ height: `${height}px`, overflow: "hidden" }}
           >
-            {iframe}
+            <InquiryEmbedIframe iframeRef={iframeRef} height={height} />
           </div>,
           target,
         )}
@@ -171,12 +105,12 @@ export function InquiryFormProvider({
 }
 
 type InquiryFormSlotProps = {
-  slot: Exclude<SlotName, "preload">;
+  slot: "modal";
   className?: string;
 };
 
 export function InquiryFormSlot({ slot, className }: InquiryFormSlotProps) {
-  const { registerSlot, loaderVisible } = useInquiryForm();
+  const { registerSlot } = useInquiryForm();
 
   const setContainerRef = useCallback(
     (el: HTMLDivElement | null) => {
@@ -191,14 +125,6 @@ export function InquiryFormSlot({ slot, className }: InquiryFormSlotProps) {
 
   return (
     <div className={wrapClass}>
-      <div
-        className={`inquiry-embed-loader${loaderVisible ? "" : " inquiry-embed-loader--done"}`}
-        aria-live="polite"
-        aria-busy={loaderVisible}
-      >
-        <span className="inquiry-embed-spinner" aria-hidden />
-        <p className="inquiry-embed-loader-text">Loading form…</p>
-      </div>
       <div ref={setContainerRef} className="inquiry-form-slot" />
     </div>
   );

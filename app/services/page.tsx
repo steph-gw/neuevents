@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import CtaBanner from "@/components/home/CtaBanner";
 import CelebrationOfLifeSection from "@/components/services/CelebrationOfLifeSection";
 import EventServicesSection from "@/components/services/EventServicesSection";
 import ServicesOverview from "@/components/services/ServicesOverview";
@@ -25,7 +24,6 @@ export default function ServicesPage() {
       <EventServicesSection />
       <CelebrationOfLifeSection />
       <TravelServicesSection />
-      <CtaBanner />
     </main>
   );
 }

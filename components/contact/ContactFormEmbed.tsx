@@ -1,35 +1,36 @@
 "use client";
 
 import Script from "next/script";
-import { INQUIRY_FORM_SRC, LEAD_CONNECTOR_FORM_ID } from "@/lib/contact-data";
+import { useRef } from "react";
+import { useEmbedFormResize } from "@/hooks/useEmbedFormResize";
+import {
+  EMBED_FORM_SCRIPT_SRC,
+  getEmbedIframeDataAttributes,
+} from "@/lib/embed-form";
+import { INQUIRY_FORM_SRC } from "@/lib/contact-data";
 
 export default function ContactFormEmbed() {
-  const iframeId = `inline-${LEAD_CONNECTOR_FORM_ID}`;
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const height = useEmbedFormResize(iframeRef);
 
   return (
-    <div className="contact-form-embed">
+    <div
+      className="contact-form-embed"
+      style={{ height: `${height}px`, overflow: "hidden" }}
+    >
       <iframe
+        ref={iframeRef}
         src={INQUIRY_FORM_SRC}
-        style={{ width: "100%", height: "1574px", border: "none", borderRadius: 0 }}
-        scrolling="no"
-        id={iframeId}
-        data-layout="{'id':'INLINE'}"
-        data-trigger-type="alwaysShow"
-        data-trigger-value=""
-        data-activation-type="alwaysActivated"
-        data-activation-value=""
-        data-deactivation-type="neverDeactivate"
-        data-deactivation-value=""
-        data-form-name="Website Inquiry Form"
-        data-height="1574"
-        data-layout-iframe-id={iframeId}
-        data-form-id={LEAD_CONNECTOR_FORM_ID}
+        style={{
+          width: "100%",
+          height: `${height}px`,
+          border: "none",
+          borderRadius: 0,
+        }}
+        {...getEmbedIframeDataAttributes(height)}
         title="Website Inquiry Form"
       />
-      <Script
-        src="https://link.msgsndr.com/js/form_embed.js"
-        strategy="afterInteractive"
-      />
+      <Script src={EMBED_FORM_SCRIPT_SRC} strategy="afterInteractive" />
     </div>
   );
 }

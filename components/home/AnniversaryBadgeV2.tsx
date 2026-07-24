@@ -4,6 +4,7 @@ import { Alice, Outfit } from "next/font/google";
 import { useId, useMemo } from "react";
 
 const ESTABLISHED_YEAR = 2000;
+const YEARS_CELEBRATING = 26;
 const CURVE_TEXT_SIZE = 56;
 const NUMERAL_SIZE = 272;
 
@@ -86,7 +87,7 @@ export default function AnniversaryBadgeV2({ className }: AnniversaryBadgeV2Prop
   const topArcId = `topArc-${uid}`;
   const bottomArcId = `bottomArc-${uid}`;
   const geometry = useMemo(buildBadgeGeometry, []);
-  const yearsValue = new Date().getFullYear() - ESTABLISHED_YEAR;
+  const yearsValue = YEARS_CELEBRATING;
   const yearStr = String(yearsValue);
 
   return (
@@ -147,11 +148,11 @@ export default function AnniversaryBadgeV2({ className }: AnniversaryBadgeV2Prop
       <text
         fontSize={CURVE_TEXT_SIZE}
         fill="#111110"
-        letterSpacing={3}
+        letterSpacing={1.5}
         style={{ fontFamily: outfit.style.fontFamily, fontWeight: 600 }}
       >
         <textPath href={`#${topArcId}`} startOffset="50%" textAnchor="middle">
-          ESTABLISHED 2000
+          ESTABLISHED IN 2000
         </textPath>
       </text>
 

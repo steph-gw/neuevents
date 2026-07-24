@@ -2,6 +2,18 @@ import Image from "next/image";
 import PackageContactButton from "@/components/services/PackageContactButton";
 import { CELEBRATION_OF_LIFE } from "@/lib/services-data";
 
+function formatPrice(price: string) {
+  const match = price.match(/^(Starting at)\s+(\$.+)/);
+  if (!match) return price;
+
+  return (
+    <>
+      {match[1]}{" "}
+      <span className="svc-v2-plan-price-amount">{match[2]}</span>
+    </>
+  );
+}
+
 export default function CelebrationOfLifeSection() {
   const feature = CELEBRATION_OF_LIFE;
 
@@ -12,6 +24,9 @@ export default function CelebrationOfLifeSection() {
           <div className="svc-v2-feature-inner">
             <div className="svc-v2-feature-content">
               <p className="hv2-eyebrow">{feature.eyebrow}</p>
+              {feature.price ? (
+                <p className="svc-v2-plan-price">{formatPrice(feature.price)}</p>
+              ) : null}
               <h2 className="svc-v2-feature-title hv2-serif">
                 {feature.titleEm ? (
                   <>

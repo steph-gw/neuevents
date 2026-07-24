@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import PhotoCreditOverlay from "@/components/PhotoCreditOverlay";
 import { SERVICES_CATEGORIES } from "@/lib/services-data";
 
 export default function ServicesOverview() {
@@ -22,27 +23,38 @@ export default function ServicesOverview() {
       <nav className="svc-v2-category-nav" aria-label="Service categories">
         <div className="svc-v2-category-nav-inner hv2-wrap">
           {SERVICES_CATEGORIES.map((category) => (
-            <Link
-              key={category.anchor}
-              href={`#${category.anchor}`}
-              className="svc-v2-category-card"
-            >
+            <article key={category.anchor} className="svc-v2-category-card">
               <div className="svc-v2-category-card-media">
-                <Image
-                  src={category.image}
-                  alt={category.imageAlt}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 280px"
-                  quality={90}
-                />
+                <Link
+                  href={`#${category.anchor}`}
+                  className="svc-v2-category-card-media-link"
+                  aria-label={`Explore ${category.titleLines.join(" ")}`}
+                >
+                  <Image
+                    src={category.image}
+                    alt={category.imageAlt}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 280px"
+                    quality={90}
+                  />
+                </Link>
+                {"photoCredit" in category && category.photoCredit ? (
+                  <PhotoCreditOverlay
+                    name={category.photoCredit.name}
+                    href={category.photoCredit.href}
+                  />
+                ) : null}
               </div>
-              <div className="svc-v2-category-card-body">
+              <Link
+                href={`#${category.anchor}`}
+                className="svc-v2-category-card-body"
+              >
                 <p className="svc-v2-category-card-title">
                   {category.titleLines.join(" ")}
                 </p>
                 <span className="svc-v2-category-card-link">Explore</span>
-              </div>
-            </Link>
+              </Link>
+            </article>
           ))}
         </div>
       </nav>

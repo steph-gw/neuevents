@@ -28,10 +28,10 @@ if (fs.existsSync(envPath)) {
 const SLUG_MAP = {
   "PUBLIC SCHOOLS OF HAWAIʻI FOUNDATION 2026": "public-schools-hawaii-2026",
   "HAH 2025 AWARDS AND SCHOLARSHIP GALA": "hah-awards-scholarship-gala-mwxfe",
-  "ANNUAL HSCADV CONFERENCE 2025": "hscadv-conference-2025",
+  "HSCADV CONFERENCE 2025": "hscadv-conference-2025",
   "LUANA KAI STYLED PHOTO SHOOT": "styled-photo-shoot",
-  "HAH AWARDS AND SCHOLARSHIP GALA": "hah-awards-scholarship-gala",
-  "ANNUAL HSCADV CONFERENCE 2024": "hscadv-conference-2024",
+  "HAH AWARDS AND SCHOLARSHIP GALA 2024": "hah-awards-scholarship-gala",
+  "HSCADV CONFERENCE 2024": "hscadv-conference-2024",
   "PUBLIC SCHOOLS OF HAWAIʻI FOUNDATION": "public-schools-hawaii",
   "EQUALLY WED PHOTOSHOOT": "equally-wed-photoshoot",
   "KAKAʻAKO WINE LOFT & SAKE COLLECTION GRAND OPENING": "kakaako-wine-loft-sake-collection-grand-opening",

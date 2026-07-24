@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import PackageContactButton from "@/components/services/PackageContactButton";
+import PhotoCreditOverlay from "@/components/PhotoCreditOverlay";
 import type { ServiceFeature } from "@/lib/services-data";
 
 function ExpandIndicator({ open }: { open: boolean }) {
@@ -60,6 +61,12 @@ export default function EventPlanningCard({ feature }: { feature: ServiceFeature
             sizes="(max-width: 900px) 100vw, 50vw"
             quality={90}
           />
+          {feature.photoCredit ? (
+            <PhotoCreditOverlay
+              name={feature.photoCredit.name}
+              href={feature.photoCredit.href}
+            />
+          ) : null}
         </div>
       </div>
 

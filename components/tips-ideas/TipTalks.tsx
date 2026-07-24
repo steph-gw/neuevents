@@ -1,4 +1,5 @@
 import Image from "next/image";
+import PhotoCreditOverlay from "@/components/PhotoCreditOverlay";
 import { TIP_TALKS } from "@/lib/tips-ideas-tip-talks-data";
 
 export default function TipTalks() {
@@ -35,6 +36,12 @@ export default function TipTalks() {
                       sizes="(max-width: 900px) 100vw, 520px"
                       style={tip.id === "pets" ? { objectPosition: "center 70%" } : undefined}
                     />
+                    {tip.photoCredit ? (
+                      <PhotoCreditOverlay
+                        name={tip.photoCredit.name}
+                        href={tip.photoCredit.href}
+                      />
+                    ) : null}
                   </div>
                 </figure>
 

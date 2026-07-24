@@ -114,31 +114,61 @@ export const FEATURED_WEDDINGS = [
     image: "/images/featured/featured-1.webp",
     alt: "Rachel and Jared on their wedding day",
     names: "Rachel + Jared",
+    href: "/gallery/weddings/rachel-jared",
+    photoCredit: {
+      name: "MD Photography",
+      href: "https://mdphotographyhawaii.com/",
+    },
   },
   {
     image: "/images/featured/featured-2.webp",
     alt: "Kavya and Tommy kissing at their fusion wedding ceremony",
     names: "Kavya + Tommy",
+    href: "/gallery/weddings/kavya-tommy",
+    photoCredit: {
+      name: "Sea to Sky Weddings",
+      href: "https://www.seatosky-weddings.com/",
+    },
   },
   {
     image: "/images/featured/holly-komo.webp",
     alt: "Holly and Komo at a waterfall in Hawaii on their wedding day",
     names: "Holly + Komo",
+    href: "/gallery/weddings/holly-komo",
+    photoCredit: {
+      name: "Jeff Hall Photography",
+      href: "https://www.jeffhallphotos.com/",
+    },
   },
   {
     image: "/images/featured/pshf-foundation-2026.webp",
     alt: "Public Schools of Hawaii Foundation 2026 dinner group photo",
     names: "Public Schools of Hawaii Foundation 2026",
+    href: "/gallery/events/public-schools-hawaii-2026",
+    photoCredit: {
+      name: "Vivir Photography",
+      href: "https://vivirphotography.com/",
+    },
   },
   {
     image: "/images/featured/hah-2025-gala.webp",
     alt: "Guests seated at a banquet table during the HAH 2025 Awards and Scholarship Gala",
     names: "HAH 2025 Awards and Scholarship Gala",
+    href: "/gallery/events/hah-awards-scholarship-gala-mwxfe",
+    photoCredit: {
+      name: "ACES XP",
+      href: "http://www.acesxp.com/photography/",
+    },
   },
   {
     image: "/images/featured/hscadv-conference-2025.webp",
-    alt: "Attendees at the Annual HSCADV Conference 2025",
-    names: "Annual HSCADV Conference 2025",
+    alt: "Attendees at the HSCADV Conference 2025",
+    names: "HSCADV Conference 2025",
+    href: "/gallery/events/hscadv-conference-2025",
+    photoCredit: {
+      name: "Vivir Photography",
+      href: "https://vivirphotography.com/",
+    },
   },
 ] as const;
 
@@ -208,10 +238,14 @@ export const HOME_SERVICES = [
   {
     image: "/images/services/wedding-services.jpg",
     imageAlt:
-      "Outdoor wedding ceremony with white chairs and a geometric arch beneath a mossy tropical tree",
+      "Elegant ballroom wedding reception with round tables, white florals, and chair bows under warm chandelier light",
     titleLines: ["Wedding Services"],
     description:
       "No matter the size, every wedding deserves careful planning and attention. Let us bring you peace of mind on your big day, knowing that we're there to help with all of your details.",
+    photoCredit: {
+      name: "The Present Perfect",
+      href: "https://the-present-perfect.com/",
+    },
   },
   {
     image: "/images/services/event-services.jpg",
@@ -220,12 +254,16 @@ export const HOME_SERVICES = [
     titleLines: ["Event Services"],
     description:
       "Events and banquets involve a lot of planning and coordination. We can bring your vision to life with our experience and expertise at planning events, from private dinners to large corporate award galas.",
+    photoCredit: {
+      name: "ACES XP",
+      href: "http://www.acesxp.com/photography/",
+    },
   },
   {
     image: "/images/services/celebration-of-life.jpg",
     imageAlt:
       "White flowers and tall cream taper candles in glass cylinders for a peaceful memorial gathering",
-    titleLines: ["Celebration of Life"],
+    titleLines: ["Celebrations of Life"],
     description:
       "It is always hard to say goodbye to loved ones, but what better way to honor them than with a gathering of family and friends to cherish memories with them (if they are still with us), or of them (if they have passed).",
   },
@@ -236,6 +274,10 @@ export const HOME_SERVICES = [
     titleLines: ["Travel Services"],
     description:
       "From travel needs to activities, check out some of our resources to help your guests and wedding party make the most of their time in Hawai'i.",
+    photoCredit: {
+      name: "Robert Carlo NY",
+      href: "https://robertcarlo.com/",
+    },
   },
 ] as const;
 

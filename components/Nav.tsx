@@ -83,22 +83,22 @@ function LegacyNav() {
     >
       <Image
         src="/images/logo.png"
-        alt="neu events — naturally elegant & unforgettable"
+        alt="neuevents logo - Naturally Elegant & Unforgettable"
         width={508}
-        height={107}
+        height={491}
         priority
-        sizes="(max-width: 768px) 160px, 200px"
+        sizes="(max-width: 768px) 52px, 64px"
       />
     </a>
   ) : (
     <Link href="/" className="nav-logo" aria-label="neu events home">
       <Image
         src="/images/logo.png"
-        alt="neu events — naturally elegant & unforgettable"
+        alt="neuevents logo - Naturally Elegant & Unforgettable"
         width={508}
-        height={107}
+        height={491}
         priority
-        sizes="(max-width: 768px) 160px, 200px"
+        sizes="(max-width: 768px) 52px, 64px"
       />
     </Link>
   );
@@ -176,11 +176,8 @@ function SiteNav() {
   const isHome = pathname === "/";
   const hasCreamHeader =
     pathname === "/contact" || pathname === "/just-for-clients";
-  const hasCreamDeepHeader = pathname === "/gallery";
-  const hasDarkHeader =
-    pathname === "/tips-ideas" ||
-    pathname === "/perks-and-benefits" ||
-    pathname === "/services";
+  const hasCreamDeepHeader =
+    pathname === "/gallery" || pathname === "/tips-ideas";
   const [mounted, setMounted] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -217,6 +214,17 @@ function SiteNav() {
 
   const closeMenu = () => setMenuOpen(false);
 
+  const logoImage = (
+    <Image
+      src="/images/logo.png"
+      alt="neuevents logo - Naturally Elegant & Unforgettable"
+      width={508}
+      height={491}
+      priority
+      sizes="(max-width: 900px) 56px, 72px"
+    />
+  );
+
   const logo = isHome ? (
     <a
       href="#"
@@ -227,17 +235,17 @@ function SiteNav() {
         window.scrollTo({ top: 0, behavior: "smooth" });
       }}
     >
-      neu<span className="site-logo-mark">events</span>
+      {logoImage}
     </a>
   ) : (
     <Link href="/" className="site-logo" aria-label="neu events home">
-      neu<span className="site-logo-mark">events</span>
+      {logoImage}
     </Link>
   );
 
   return (
     <header
-      className={`site-header${scrolled ? " site-header--scrolled" : ""}${hasCreamHeader ? " site-header--cream" : ""}${hasCreamDeepHeader ? " site-header--cream-deep" : ""}${hasDarkHeader ? " site-header--dark" : ""}`}
+      className={`site-header${scrolled ? " site-header--scrolled" : ""}${hasCreamHeader ? " site-header--cream" : ""}${hasCreamDeepHeader ? " site-header--cream-deep" : ""}`}
     >
       <nav
         className={`site-nav${menuOpen ? " site-nav--open" : ""}`}

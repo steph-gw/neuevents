@@ -47,11 +47,15 @@ const MINOR_WORDS = new Set([
   "of", "on", "or", "the", "to", "with", "vs",
 ]);
 
+/** Kept fully uppercase when title-casing gallery names. */
+const ACRONYMS = new Set(["hah", "hscadv"]);
+
 export function toTitleCase(input: string): string {
   const words = input.trim().toLowerCase().split(/(\s+)/);
   return words
     .map((word, i) => {
       if (/^\s+$/.test(word) || word.length === 0) return word;
+      if (ACRONYMS.has(word)) return word.toUpperCase();
       const isFirst = i === 0;
       const isLast = i === words.length - 1;
       if (!isFirst && !isLast && MINOR_WORDS.has(word)) return word;

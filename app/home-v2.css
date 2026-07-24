@@ -202,29 +202,23 @@ body:not(.legacy-home) .site-nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 62px;
-  padding: 12px var(--hv2-page-gutter);
+  min-height: 92px;
+  padding: 10px var(--hv2-page-gutter);
 }
 
 body:not(.legacy-home) .site-logo {
   display: inline-flex;
   align-items: center;
   align-self: center;
-  font-family: var(--hv2-sans);
-  font-size: 1.85rem;
-  font-weight: 400;
-  letter-spacing: 0.01em;
-  color: var(--hv2-logo-light);
-  line-height: 1;
+  line-height: 0;
   margin: 0;
-  padding: 0 0 3px;
-  transform: translateY(-1px);
+  padding: 0;
 }
 
-body:not(.legacy-home) .site-logo-mark {
-  font-family: var(--hv2-sans);
-  color: var(--hv2-logo-dark);
-  font-weight: 400;
+body:not(.legacy-home) .site-logo img {
+  display: block;
+  width: auto;
+  height: 72px;
 }
 
 body:not(.legacy-home) .site-nav-links {
@@ -605,7 +599,7 @@ body:not(.legacy-home) .hv2-sprig svg {
 /* ─── Sections ──────────────────────────────────────────────── */
 body:not(.legacy-home) .hv2-section {
   padding: 120px 0;
-  scroll-margin-top: 72px;
+  scroll-margin-top: 92px;
 }
 
 body:not(.legacy-home) .hv2-section--gallery {
@@ -683,6 +677,41 @@ body:not(.legacy-home) .hv2-service-media {
 
 body:not(.legacy-home) .hv2-service-media img {
   object-fit: cover;
+}
+
+body:not(.legacy-home) .hv2-photo-credit {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  z-index: 2;
+  margin: 0;
+  max-width: calc(100% - 24px);
+}
+
+body:not(.legacy-home) .hv2-photo-credit-pill {
+  display: inline-block;
+  max-width: 100%;
+  background: rgba(17, 17, 16, 0.72);
+  backdrop-filter: blur(8px);
+  padding: 7px 12px 8px;
+  border-radius: 2px;
+  font-family: var(--hv2-sans);
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.45;
+}
+
+body:not(.legacy-home) .hv2-photo-credit a {
+  color: inherit;
+  text-decoration: none;
+  text-underline-offset: 0.2em;
+}
+
+body:not(.legacy-home) .hv2-photo-credit a:hover {
+  text-decoration: underline;
 }
 
 body:not(.legacy-home) .hv2-service-card > h3,
@@ -764,6 +793,15 @@ body:not(.legacy-home) .hv2-gal-item {
   border-radius: 3px;
 }
 
+body:not(.legacy-home) .hv2-gal-item-link {
+  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  color: inherit;
+  text-decoration: none;
+}
+
 body:not(.legacy-home) .hv2-gal-item img {
   transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -775,10 +813,12 @@ body:not(.legacy-home) .hv2-gal-item:hover img {
 body:not(.legacy-home) .hv2-gal-overlay {
   position: absolute;
   inset: 0;
+  z-index: 2;
   background: linear-gradient(180deg, transparent 50%, rgba(20, 30, 28, 0.78) 100%);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  gap: 0.55rem;
   padding: 22px;
   pointer-events: none;
 }
@@ -794,7 +834,8 @@ body:not(.legacy-home) .hv2-gal-tag {
   text-transform: uppercase;
   padding: 6px 12px;
   border-radius: 20px;
-  z-index: 1;
+  z-index: 3;
+  pointer-events: none;
 }
 
 body:not(.legacy-home) .hv2-gal-tag--weddings {
@@ -810,7 +851,24 @@ body:not(.legacy-home) .hv2-gal-tag--events {
 body:not(.legacy-home) .hv2-gal-names {
   color: #fff;
   font-size: 1.05rem;
-  font-style: italic;
+  font-style: normal;
+  text-decoration: none;
+  pointer-events: auto;
+  width: fit-content;
+  max-width: 100%;
+}
+
+body:not(.legacy-home) a.hv2-gal-names:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+body:not(.legacy-home) .hv2-gal-credit {
+  position: relative;
+  bottom: auto;
+  left: auto;
+  max-width: 100%;
+  pointer-events: auto;
 }
 
 body:not(.legacy-home) .hv2-gallery-cta {
@@ -1378,7 +1436,7 @@ body:not(.legacy-home) .contact-sidebar {
   border: none;
   border-radius: 0;
   padding: 0.25rem 0 0;
-  top: calc(62px + 1.25rem);
+  top: calc(92px + 1.25rem);
 }
 
 body:not(.legacy-home) .contact-info {
@@ -1559,6 +1617,22 @@ body:not(.legacy-home) .contact-info-note {
 body:not(.legacy-home) .ideas-page {
   background: var(--hv2-cream);
   overflow-x: clip;
+}
+
+body:not(.legacy-home) .ideas-page .ideas-hero {
+  background: var(--hv2-cream-deep);
+}
+
+body:not(.legacy-home) .ideas-page .ideas-hero-eyebrow {
+  color: var(--hv2-gold);
+}
+
+body:not(.legacy-home) .ideas-page .ideas-hero-title {
+  color: var(--hv2-ink);
+}
+
+body:not(.legacy-home) .ideas-page .ideas-hero-lead {
+  color: var(--hv2-ink-soft);
 }
 
 /* Hero — dark teal banner */
@@ -2132,8 +2206,8 @@ body:not(.legacy-home) .ideas-tip-talk-list li::before {
     padding: 12px var(--hv2-page-gutter);
   }
 
-  body:not(.legacy-home) .site-logo {
-    font-size: 1.55rem;
+  body:not(.legacy-home) .site-logo img {
+    height: 56px;
   }
 
   body:not(.legacy-home) .site-nav-end > .site-nav-cta {
@@ -2160,7 +2234,7 @@ body:not(.legacy-home) .ideas-tip-talk-list li::before {
     display: block;
     position: fixed;
     inset: 0;
-    top: 62px;
+    top: 92px;
     background: var(--hv2-cream);
     padding: 2rem var(--hv2-page-gutter);
     z-index: 49;
@@ -3244,14 +3318,30 @@ body:not(.legacy-home) .perks-v2-page {
   overflow-x: clip;
 }
 
-body:not(.legacy-home) .ideas-hero + .perks-v2-cards .perks-v2-cards {
-  padding-top: 0;
+body:not(.legacy-home) .perks-v2-page .ideas-hero {
+  background: #fff;
+}
+
+body:not(.legacy-home) .perks-v2-page .ideas-hero-inner {
+  padding-bottom: 2rem;
+}
+
+body:not(.legacy-home) .perks-v2-page .ideas-hero-eyebrow {
+  color: var(--hv2-gold);
+}
+
+body:not(.legacy-home) .perks-v2-page .ideas-hero-title {
+  color: var(--hv2-ink);
+}
+
+body:not(.legacy-home) .perks-v2-page .ideas-hero-lead {
+  color: var(--hv2-ink-soft);
 }
 
 /* ── 3-card grid ─────────────────────────────────────────────── */
 body:not(.legacy-home) .perks-v2-cards {
   background: var(--hv2-cream);
-  padding: 80px 0 100px;
+  padding: 100px 0;
 }
 
 body:not(.legacy-home) .perks-v2-cards-grid {
@@ -3495,6 +3585,10 @@ body:not(.legacy-home) .perks-v2-access-feature-label {
 
 /* ── Perks responsive ────────────────────────────────────────── */
 @media (max-width: 900px) {
+  body:not(.legacy-home) .perks-v2-page .ideas-hero-inner {
+    padding-bottom: 1.5rem;
+  }
+
   body:not(.legacy-home) .perks-v2-cards-grid {
     grid-template-columns: 1fr;
     gap: 20px;
@@ -3526,8 +3620,12 @@ body:not(.legacy-home) .perks-v2-access-feature-label {
 }
 
 @media (max-width: 640px) {
+  body:not(.legacy-home) .perks-v2-page .ideas-hero-inner {
+    padding-bottom: 1.5rem;
+  }
+
   body:not(.legacy-home) .perks-v2-cards {
-    padding: 56px 0 72px;
+    padding: 72px 0;
   }
 
   body:not(.legacy-home) .perks-v2-card {
@@ -3796,7 +3894,7 @@ body:not(.legacy-home) .client-perks-v2-dir-header-inner {
 
 body:not(.legacy-home) .client-perks-v2-dir-filter-sticky {
   position: sticky;
-  top: 62px;
+  top: 92px;
   z-index: 40;
   background: var(--hv2-cream);
   border-top: 1px solid var(--hv2-line);
@@ -3939,7 +4037,7 @@ body:not(.legacy-home) .client-perks-v2-category {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  scroll-margin-top: calc(62px + 4.25rem);
+  scroll-margin-top: calc(92px + 4.25rem);
 }
 
 body:not(.legacy-home) .client-perks-v2-category-header {
@@ -4360,9 +4458,33 @@ body:not(.legacy-home) .services-v2-page {
   overflow-x: clip;
 }
 
+body:not(.legacy-home) .services-v2-page .ideas-hero {
+  background: #fff;
+}
+
+body:not(.legacy-home) .services-v2-page .ideas-hero-inner {
+  padding-bottom: 2rem;
+}
+
+body:not(.legacy-home) .services-v2-page .ideas-hero-eyebrow {
+  color: var(--hv2-gold);
+}
+
+body:not(.legacy-home) .services-v2-page .ideas-hero-title {
+  color: var(--hv2-ink);
+}
+
+body:not(.legacy-home) .services-v2-page .ideas-hero-lead {
+  color: var(--hv2-ink-soft);
+}
+
+body:not(.legacy-home) .services-v2-page .svc-v2-category-nav {
+  background: #fff;
+  padding-top: 28px;
+}
+
 /* ── Category nav (below hero) ──────────────────────────────── */
 body:not(.legacy-home) .svc-v2-category-nav {
-  background: var(--hv2-cream);
   padding: 72px 0 80px;
   border-top: none;
 }
@@ -4396,6 +4518,12 @@ body:not(.legacy-home) .svc-v2-category-card-media {
   overflow: hidden;
 }
 
+body:not(.legacy-home) .svc-v2-category-card-media-link {
+  display: block;
+  position: absolute;
+  inset: 0;
+}
+
 body:not(.legacy-home) .svc-v2-category-card-media img {
   object-fit: cover;
   transition: transform 0.45s ease;
@@ -4411,6 +4539,8 @@ body:not(.legacy-home) .svc-v2-category-card-body {
   flex-direction: column;
   gap: 0.45rem;
   flex: 1;
+  text-decoration: none;
+  color: inherit;
 }
 
 body:not(.legacy-home) .svc-v2-category-card-title {
@@ -4640,7 +4770,11 @@ body:not(.legacy-home) .svc-v2-pkg-footnote {
 body:not(.legacy-home) .svc-v2-pkg-pdf {
   display: inline-flex;
   align-items: center;
-  gap: 0.25rem;
+  appearance: none;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
   font-family: var(--hv2-sans);
   font-size: 0.72rem;
   font-weight: 600;
@@ -4649,11 +4783,11 @@ body:not(.legacy-home) .svc-v2-pkg-pdf {
   color: var(--hv2-gold);
   text-decoration: none;
   margin-top: 0.25rem;
-  transition: color 0.2s ease;
 }
 
 body:not(.legacy-home) .svc-v2-pkg-pdf:hover {
-  color: var(--hv2-ink);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
 }
 
 body:not(.legacy-home) .svc-v2-pkg-contact-btn {
@@ -4715,6 +4849,7 @@ body:not(.legacy-home) .svc-v2-plan-photo {
   position: relative;
   min-height: 100%;
   background: #e8e4df;
+  overflow: hidden;
 }
 
 body:not(.legacy-home) .svc-v2-plan-price {
@@ -5331,6 +5466,7 @@ body:not(.legacy-home) .svc-v2-event-compact-media {
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 10;
+  overflow: hidden;
 }
 
 body:not(.legacy-home) .svc-v2-event-compact-media img {
@@ -5516,6 +5652,14 @@ body:not(.legacy-home) .svc-v2-travel-card-cta-icon {
 }
 
 @media (max-width: 900px) {
+  body:not(.legacy-home) .services-v2-page .ideas-hero-inner {
+    padding-bottom: 1.5rem;
+  }
+
+  body:not(.legacy-home) .services-v2-page .svc-v2-category-nav {
+    padding-top: 24px;
+  }
+
   body:not(.legacy-home) .svc-v2-category-nav {
     padding: 56px 0 64px;
   }
@@ -5615,6 +5759,14 @@ body:not(.legacy-home) .svc-v2-travel-card-cta-icon {
   body:not(.legacy-home) .svc-v2-pkg-grid--quad .svc-v2-pkg-list li {
     font-size: 0.75rem;
     line-height: 1.55;
+  }
+
+  body:not(.legacy-home) .services-v2-page .ideas-hero-inner {
+    padding-bottom: 1.25rem;
+  }
+
+  body:not(.legacy-home) .services-v2-page .svc-v2-category-nav {
+    padding-top: 20px;
   }
 
   body:not(.legacy-home) .svc-v2-category-nav {
@@ -5781,6 +5933,10 @@ body:not(.legacy-home) .gal-card-badge--weddings {
 }
 
 body:not(.legacy-home) .gal-card-badge--events {
+  background: #2b6bc4;
+}
+
+body:not(.legacy-home) .gal-card-badge--styled-shoot {
   background: #2b6bc4;
 }
 

@@ -257,7 +257,7 @@ a   { text-decoration: none; color: inherit; }
 .nav-logo img {
   display: block;
   width: auto;
-  height: 34px;
+  height: 64px;
   transition: filter .35s var(--ease);
 }
 
@@ -2009,7 +2009,7 @@ main.contact-page ~ footer {
   }
 
   .nav-logo img {
-    height: 28px;
+    height: 52px;
   }
 
   .nav-end {

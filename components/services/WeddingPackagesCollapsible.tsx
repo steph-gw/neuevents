@@ -1,9 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
+import { useInquiryModal } from "@/components/InquiryModal";
 import PackageContactButton from "@/components/services/PackageContactButton";
+import PhotoCreditOverlay from "@/components/PhotoCreditOverlay";
 import { WEDDING_PACKAGES, type WeddingPackage } from "@/lib/services-data";
 
 const WEDDING_PACKAGES_BY_PRICE = [...WEDDING_PACKAGES].sort((a, b) => {
@@ -60,6 +61,7 @@ function PackageIncluded({
   onToggle: () => void;
 }) {
   const panelId = `wedding-pkg-included-${pkg.id}`;
+  const { openInquiry } = useInquiryModal();
 
   return (
     <div
@@ -98,16 +100,13 @@ function PackageIncluded({
           {pkg.footnote ? (
             <p className="svc-v2-pkg-footnote">{pkg.footnote}</p>
           ) : null}
-          {pkg.pdfHref ? (
-            <Link
-              href={pkg.pdfHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="svc-v2-pkg-pdf"
-            >
-              View detailed PDF ↗
-            </Link>
-          ) : null}
+          <button
+            type="button"
+            className="svc-v2-pkg-pdf"
+            onClick={() => openInquiry()}
+          >
+            Contact us for additional information
+          </button>
         </div>
       </div>
     </div>
@@ -146,6 +145,12 @@ function PlanningCard({
               sizes="(max-width: 900px) 100vw, 50vw"
               quality={90}
             />
+            {pkg.photoCredit ? (
+              <PhotoCreditOverlay
+                name={pkg.photoCredit.name}
+                href={pkg.photoCredit.href}
+              />
+            ) : null}
           </div>
         ) : (
           <div

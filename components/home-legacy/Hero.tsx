@@ -41,7 +41,7 @@ export default function Hero() {
     <section className="hero" id="home">
       <div className="hero-content">
         <p className="hero-eyebrow">
-          Weddings · Events · Celebration of Life · Travel · Hawaii
+          Weddings · Events · Celebrations of Life · Travel · Hawaii
         </p>
         <h1 className="hero-title">
           Life&apos;s Most Meaningful Moments,

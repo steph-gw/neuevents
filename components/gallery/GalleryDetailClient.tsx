@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useQuery } from "convex/react";
 import { api } from "@/lib/convex";
+import { toTitleCase } from "@/lib/gallery-types";
 import RichText from "@/components/gallery/RichText";
 import Lightbox from "@/components/gallery/Lightbox";
 
@@ -157,7 +158,7 @@ export default function GalleryDetailClient({
           </Link>
 
           <header className="gal-detail-head">
-            <h1 className="gal-detail-title hv2-serif">{entry.name}</h1>
+            <h1 className="gal-detail-title hv2-serif">{toTitleCase(entry.name)}</h1>
             {hasContent(locationSegs) && (
               <p className="gal-detail-location gal-detail-meta">
                 <MapPinIcon />

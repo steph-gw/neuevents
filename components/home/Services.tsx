@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import PhotoCreditOverlay from "@/components/PhotoCreditOverlay";
 import { HOME_SERVICES } from "@/lib/data";
 import { HOME_SERVICE_LEARN_MORE } from "@/lib/service-links";
 
@@ -24,6 +25,12 @@ export default function Services() {
                   fill
                   sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 25vw"
                 />
+                {"photoCredit" in s && s.photoCredit ? (
+                  <PhotoCreditOverlay
+                    name={s.photoCredit.name}
+                    href={s.photoCredit.href}
+                  />
+                ) : null}
               </div>
               <h3 className="hv2-serif">{s.titleLines.join(" ")}</h3>
               <p>{s.description}</p>

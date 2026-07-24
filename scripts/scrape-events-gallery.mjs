@@ -49,13 +49,13 @@ const EVENTS = [
     order: 2,
     location: "Sheraton Waikiki Beach Resort",
     photographer: "ACES XP",
-    photographerUrl: "https://www.acesxp.com/",
+    photographerUrl: "http://www.acesxp.com/photography/",
     description:
       "A night to remember. The Healthcare Association of Hawaii hosted a 'Hawaii Healthcare Walk of Fame' to honor their 2025 award and scholarship recipients.",
   },
   {
     slug: "hscadv-conference-2025",
-    name: "ANNUAL HSCADV CONFERENCE 2025",
+    name: "HSCADV CONFERENCE 2025",
     date: "2025-07-25",
     order: 3,
     location: "Ala Moana Hotel",
@@ -77,18 +77,18 @@ const EVENTS = [
   },
   {
     slug: "hah-awards-scholarship-gala",
-    name: "HAH AWARDS AND SCHOLARSHIP GALA",
+    name: "HAH AWARDS AND SCHOLARSHIP GALA 2024",
     date: "2024-11-22",
     order: 5,
     location: "Ko'olau Ballrooms",
     photographer: "ACES XP",
-    photographerUrl: "https://www.acesxp.com/",
+    photographerUrl: "http://www.acesxp.com/photography/",
     description:
       "Good food and great company. The Healthcare Association of Hawaii gathered on this beautiful evening to celebrate award and scholarship recipients.",
   },
   {
     slug: "hscadv-conference-2024",
-    name: "ANNUAL HSCADV CONFERENCE 2024",
+    name: "HSCADV CONFERENCE 2024",
     date: "2024-09-01",
     order: 6,
     location: "Hilton Hawaiian Village",

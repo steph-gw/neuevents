@@ -65,8 +65,20 @@ function GalleryCard({ entry, tab }: { entry: GalleryEntry; tab: string }) {
         ) : (
           <div className="gal-event-card-placeholder" />
         )}
-        <span className={`gal-card-badge gal-card-badge--${collection}`}>
-          {entry.type === "wedding" ? "Wedding" : "Event"}
+        <span
+          className={`gal-card-badge gal-card-badge--${
+            entry.slug === "styled-photo-shoot" ||
+            entry.slug === "equally-wed-photoshoot"
+              ? "styled-shoot"
+              : collection
+          }`}
+        >
+          {entry.type === "wedding"
+            ? "Wedding"
+            : entry.slug === "styled-photo-shoot" ||
+                entry.slug === "equally-wed-photoshoot"
+              ? "Styled Shoot"
+              : "Event"}
         </span>
       </div>
       <div className="gal-event-card-body">

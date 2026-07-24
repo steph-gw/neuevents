@@ -49,7 +49,7 @@ export default function Hero() {
             <div className="hv2-hero-tags">
               <span>Weddings</span>
               <span>Events</span>
-              <span>Celebration of Life</span>
+              <span>Celebrations of Life</span>
               <span>Travel</span>
               <span>Hawaii</span>
             </div>

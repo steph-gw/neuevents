@@ -1,5 +1,6 @@
 import Image from "next/image";
 import EventPlanningCard from "@/components/services/EventPlanningCard";
+import PhotoCreditOverlay from "@/components/PhotoCreditOverlay";
 import {
   EVENT_PAST_CLIENTS,
   EVENT_SERVICES_INTRO,
@@ -24,6 +25,12 @@ function EventCompactCard({ feature }: { feature: ServiceFeature }) {
           sizes="(max-width: 900px) 100vw, 420px"
           quality={90}
         />
+        {feature.photoCredit ? (
+          <PhotoCreditOverlay
+            name={feature.photoCredit.name}
+            href={feature.photoCredit.href}
+          />
+        ) : null}
       </div>
       <div className="svc-v2-event-compact-body">
         <p className="svc-v2-event-compact-eyebrow">{feature.eyebrow}</p>

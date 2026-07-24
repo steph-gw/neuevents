@@ -27,6 +27,10 @@ export type WeddingPackage = {
   pdfHref?: string;
   image?: string;
   imageAlt?: string;
+  photoCredit?: {
+    name: string;
+    href: string;
+  };
 };
 
 export const WEDDING_PACKAGES: readonly WeddingPackage[] = [
@@ -35,7 +39,7 @@ export const WEDDING_PACKAGES: readonly WeddingPackage[] = [
     eyebrow: "The Big Day",
     title: "The Big",
     titleEm: "Day",
-    price: "Starting at $3,500",
+    price: "Starting at $4,000",
     description:
       "Enjoy start-to-finish coordination on your wedding day for the greatest peace of mind.",
     lead:
@@ -53,6 +57,10 @@ export const WEDDING_PACKAGES: readonly WeddingPackage[] = [
     image: "/images/services/the-big-day.png",
     imageAlt:
       "Bride and groom in traditional wedding attire with floral garlands during an outdoor ceremony",
+    photoCredit: {
+      name: "MD Photography",
+      href: "https://mdphotographyhawaii.com/",
+    },
   },
   {
     id: "wedding-wrap-up",
@@ -63,19 +71,25 @@ export const WEDDING_PACKAGES: readonly WeddingPackage[] = [
     description:
       "With just three months to go before your wedding day, feel confident that all of the final details will be carefully considered and addressed.",
     lead:
-      "With three months to go, we step in to finalize timelines, confirm vendors, and make sure nothing slips through the cracks before your wedding day.",
+      "With three months to go, we step in to finalize timelines, confirm vendors, and make sure that all your 'I's' are dotted and all your 't's' are crossed before your wedding day.",
     intro: "Includes everything in The Big Day",
     includes: [
-      "Regular meetings (in person, by phone, or by Skype) with your consultant",
+      "Regular meetings (in person, by phone, or virtually) with your consultant",
       "Extensive support via email and phone to keep you on track as the big day approaches",
       "Program planning",
       "Wedding day timeline creation",
+      "Floor plan creation",
+      "Review of stationery and signage",
       "Includes The Big Day services",
     ],
     pdfHref: WEDDING_SERVICES_PDF,
     image: "/images/services/wedding-wrap-up.png",
     imageAlt:
       "Elegant semi-naked wedding cake with white roses and greenery on a gold stand",
+    photoCredit: {
+      name: "MD Photography",
+      href: "https://mdphotographyhawaii.com/",
+    },
   },
   {
     id: "wedding-coordination",
@@ -100,6 +114,10 @@ export const WEDDING_PACKAGES: readonly WeddingPackage[] = [
     image: "/images/services/wedding-coordination.png",
     imageAlt:
       "Outdoor wedding reception under a white tent with tropical floral centerpieces and elegantly set round tables",
+    photoCredit: {
+      name: "Hawaii Wedding Photography",
+      href: "https://hawaiiweddingphotography.com/",
+    },
   },
   {
     id: "complete-consultation",
@@ -124,7 +142,11 @@ export const WEDDING_PACKAGES: readonly WeddingPackage[] = [
     pdfHref: WEDDING_SERVICES_PDF,
     image: "/images/services/complete-consultation-coordination.png",
     imageAlt:
-      "Collage of a tropical Hawai'i wedding — ceremony under a wooden arch, bride and groom with guests, and lush floral details",
+      "Elegant indoor wedding reception with white chair covers, cream bows, floral centerpieces, and soft pink lighting",
+    photoCredit: {
+      name: "The Present Perfect",
+      href: "https://the-present-perfect.com/",
+    },
   },
   {
     id: "the-full-experience",
@@ -150,6 +172,10 @@ export const WEDDING_PACKAGES: readonly WeddingPackage[] = [
     image: "/images/services/the-full-experience.jpg",
     imageAlt:
       "Bride and groom cutting their wedding cake with a ceremonial sword at an evening reception in Hawai'i",
+    photoCredit: {
+      name: "Jeff Hall Photography",
+      href: "https://www.jeffhallphotos.com/",
+    },
   },
 ] as const;
 
@@ -158,11 +184,15 @@ export type ServiceFeature = {
   eyebrow: string;
   title: string;
   titleEm?: string;
+  price?: string;
   paragraphs: readonly string[];
   bullets?: readonly string[];
   image: string;
   imageAlt: string;
-  photoCredit?: string;
+  photoCredit?: {
+    name: string;
+    href: string;
+  };
   reverse?: boolean;
 };
 
@@ -189,11 +219,15 @@ export const EVENT_SERVICE_FEATURES: readonly ServiceFeature[] = [
       "Seamless logistics and timeline creation",
       "Budget management and cost-saving strategies",
       "Personalized attention to your unique vision",
+      "Venue scouting to assist in finding the right locale for your event",
     ],
     image: "/images/hero/hero-02.webp",
     imageAlt:
       "Public Schools of Hawaii Foundation gala dinner with guests seated at round tables in a ballroom",
-    photoCredit: "Vivir Photography",
+    photoCredit: {
+      name: "Vivir Photography",
+      href: "https://vivirphotography.com/",
+    },
   },
   {
     id: "event-design",
@@ -206,7 +240,10 @@ export const EVENT_SERVICE_FEATURES: readonly ServiceFeature[] = [
     image: "/images/services/event-design.png",
     imageAlt:
       "Group at the Public Schools of Hawaii Foundation dinner holding a ceremonial check in front of a branded step-and-repeat backdrop",
-    photoCredit: "Love Story Weddings",
+    photoCredit: {
+      name: "Vivir Photography",
+      href: "https://vivirphotography.com/",
+    },
     reverse: true,
   },
   {
@@ -219,8 +256,7 @@ export const EVENT_SERVICE_FEATURES: readonly ServiceFeature[] = [
     ],
     image: "/images/services/event-production.png",
     imageAlt:
-      "Event booth setup for Hawaii USA Federal Credit Union with branded table display and promotional materials",
-    photoCredit: "Eric Arii",
+      "Ballroom dinner setup with round tables, blue star lighting on chairs, white floral centerpieces, and numbered table stands",
   },
 ] as const;
 
@@ -228,11 +264,15 @@ export const EVENT_PAST_CLIENTS = [
   "Aloha Cones",
   "Anteprima",
   "Assets School",
+  "Camp Mokule'ia",
   "Central Union Preschool",
   "Curacao",
   "Curate",
+  "ElevAAte",
+  "First Insurance Company of Hawai'i",
   "Form Partners",
   "Happily Ever After",
+  "Hawai'i Chapter of the American College of Healthcare Executives",
   "Hawai'i Farm Bureau",
   "Hawai'i State Coalition Against Domestic Violence",
   "Hawai'i State Department of Health",
@@ -245,16 +285,19 @@ export const EVENT_PAST_CLIENTS = [
   "Pacific Edge Magazine and Green Magazine",
   "Public Schools of Hawai'i Foundation",
   "Royal Hawaiian Center",
+  "Society of American Travel Writers",
   "Tech Trans International",
   "The Hawai'i Group",
   "The Knot",
+  "Venrock",
   "YIM Investment",
 ] as const;
 
 export const CELEBRATION_OF_LIFE: ServiceFeature = {
   id: "celebration-of-life",
-  eyebrow: "Celebration of Life",
+  eyebrow: "Celebrations of Life",
   title: "Honoring a Life Well Lived",
+  price: "Starting at $2,900",
   paragraphs: [
     "Saying goodbye is never easy, but gathering family and friends to share memories is a meaningful way to honor someone you love.",
     "We handle the planning and coordination so you can focus on what matters most — being present with the people who matter and celebrating a life well lived.",

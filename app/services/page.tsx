@@ -16,7 +16,7 @@ import { buildServicesSchema } from "@/lib/structured-data";
 export const metadata: Metadata = buildPageMetadata({
   title: "Wedding & Event Services | neu events",
   description:
-    "Full-service wedding planning, event coordination, celebration of life services, and guest travel resources — thoughtfully planned by neu events in Hawaii.",
+    "Full-service wedding planning, event coordination, celebrations of life services, and guest travel resources — thoughtfully planned by neu events in Hawaii.",
   openGraphTitle: "Wedding & Event Services | neu events",
   openGraphDescription:
     "From intimate weddings to corporate galas and celebrations of life, neu events offers boutique planning packages and coordination across Hawaii.",
@@ -35,8 +35,9 @@ export default function ServicesPage() {
       description: feature.paragraphs.join(" "),
     })),
     {
-      name: CELEBRATION_OF_LIFE.title,
+      name: CELEBRATION_OF_LIFE.eyebrow,
       description: CELEBRATION_OF_LIFE.paragraphs.join(" "),
+      price: CELEBRATION_OF_LIFE.price,
     },
   ]);
 

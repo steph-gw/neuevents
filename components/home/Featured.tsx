@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import PhotoCreditOverlay from "@/components/PhotoCreditOverlay";
 import { FEATURED_WEDDINGS } from "@/lib/data";
 
 export default function Featured() {
@@ -25,32 +26,72 @@ export default function Featured() {
               );
             }
 
+            const href = "href" in wedding ? wedding.href : undefined;
+            const photoCredit =
+              "photoCredit" in wedding ? wedding.photoCredit : undefined;
+            const isEvent = i >= 3;
+
             return (
-              <div
-                key={wedding.names}
-                className="hv2-gal-item"
-              >
-                <Image
-                  src={wedding.image}
-                  alt={wedding.alt}
-                  fill
-                  sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw"
-                  style={
-                    "objectPosition" in wedding &&
-                    typeof wedding.objectPosition === "string"
-                      ? { objectPosition: wedding.objectPosition }
-                      : undefined
-                  }
-                />
+              <article key={wedding.names} className="hv2-gal-item">
+                {href ? (
+                  <Link
+                    href={href}
+                    className="hv2-gal-item-link"
+                    aria-label={wedding.names}
+                  >
+                    <Image
+                      src={wedding.image}
+                      alt={wedding.alt}
+                      fill
+                      sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw"
+                      style={
+                        "objectPosition" in wedding &&
+                        typeof wedding.objectPosition === "string"
+                          ? { objectPosition: wedding.objectPosition }
+                          : undefined
+                      }
+                    />
+                  </Link>
+                ) : (
+                  <Image
+                    src={wedding.image}
+                    alt={wedding.alt}
+                    fill
+                    sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw"
+                    style={
+                      "objectPosition" in wedding &&
+                      typeof wedding.objectPosition === "string"
+                        ? { objectPosition: wedding.objectPosition }
+                        : undefined
+                    }
+                  />
+                )}
+
                 <span
-                  className={`hv2-gal-tag ${i < 3 ? "hv2-gal-tag--weddings" : "hv2-gal-tag--events"}`}
+                  className={`hv2-gal-tag ${isEvent ? "hv2-gal-tag--events" : "hv2-gal-tag--weddings"}`}
                 >
-                  {i < 3 ? "Weddings" : "Events"}
+                  {isEvent ? "Events" : "Weddings"}
                 </span>
-                <div className="hv2-gal-overlay">
-                  <span className="hv2-gal-names hv2-serif">{wedding.names}</span>
+
+                <div
+                  className={`hv2-gal-overlay${photoCredit ? " hv2-gal-overlay--credited" : ""}`}
+                >
+                  {href ? (
+                    <Link href={href} className="hv2-gal-names hv2-serif">
+                      {wedding.names}
+                    </Link>
+                  ) : (
+                    <span className="hv2-gal-names hv2-serif">{wedding.names}</span>
+                  )}
+                  {photoCredit ? (
+                    <PhotoCreditOverlay
+                      className="hv2-gal-credit"
+                      name={photoCredit.name}
+                      href={photoCredit.href}
+                    />
+                  ) : null}
                 </div>
-              </div>
+              </article>
             );
           })}
         </div>

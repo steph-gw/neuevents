@@ -13,6 +13,10 @@ export type TipTalk = {
   paragraphs?: string[];
   sections?: TipTalkSection[];
   closing?: string;
+  photoCredit?: {
+    name: string;
+    href: string;
+  };
 };
 
 export const TIP_TALKS: TipTalk[] = [
@@ -21,6 +25,10 @@ export const TIP_TALKS: TipTalk[] = [
     title: "Pets at weddings? Yes, but here's the must-know info",
     image: "/images/tips-ideas/tip-talks/pets.jpg",
     imageAlt: "Bride and groom kissing under a palm tree with their dog in a tuxedo vest",
+    photoCredit: {
+      name: "Hi Range Media",
+      href: "https://www.hirangemedia.com/",
+    },
     intro:
       "We absolutely love when our couples include their four-legged family members — but there are a few key things to keep in mind:",
     bullets: [
@@ -35,6 +43,10 @@ export const TIP_TALKS: TipTalk[] = [
     title: "Wedding Cakes & Fresh Flowers",
     image: "/images/tips-ideas/tip-talks/floral-cake.jpg",
     imageAlt: "Two-tier white wedding cake decorated with a cascade of fresh tropical flowers",
+    photoCredit: {
+      name: "Hawaii Wedding Photography",
+      href: "https://hawaiiweddingphotography.com/",
+    },
     paragraphs: [
       "If you're planning to decorate your cake with fresh florals, here's a pro tip: Make sure to coordinate with your floral designer in advance so they can provide safe, fresh flowers that match the rest of your event design.",
       "Better yet? Have your floral designer and cake decorator connect directly. This ensures seamless styling and proper placement for a picture-perfect (and safe-to-eat!) cake.",
